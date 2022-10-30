@@ -1,0 +1,42 @@
+name: Deploy via ftp
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: actions/checkout@v2
+      
+      - name: Place files in correct directory
+        run: | 
+            mkdir public
+            cp index.php public
+            mkdir service
+            cp config.php service
+            cp githubCron.php service
+            cp repositories.json service
+            cd service
+            touch gitHub.token.php
+            echo "<?php \$gitHubToken = \"${{ secrets.GH_PAT }}\"?>" > github.token.php
+    
+      - name: Upload service
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "service"
+          remoteDir: "/cronJobs/vagas"
+          
+      - name: Upload public
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "public"
+          remoteDir: "/public_html/vagas"
