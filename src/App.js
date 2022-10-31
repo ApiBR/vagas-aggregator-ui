@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = { repositories: []};
     this.apiUrl = "https://apibr.com/vagas/api/v1/";
-}
+  }
 
   componentDidMount() {
     this.getRepositories();
