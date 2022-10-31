@@ -1,0 +1,26 @@
+name: Build & Deploy via ftp
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: actions/checkout@v2
+                 
+      - name: Upload dist
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "Src/dist"
+          remoteDir: "/public_html/vagas/"
