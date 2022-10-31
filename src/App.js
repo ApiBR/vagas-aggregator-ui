@@ -31,8 +31,7 @@ class App extends Component {
       }
   })
   .catch(ex => {
-      toastr["error"]("Error: " + ex.message);
-      this.setState({ repositories: [{organization: { login: "teste"}},{organization: { login: "teste"}},{organization: { login: "teste"}}]});
+      toastr["error"]("Error: " + ex.message);      
   });;
   }
 
