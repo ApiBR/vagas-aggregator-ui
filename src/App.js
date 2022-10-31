@@ -22,13 +22,8 @@ class App extends Component {
     .then(res => {
       if (res.data.length === 0)
           toastr["error"]("Unable to get repositories, check the API", null, { closeButton: true });
-      else {
-          var arr = [];
-          for (var item in res.data)
-              if (res.data.hasOwnProperty(item))
-                  arr.push(res.data[item].value);
-          this.setState({ repositories: arr});
-      }
+      else 
+          this.setState({ repositories: res.data});
     })
     .catch(ex => {
         toastr["error"]("Error: " + ex.message);
