@@ -3,7 +3,7 @@ import React from "react";
 export const Contributor = ({ contributor }) => {
     return (
         <div class="mb-2 mr-2">
-            <a href={contributor.url} target="_blank" title={contributor.login}>
+            <a href={contributor.url} target="_blank" title={contributor.login} rel="noopener noreferrer">
                 <img src={contributor.avatar_url} alt={contributor.login} className="rounded-circle img-responsive" style={{width: "48px"}}/>
             </a>
         </div>
@@ -29,14 +29,14 @@ export const Repository = ({ repository }) => {
         <div className="card border-default mb-3 col-lg-4">
             <div className="card-header">
                 <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                &nbsp;<a href={repositoryUrl} target="_blank">{repository.organization.login}</a>
+                &nbsp;<a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>
                 &nbsp;<span class="badge badge-success">{repository.issues} vagas</span>
             </div>
             <div className="card-body">
                 {repository.description}
                 <br />
                 <div class="alert alert-warning">
-                    <a href={issuesUrl} target="_blank">Ver vagas disponívels</a>
+                    <a href={issuesUrl} target="_blank" rel="noopener noreferrer">Ver vagas disponívels</a>
                 </div>
             </div>
             <div className="card-footer">
