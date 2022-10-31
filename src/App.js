@@ -34,8 +34,12 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Repositories repositories={this.state.repositories}/>
-        <footer>
-          Desenvolvido por <a href="https://guibranco.github.io/?utm_campaign=project&utm_media=vagas+aggregator&utm_source=apibr.com">Guilherme Branco Stracini</a>
+        <footer className="footer">
+          Desenvolvido por 
+          <a href="https://guibranco.github.io/?utm_campaign=project&utm_media=vagas+aggregator&utm_source=apibr.com">
+            <img src="https://guibranco.github.io/photo.png" alt="Guilherme Branco Stracini" className="image-rounded image-responsive" style={{ width: "24px" }} />
+            Guilherme Branco Stracini
+          </a>
         </footer>
       </div>
     );
