@@ -34,6 +34,9 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Repositories repositories={this.state.repositories}/>
+        <footer>
+          Desenvolvido por <a href="https://guibranco.github.io/?utm_campaign=project&utm_media=vagas+aggregator&utm_source=apibr.com">Guilherme Branco Stracini</a>
+        </footer>
       </div>
     );
   }
