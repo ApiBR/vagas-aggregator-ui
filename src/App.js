@@ -29,10 +29,10 @@ class App extends Component {
                   arr.push(res.data[item].value);
           this.setState({ repositories: arr});
       }
-  })
-  .catch(ex => {
-      toastr["error"]("Error: " + ex.message);      
-  });;
+    })
+    .catch(ex => {
+        toastr["error"]("Error: " + ex.message);
+    });
   }
 
   render() {
