@@ -20,7 +20,13 @@ class App extends Component {
   componentDidMount() {
     this.getLabels(1);
     this.getRepositories();
-    this.getIssues();
+    const params = new URLSearchParams(window.location.search);
+    const currentPage = parseInt(params.get("currentPage"));
+    if(isNaN(currentPage) || currentPage < 1){
+      this.getIssues();
+    }else {
+      this.setState( { currentPage }, () => { this.getIssues(); });
+    }
   }
 
   getLabels(page){
@@ -28,7 +34,7 @@ class App extends Component {
     .get(this.apiUrl + "labels?per_page=100&page=" + page)
     .then(res => {
       if (res.data.length === 0)
-          toastr["error"]("Unable to get labels, check the API", null, { closeButton: true });
+          toastr["error"]("Não foi possível obter as labels", null, { closeButton: true });
       else {
           this.state.labels.push(res.data);
           this.setState({ labels: this.state.labels });
@@ -47,7 +53,7 @@ class App extends Component {
     .get(this.apiUrl + "repositories")
     .then(res => {
       if (res.data.length === 0)
-          toastr["error"]("Unable to get repositories, check the API", null, { closeButton: true });
+          toastr["error"]("Não foi possível obter os repositórios", null, { closeButton: true });
       else 
           this.setState({ repositories: res.data});
     })
@@ -61,7 +67,7 @@ class App extends Component {
     .get(this.apiUrl + "issues?per_page=" + this.state.pageSize + "&page=" + this.state.currentPage)
     .then(res => {
       if(res.data.length===0)
-        toastr["error"]("Unable to get repositories, check the API", null, { closeButton: true });
+        toastr["error"]("Não foi possível obter as vagas da página " + this.state.currentPage, null, { closeButton: true });
       else 
           this.setState({ issues: res.data, totalIssues: res.headers["x-total-results"], totalPages: res.headers["x-total-pages"] });
 

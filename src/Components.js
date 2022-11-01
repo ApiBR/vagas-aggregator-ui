@@ -2,10 +2,10 @@ import React from "react";
 
 export const Page = ({ page, currentPage, loadPage }) => {
     let className = "page-item";
-    if(page === currentPage) {
+    if(parseInt(page) === parseInt(currentPage)) {
         className += " active";
     }
-
+    
     return (
         <li className={className}>
             <button className="page-link" onClick={() => loadPage(page)}>
