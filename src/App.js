@@ -13,7 +13,10 @@ class App extends Component {
       pageSize: 100,
       totalIssues: 0, 
       totalPages: 0, 
-      currentPage: 1 };
+      currentPage: 1,
+      filteredLabels: null,
+      filteredOrganizations: null
+    };
     this.apiUrl = "https://apibr.com/vagas/api/v1/";
   }
 
@@ -21,12 +24,18 @@ class App extends Component {
     this.getLabels(1);
     this.getRepositories();
     const params = new URLSearchParams(window.location.search);
-    const currentPage = parseInt(params.get("currentPage"));
-    if(isNaN(currentPage) || currentPage < 1){
-      this.getIssues();
-    }else {
-      this.setState( { currentPage }, () => { this.getIssues(); });
+    let currentPage = parseInt(params.get("currentPage"));
+    if(isNaN(currentPage) || currentPage < 1)
+    {
+      currentPage = 1;
     }
+    this.setState( { 
+      currentPage, 
+      filteredLabels: params.get("labels"),
+      filteredOrganizations: params.get("organizations")
+    }, () => { 
+      this.getIssues();
+    });
   }
 
   getLabels(page){
@@ -63,8 +72,16 @@ class App extends Component {
   }
 
   getIssues(){
+    let url = this.apiUrl + "issues?per_page=" + this.state.pageSize + "&page=" + this.state.currentPage;
+    if(this.state.filteredLabels !== null){
+      url += "&labels=" + this.state.filteredLabels;
+    }
+    if(this.state.filteredOrganizations !== null){
+      url += "&organizations=" + this.state.filteredOrganizations;
+    }
+
     axios
-    .get(this.apiUrl + "issues?per_page=" + this.state.pageSize + "&page=" + this.state.currentPage)
+    .get(url)
     .then(res => {
       if(res.data.length===0)
         toastr["error"]("Não foi possível obter as vagas da página " + this.state.currentPage, null, { closeButton: true });
