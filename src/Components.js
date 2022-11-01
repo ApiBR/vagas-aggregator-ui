@@ -1,5 +1,16 @@
 import React from "react";
 
+export const FormatDate = (date) => {
+    if (typeof date === "undefined" || date === null)
+        return "--:--:-- --/--/----";
+    var mm = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    return [[(d > 9 ? "" : "0") + d, (mm > 9 ? "" : "0") + mm, date.getFullYear()].join("/"), [(h > 9 ? "" : "0") + h, (m > 9 ? "" : "0") + m, (s > 9 ? "" : "0") + s].join(":")].join(" ");
+}
+
 export const Page = ({ page, currentPage, loadPage }) => {
     let className = "page-item";
     if(parseInt(page) === parseInt(currentPage)) {
@@ -57,6 +68,8 @@ export const Issue = ({ issue }) => {
     const githubUrl = "https://github.com/";
     const userUrl = githubUrl + issue.user.login;
     const url = "?organizations=" + issue.repository.organization.login;
+    const createdAt = new Date(issue.created_at);
+    const updatedAt = new Date(issue.updated_at);
     return (
         <div className="card border-default mb-3 col-lg-3">
             <div className="card-header">
@@ -64,20 +77,25 @@ export const Issue = ({ issue }) => {
                 &nbsp;<a href={url}>{issue.repository.organization.login}</a>
             </div>
             <div className="card-body">
-                <div className="alert alert-warning mt-3 mb-3">
-                    <a href={issue.url} target="_blank" rel="noopener noreferrer">Ver vaga no GitHub <i className="fa fa-github" /></a>
-                </div>
                 <div className="media">
-                    <div className="media-body ml-3">
-                        {issue.title}
+                    <div className="media-body ml-3">                        
+                        {issue.title}                            
                     </div>
                     <a className="pull-right text-center" href={userUrl} target="_blank" title={issue.user.login} rel="noopener noreferrer">
                         <img src={issue.user.avatar_url} alt={issue.user.login} className="media-object rounded-circle img-responsive" style={{width: "48px"}}/>  
                         <br />
                         <span>{issue.user.login}</span>
-                    </a>
-                    
+                    </a>                    
                 </div>
+                <span className="badge badge-secondary pb-2 pt-2 mr-1">
+                    Enviado em: {FormatDate(createdAt)}
+                </span>
+                <span className="badge badge-secondary pb-2 pt-2">
+                    Atualizado em: {FormatDate(updatedAt)}
+                </span>
+                <div className="alert alert-warning mt-3 mb-3">                    
+                    <a href={issue.url} target="_blank" rel="noopener noreferrer">Ver vaga no GitHub <i className="fa fa-github" /></a>
+                </div>                
             </div>
             <div className="card-footer">
                 <Labels labels={issue.labels} issueId={issue.id} />
@@ -92,8 +110,8 @@ export const Issues = ({ issues, totalIssues, totalPages, currentPage, loadPage 
     });
     return (
         <div className="row mt-2">
-            <div className="alert alert-primary col-lg-12 text-center">
-                Total vagas: {totalIssues}
+            <div className="alert alert-secondary col-lg-12 text-center">
+                Vagas: {totalIssues}
             </div>
             <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
             {issuesItems}
@@ -132,9 +150,11 @@ export const Repository = ({ repository }) => {
     return (
         <div className="card border-default mb-3 col-lg-4">
             <div className="card-header">
-                <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                &nbsp;<a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>
-                &nbsp;<span className="badge badge-success">{repository.issues} vagas</span>
+                <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">
+                    <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
+                </a>&nbsp;<span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
+                <br />
+                <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>                               
             </div>
             <div className="card-body">
                 {repository.description}
@@ -157,7 +177,7 @@ export const Repositories = ({ repositories }) => {
     });
     return (
         <div className="row">
-            <div className="alert alert-primary col-lg-12 text-center">
+            <div className="alert alert-secondary col-lg-12 text-center">
                 Repositórios: {repositories.length}
             </div>
             {repositoriesItems}
