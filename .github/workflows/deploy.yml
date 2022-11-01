@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: npm run build
-                 
+
     - name: Upload build
       uses: sebastianpopp/ftp-action@releases/v2
       with:
@@ -31,4 +31,4 @@ jobs:
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         localDir: "build/"
-        remoteDir: "/public_html/vagas/"
+        remoteDir: "/public_html/ui/vagas/"

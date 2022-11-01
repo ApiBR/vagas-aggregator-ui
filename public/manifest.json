@@ -1,11 +1,16 @@
 {
-  "short_name": "Vagas Aggegator UI",
-  "name": "Vagas Aggregator UI",
+  "short_name": "Agregador de vagas",
+  "name": "Agregador de vagas para desenvolvedores",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "og_photo.png",
+      "type": "image/png",
+      "sizes": "2550x3300"
     }
   ],
   "start_url": ".",
