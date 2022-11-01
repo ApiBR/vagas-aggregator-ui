@@ -7,8 +7,10 @@ export const Page = ({ page, currentPage, loadPage }) => {
     }
 
     return (
-        <li className={className} onClick={() => loadPage(page)}>
-            {page}
+        <li className={className}>
+            <button className="page-link" onClick={() => loadPage(page)}>
+                {page}
+            </button>
         </li>
     )
 }
@@ -19,9 +21,11 @@ export const Pagination = ({ pages, currentPage, loadPage }) => {
         pagesItems.push(<Page key={i} page={i} currentPage={currentPage} loadPage={loadPage} />);
     }
    return (
-    <ul className="pagination pagination-sm">
-        {pagesItems}
-    </ul>
+    <div className="col-lg-12">
+        <ul className="pagination pagination-sm">
+            {pagesItems}
+        </ul>
+    </div>
    )
 }
 
@@ -50,7 +54,7 @@ export const Issue = ({ issue }) => {
     const repositoryUrl = githubUrl + issue.repository.organization.login + "/vagas";
     const userUrl = githubUrl + issue.user.login;
     return (
-        <div className="card border-default mb-3 col-lg-4">
+        <div className="card border-default mb-3 col-lg-3">
             <div className="card-header">
                 <img src={issue.repository.organization.avatar_url} alt={issue.repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
                 &nbsp;<a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{issue.repository.organization.login}</a>
@@ -77,11 +81,12 @@ export const Issues = ({ issues, totalIssues, totalPages, currentPage, loadPage 
     });
     return (
         <div className="row mt-2">
-            <div className="alert alert-success col-lg-12 text-center">
+            <div className="alert alert-primary col-lg-12 text-center">
                 Total vagas: {totalIssues}
             </div>
+            <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
             {issuesItems}
-            <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />            
+            <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
         </div>
     )
 }
@@ -138,6 +143,9 @@ export const Repositories = ({ repositories }) => {
     });
     return (
         <div className="row">
+            <div className="alert alert-primary col-lg-12 text-center">
+                Repositórios: {repositories.length}
+            </div>
             {repositoriesItems}
         </div>
     )

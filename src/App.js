@@ -6,7 +6,13 @@ import { Repositories, Issues } from "./Components";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { repositories: [], issues: [], totalIssues: 0, totalPages: 0, currentPage: 1 };
+    this.state = { 
+      repositories: [], 
+      issues: [], 
+      pageSize: 100,
+      totalIssues: 0, 
+      totalPages: 0, 
+      currentPage: 1 };
     this.apiUrl = "https://apibr.com/vagas/api/v1/";
   }
 
@@ -31,7 +37,7 @@ class App extends Component {
 
   getIssues(){
     axios
-    .get(this.apiUrl + "issues?per_page=50&page=" + this.state.currentPage)
+    .get(this.apiUrl + "issues?per_page=" + this.state.pageSize + "&page=" + this.state.currentPage)
     .then(res => {
       if(res.data.length===0)
         toastr["error"]("Unable to get repositories, check the API", null, { closeButton: true });
@@ -45,13 +51,13 @@ class App extends Component {
   }
 
   loadPage(pageNumber) {
-    console.log("Load page " + pageNumber);
+    this.setState( { currentPage: pageNumber }, () => { this.getIssues(); });
   }
 
   render() {
     return (
       <div className="container-fluid">
-        <Issues issues={this.state.issues} totalIssues={this.state.totalIssues} totalPages={this.state.totalPages} currentPage={this.state.page} loadPage={this.loadPage} />
+        <Issues issues={this.state.issues} totalIssues={this.state.totalIssues} totalPages={this.state.totalPages} currentPage={this.state.currentPage} loadPage={this.loadPage.bind(this)} />
         <Repositories repositories={this.state.repositories} />
         <footer className="font-small text-center mt-4 mb-3">
           Desenvolvido por 
