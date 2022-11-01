@@ -30,10 +30,13 @@ export const Pagination = ({ pages, currentPage, loadPage }) => {
 }
 
 export const Label = ({ label }) => {
+    const url = "?labels=" + label.name;
     return (
-        <span className="badge mr-2" style={{ backgroundColor: "#" + label.color, color: "#FFF" }}>
-            {label.name}
-        </span>
+        <a href={url}>
+            <span className="badge mr-2" style={{ backgroundColor: "#" + label.color, color: "#FFF" }}>
+                {label.name}
+            </span>
+        </a>
     )
 }
 
@@ -51,13 +54,13 @@ export const Labels = ({ labels, issueId }) => {
  
 export const Issue = ({ issue }) => {
     const githubUrl = "https://github.com/";
-    const repositoryUrl = githubUrl + issue.repository.organization.login + "/vagas";
     const userUrl = githubUrl + issue.user.login;
+    const url = "?organizations=" + issue.repository.organization.login;
     return (
         <div className="card border-default mb-3 col-lg-3">
             <div className="card-header">
                 <img src={issue.repository.organization.avatar_url} alt={issue.repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                &nbsp;<a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{issue.repository.organization.login}</a>
+                &nbsp;<a href={url}>{issue.repository.organization.login}</a>
             </div>
             <div className="card-body">
                 <div className="alert alert-warning mt-3 mb-3">
