@@ -28,9 +28,15 @@ export const Page = ({ page, currentPage, loadPage }) => {
 
 export const Pagination = ({ pages, currentPage, loadPage }) => {
     const pagesItems = [];
+    const first = parseInt(currentPage) === 1;
+    const classNameFirst = "page-item" + (first ? " disabled" : ""); 
+    const last = parseInt(currentPage) === parseInt(pages);
+    const classNameLast = "page-item" + (last ? " disabled" : "");
+    pagesItems.push(<li className={classNameFirst}><button className="page-link" onClick={() => loadPage(1)}>&laquo;</button></li>);
     for (let i = 1; i <= pages; i++) {
         pagesItems.push(<Page key={i} page={i} currentPage={currentPage} loadPage={loadPage} />);
     }
+    pagesItems.push(<li className={classNameLast}><button className="page-link" onClick={() => loadPage(pages)}>&raquo;</button></li>);
    return (
     <div className="col-lg-12">
         <ul className="pagination">
@@ -159,10 +165,11 @@ export const Repository = ({ repository }) => {
     const githubUrl = "https://github.com/";
     const repositoryUrl = githubUrl + repository.organization.login + "/vagas";
     const issuesUrl = repositoryUrl + "/issues";
+    const url = "?organizations=" + repository.organization.login;
     return (
         <div className="card border-default mb-3 col-lg-4">
             <div className="card-header">
-                <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">
+                <a href={url} target="_blank" rel="noopener noreferrer">
                     <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
                 </a>&nbsp;<span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
                 <br />
@@ -194,5 +201,28 @@ export const Repositories = ({ repositories }) => {
             </div>
             {repositoriesItems}
         </div>
+    )
+}
+
+export const NavBar = ({ doSearch }) => {
+    let input;
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand" href="https://apibr.com/ui/">API BR</a>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarColor02">
+                <ul className="navbar-nav me-auto">
+                    <li className="nav-item">
+                        <a className="nav-link active" href="/ui/vagas">Vagas</a>
+                    </li>        
+                </ul>
+                <form className="d-flex" onSubmit={(e) => {e.preventDefault(); doSearch(input); }}>
+                    <input className="form-control me-sm-2" type="text" placeholder="Pesquisar" ref={node => { input = node }}/>
+                    <button className="btn btn-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </nav>
     )
 }

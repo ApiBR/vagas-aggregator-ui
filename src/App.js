@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import toastr from "toastr";
-import { Repositories, Issues } from "./Components";
+import { Repositories, Issues, NavBar } from "./Components";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class App extends Component {
       totalPages: 0, 
       currentPage: 1,
       filteredLabels: null,
-      filteredOrganizations: null
+      filteredOrganizations: null,
+      filteredTerm: null
     };
     this.apiUrl = "https://apibr.com/vagas/api/v1/";
   }
@@ -32,7 +33,8 @@ class App extends Component {
     this.setState( { 
       currentPage, 
       filteredLabels: params.get("labels"),
-      filteredOrganizations: params.get("organizations")
+      filteredOrganizations: params.get("organizations"),
+      filteredTerm: params.get("term")
     }, () => { 
       this.getIssues();
     });
@@ -80,6 +82,9 @@ class App extends Component {
     if(this.state.filteredOrganizations !== null){
       url += "&organizations=" + this.state.filteredOrganizations;
     }
+    if(this.state.filteredTerm !== null){
+      url += "&term=" + this.state.filteredTerm;
+    }
 
     axios
     .get(url)
@@ -99,9 +104,14 @@ class App extends Component {
     this.setState( { currentPage: pageNumber }, () => { this.getIssues(); });
   }
 
+  doSearch(input){
+    this.setState( { filteredTerm: input.value }, () => { this.getIssues(); });
+  }
+
   render() {
     return (
       <div className="container-fluid">
+        <NavBar labels={this.state.labels} doSearch={this.doSearch.bind(this)} />
         <Issues issues={this.state.issues} totalIssues={this.state.totalIssues} totalPages={this.state.totalPages} currentPage={this.state.currentPage} loadPage={this.loadPage.bind(this)} />
         <Repositories repositories={this.state.repositories} />
         <footer className="font-small text-center mt-4 mb-3">
