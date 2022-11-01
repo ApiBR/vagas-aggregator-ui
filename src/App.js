@@ -45,11 +45,12 @@ class App extends Component {
       if (res.data.length === 0)
           toastr["error"]("Não foi possível obter as labels", null, { closeButton: true });
       else {
-          this.state.labels.push(res.data);
-          this.setState({ labels: this.state.labels });
-          if(res.headers["x-total-pages"] > page){
-            this.getLabels(++page);
-          }
+          const labels = this.state.labels.concat(res.data);
+          this.setState({ labels: labels }, () => {
+            if(res.headers["x-total-pages"] > page){
+              this.getLabels(++page);
+            }
+          });
       }
     })
     .catch(ex => {

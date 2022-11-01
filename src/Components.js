@@ -33,11 +33,22 @@ export const Pagination = ({ pages, currentPage, loadPage }) => {
     }
    return (
     <div className="col-lg-12">
-        <ul className="pagination pagination-sm">
+        <ul className="pagination">
             {pagesItems}
         </ul>
     </div>
    )
+}
+
+export const LabelsDropDown = ({ labels }) => {
+    const labelsItems = labels.map(label => {
+        return (<option key={label.name}>{label.name}</option>);
+    });
+    return(
+        <select>
+            {labelsItems}
+        </select>
+    )
 }
 
 export const Label = ({ label }) => {
@@ -52,7 +63,6 @@ export const Label = ({ label }) => {
 }
 
 export const Labels = ({ labels, issueId }) => {
-    console.log(typeof(labels));
     const labelsItems = labels.map(label => {
         const key = issueId + "-" + label.name;
         return (<Label label={label} key={key} />);
@@ -113,8 +123,10 @@ export const Issues = ({ issues, totalIssues, totalPages, currentPage, loadPage 
             <div className="alert alert-secondary col-lg-12 text-center">
                 Vagas: {totalIssues}
             </div>
-            <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
-            {issuesItems}
+            <div className="col-lg-12">
+                <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
+            </div>
+            {issuesItems}     
             <Pagination pages={totalPages} currentPage={currentPage} loadPage={loadPage} />
         </div>
     )
