@@ -67,7 +67,7 @@ export const Issue = ({ issue }) => {
                     <a href={issue.url} target="_blank" rel="noopener noreferrer">Ver vaga no GitHub</a>
                 </div>
                 <div className="media">
-                    <div class="media-body ml-3">
+                    <div className="media-body ml-3">
                         {issue.title}
                     </div>
                     <a className="pull-right" href={userUrl} target="_blank" title={issue.user.login} rel="noopener noreferrer">
