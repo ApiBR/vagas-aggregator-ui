@@ -18,19 +18,24 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getLabels();
+    this.getLabels(1);
     this.getRepositories();
     this.getIssues();
   }
 
-  getLabels(){
+  getLabels(page){
     axios
-    .get(this.apiUrl + "labels")
+    .get(this.apiUrl + "labels?per_page=100&page=" + page)
     .then(res => {
       if (res.data.length === 0)
           toastr["error"]("Unable to get labels, check the API", null, { closeButton: true });
-      else 
-          this.setState({ labels: res.data});
+      else {
+          this.state.labels.push(res.data);
+          this.setState({ labels: this.state.labels });
+          if(res.headers["x-total-pages"] > page){
+            this.getLabels(++page);
+          }
+      }
     })
     .catch(ex => {
         toastr["error"]("Error: " + ex.message);
