@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
+      labels: [],
       repositories: [], 
       issues: [], 
       pageSize: 100,
@@ -17,8 +18,23 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getLabels();
     this.getRepositories();
     this.getIssues();
+  }
+
+  getLabels(){
+    axios
+    .get(this.apiUrl + "labels")
+    .then(res => {
+      if (res.data.length === 0)
+          toastr["error"]("Unable to get labels, check the API", null, { closeButton: true });
+      else 
+          this.setState({ labels: res.data});
+    })
+    .catch(ex => {
+        toastr["error"]("Error: " + ex.message);
+    });
   }
 
   getRepositories(){
