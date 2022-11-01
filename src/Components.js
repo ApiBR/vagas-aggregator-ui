@@ -163,8 +163,7 @@ export const Contributors = ({ contributors }) => {
 
 export const Repository = ({ repository }) => {
     const githubUrl = "https://github.com/";
-    const repositoryUrl = githubUrl + repository.organization.login + "/vagas";
-    const issuesUrl = repositoryUrl + "/issues";
+    const issuesUrl = githubUrl + repository.organization.login + "/vagas/issues";    
     const url = "?organizations=" + repository.organization.login;
     return (
         <div className="card border-default mb-3 col-lg-4">
@@ -173,7 +172,7 @@ export const Repository = ({ repository }) => {
                     <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
                 </a>&nbsp;<span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
                 <br />
-                <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>                               
+                <a href={url} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>                               
             </div>
             <div className="card-body">
                 {repository.description}
