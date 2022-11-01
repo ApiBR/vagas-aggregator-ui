@@ -41,6 +41,7 @@ export const Label = ({ label }) => {
 }
 
 export const Labels = ({ labels, issueId }) => {
+    console.log(typeof(labels));
     const labelsItems = labels.map(label => {
         const key = issueId + "-" + label.name;
         return (<Label label={label} key={key} />);
@@ -70,7 +71,7 @@ export const Issue = ({ issue }) => {
                     <div className="media-body ml-3">
                         {issue.title}
                     </div>
-                    <a className="pull-right" href={userUrl} target="_blank" title={issue.user.login} rel="noopener noreferrer">
+                    <a className="pull-right text-center" href={userUrl} target="_blank" title={issue.user.login} rel="noopener noreferrer">
                         <img src={issue.user.avatar_url} alt={issue.user.login} className="media-object rounded-circle img-responsive" style={{width: "48px"}}/>  
                         <br />
                         <span>{issue.user.login}</span>
