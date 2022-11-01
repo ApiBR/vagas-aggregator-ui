@@ -1,4 +1,4 @@
 RewriteEngine on
 
-RewriteCond %{HTTP_HOST} ^apibr\.comr$
+RewriteCond %{HTTP_HOST} !^apibr\.com$
 RewriteRule ^(.*)$ "https\:\/\/apibr\.com\/$1" [R=301,L]
