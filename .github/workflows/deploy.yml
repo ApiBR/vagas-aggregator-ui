@@ -32,3 +32,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         localDir: "build/"
         remoteDir: "/public_html/ui/vagas/"
+        options: "--delete"
