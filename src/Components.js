@@ -33,7 +33,7 @@ export const Label = ({ label }) => {
     const url = "?labels=" + label.name;
     return (
         <a href={url}>
-            <span className="badge mr-2" style={{ backgroundColor: "#" + label.color, color: "#FFF" }}>
+            <span className="badge mr-2 mb-2" style={{ textTransform: "capitalize", border: "2px solid #" + label.color, color: "#FFF" }}>
                 {label.name}
             </span>
         </a>
@@ -65,7 +65,7 @@ export const Issue = ({ issue }) => {
             </div>
             <div className="card-body">
                 <div className="alert alert-warning mt-3 mb-3">
-                    <a href={issue.url} target="_blank" rel="noopener noreferrer">Ver vaga no GitHub</a>
+                    <a href={issue.url} target="_blank" rel="noopener noreferrer">Ver vaga no GitHub <i className="fa fa-github" /></a>
                 </div>
                 <div className="media">
                     <div className="media-body ml-3">
@@ -140,8 +140,9 @@ export const Repository = ({ repository }) => {
                 {repository.description}
                 <br />
                 <div className="alert alert-warning mt-3 mb-3">
-                    <a href={issuesUrl} target="_blank" rel="noopener noreferrer">Ver vagas disponívels</a>
+                    <a href={issuesUrl} target="_blank" rel="noopener noreferrer">Ver vagas disponívels no GitHub <i className="fa fa-github" /></a>
                 </div>
+                <Labels labels={repository.labels} />
             </div>
             <div className="card-footer">
                 <Contributors contributors={repository.contributors} />
