@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders vagas aggegator header', () => {
+test('renders Vagas and Repositórios alerts', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Vagas Aggregator/i);
-  expect(linkElement).toBeInTheDocument();
+  const vagasElement = screen.getByText(/Vagas: 0/i);
+  expect(vagasElement).toBeInTheDocument();
+
+  const repositoriosElement = screen.getByText(/Repositórios: 0/i);
+  expect(repositoriosElement).toBeInTheDocument();
 });
