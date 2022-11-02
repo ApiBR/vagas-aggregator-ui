@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { usePagination, DOTS } from '../Hooks/usePagination';
 
-const Pagination = props => {
+export const Pagination = props => {
     const {
       onPageChange,
       totalPagesCount,
@@ -47,5 +47,3 @@ const Pagination = props => {
       </ul>
     );
   };
-  
-  export default Pagination;

@@ -1,5 +1,6 @@
 import { Labels } from "./Labels";
 import { Contributors } from "./Contributors";
+import useLoadAll from "../Hooks/useLoadAll";
 
 export const Repository = ({ repository }) => {
     const githubUrl = "https://github.com/";
@@ -31,7 +32,8 @@ export const Repository = ({ repository }) => {
     )
 }
 
-export const Repositories = ({ repositories }) => {
+export const Repositories = () => {
+    const repositories = useLoadAll("repositories", { per_page: 100 });
     const repositoriesItems = repositories.map(repository => {
         return (<Repository repository={repository} key={repository.id} />);
     });
