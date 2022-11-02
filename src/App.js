@@ -14,6 +14,8 @@ class App extends Component {
       totalIssues: 0, 
       totalPages: 0, 
       currentPage: 1,
+      orderField: "updatedAt",
+      orderDirection: "desc",
       filteredLabels: null,
       filteredOrganizations: null,
       filteredTerm: null
@@ -75,7 +77,12 @@ class App extends Component {
   }
 
   getIssues(){
-    let url = this.apiUrl + "issues?per_page=" + this.state.pageSize + "&page=" + this.state.currentPage;
+    let url = this.apiUrl + "issues" +
+      "?per_page=" + this.state.pageSize + 
+      "&page=" + this.state.currentPage + 
+      "&orderField=" + this.state.orderField +
+      "&orderDirection=" + this.state.orderDirection;
+
     if(this.state.filteredLabels !== null){
       url += "&labels=" + this.state.filteredLabels;
     }
@@ -108,10 +115,14 @@ class App extends Component {
     this.setState( { filteredTerm: input.value }, () => { this.getIssues(); });
   }
 
+  changeQuantity(input){
+    this.setState( { pageSize: input.value }, () => { this.getIssues(); });
+  }
+
   render() {
     return (
       <div className="container-fluid">
-        <NavBar labels={this.state.labels} doSearch={this.doSearch.bind(this)} />
+        <NavBar labels={this.state.labels} doSearch={this.doSearch.bind(this)} changeQuantity={this.changeQuantity.bind(this)} currentQuantity={this.state.pageSize} />
         <Issues issues={this.state.issues} totalIssues={this.state.totalIssues} totalPages={this.state.totalPages} currentPage={this.state.currentPage} loadPage={this.loadPage.bind(this)} />
         <Repositories repositories={this.state.repositories} />
         <footer className="font-small text-center mt-4 mb-3">
