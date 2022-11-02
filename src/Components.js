@@ -32,11 +32,11 @@ export const Pagination = ({ pages, currentPage, loadPage }) => {
     const classNameFirst = "page-item" + (first ? " disabled" : ""); 
     const last = parseInt(currentPage) === parseInt(pages);
     const classNameLast = "page-item" + (last ? " disabled" : "");
-    pagesItems.push(<li className={classNameFirst} key="first"><button className="page-link" onClick={() => loadPage(1)}>&laquo;</button></li>);
+    pagesItems.push(<li className={classNameFirst} key="first"><button className="page-link" onClick={() => loadPage(currentPage - 1)}>&laquo;</button></li>);
     for (let i = 1; i <= pages; i++) {
         pagesItems.push(<Page key={i} page={i} currentPage={currentPage} loadPage={loadPage} />);
     }
-    pagesItems.push(<li className={classNameLast} key="last"><button className="page-link" onClick={() => loadPage(pages)}>&raquo;</button></li>);
+    pagesItems.push(<li className={classNameLast} key="last"><button className="page-link" onClick={() => loadPage(currentPage + 1)}>&raquo;</button></li>);
    return (
     <div className="col-lg-12">
         <ul className="pagination">
@@ -218,13 +218,13 @@ export const NavBar = ({ doSearch, changeQuantity, currentQuantity }) => {
                         <a className="nav-link active" href="/ui/vagas">Vagas</a>
                     </li>        
                 </ul>
-                <select defaultValue={currentQuantity} className="form-control" onChange={() => changeQuantity(quantityInput) } ref={node => { quantityInput = node }}>
+                <select defaultValue={currentQuantity} className="form-control col-lg-4" onChange={() => changeQuantity(quantityInput) } ref={node => { quantityInput = node }}>
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
                 </select>
-                <form className="d-flex form-control" onSubmit={(e) => {e.preventDefault(); doSearch(searchInput); }}>
+                <form className="d-flex col-lg-6" onSubmit={(e) => {e.preventDefault(); doSearch(searchInput); }}>
                     <input className="form-control me-sm-2" type="text" placeholder="Pesquisar" ref={node => { searchInput = node }}/>
                     <button className="btn btn-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>         
