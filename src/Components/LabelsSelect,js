@@ -1,0 +1,10 @@
+export const LabelsDropDown = ({ labels }) => {
+    const labelsItems = labels.map(label => {
+        return (<option key={label.name}>{label.name}</option>);
+    });
+    return(
+        <select>
+            {labelsItems}
+        </select>
+    )
+}

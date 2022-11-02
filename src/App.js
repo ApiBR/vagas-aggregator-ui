@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import toastr from "toastr";
-import { Repositories, Issues, NavBar } from "./Components";
+import { NavBar} from "./Components/NavBar";
+import { Repositories } from "./Components/Repositories";
+import { Issues } from "./Components/Issues";
+import { Footer } from "./Components/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -125,15 +128,7 @@ class App extends Component {
         <NavBar labels={this.state.labels} doSearch={this.doSearch.bind(this)} changeQuantity={this.changeQuantity.bind(this)} currentQuantity={this.state.pageSize} />
         <Issues issues={this.state.issues} totalIssues={this.state.totalIssues} totalPages={this.state.totalPages} currentPage={this.state.currentPage} loadPage={this.loadPage.bind(this)} />
         <Repositories repositories={this.state.repositories} />
-        <footer className="font-small text-center mt-4 mb-3">
-          Desenvolvido por 
-          <a href="https://guibranco.github.io/?utm_campaign=project&utm_media=vagas+aggregator&utm_source=apibr.com" target="_blank" rel="noopener noreferrer">
-            &nbsp; 
-            <img src="https://guibranco.github.io/photo.png" alt="Guilherme Branco Stracini" className="image-rounded image-responsive" style={{ width: "24px" }} />
-            &nbsp;
-            Guilherme Branco Stracini
-          </a>
-        </footer>
+        <Footer />
       </div>
     );
   }
