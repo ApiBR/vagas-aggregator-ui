@@ -86,13 +86,13 @@ class App extends Component {
       "&orderField=" + this.state.orderField +
       "&orderDirection=" + this.state.orderDirection;
 
-    if(this.state.filteredLabels !== null){
+    if(this.state.filteredLabels !== null && this.state.filteredLabels !== ""){
       url += "&labels=" + this.state.filteredLabels;
     }
-    if(this.state.filteredOrganizations !== null){
+    if(this.state.filteredOrganizations !== null && this.state.filteredOrganizations !== ""){
       url += "&organizations=" + this.state.filteredOrganizations;
     }
-    if(this.state.filteredTerm !== null){
+    if(this.state.filteredTerm !== null && this.state.filteredTerm !== ""){
       url += "&term=" + this.state.filteredTerm;
     }
 
