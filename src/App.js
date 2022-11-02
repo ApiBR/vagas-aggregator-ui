@@ -14,7 +14,7 @@ class App extends Component {
       totalIssues: 0, 
       totalPages: 0, 
       currentPage: 1,
-      orderField: "updatedAt",
+      orderField: "updated_at",
       orderDirection: "desc",
       filteredLabels: null,
       filteredOrganizations: null,
@@ -64,7 +64,7 @@ class App extends Component {
 
   getRepositories(){
     axios
-    .get(this.apiUrl + "repositories")
+    .get(this.apiUrl + "repositories?per_page=100&page=1")
     .then(res => {
       if (res.data.length === 0)
           toastr["error"]("Não foi possível obter os repositórios", null, { closeButton: true });
