@@ -89,8 +89,10 @@ export const Issue = ({ issue }) => {
     return (
         <div className="card border-default mb-3 col-lg-3">
             <div className="card-header">
-                <img src={issue.repository.organization.avatar_url} alt={issue.repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                &nbsp;<a href={url}>{issue.repository.organization.login}</a>
+                <a href={url}>
+                    <img src={issue.repository.organization.avatar_url} alt={issue.repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
+                    &nbsp;{issue.repository.organization.login}/{issue.repository.name}
+                </a>
             </div>
             <div className="card-body">
                 <div className="media">
@@ -104,7 +106,7 @@ export const Issue = ({ issue }) => {
                     </a>                    
                 </div>
                 <span className="badge badge-secondary pb-2 pt-2 mr-1">
-                    Enviado em: {FormatDate(createdAt)}
+                    Publicado em: {FormatDate(createdAt)}
                 </span>
                 <span className="badge badge-secondary pb-2 pt-2">
                     Atualizado em: {FormatDate(updatedAt)}
@@ -163,16 +165,18 @@ export const Contributors = ({ contributors }) => {
 
 export const Repository = ({ repository }) => {
     const githubUrl = "https://github.com/";
-    const issuesUrl = githubUrl + repository.organization.login + "/vagas/issues";    
+    const issuesUrl = githubUrl + repository.organization.login + "/" +  repository.name + "/issues";    
     const url = "?organizations=" + repository.organization.login;
     return (
         <div className="card border-default mb-3 col-lg-4">
             <div className="card-header">
-                <a href={url} target="_blank" rel="noopener noreferrer">
+                <a href={url}>
                     <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                </a>&nbsp;<span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
+                </a>
+                &nbsp;
+                <span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
                 <br />
-                <a href={url} target="_blank" rel="noopener noreferrer">{repository.organization.login}</a>                               
+                <a href={url}>{repository.organization.login}/{repository.name}</a>                               
             </div>
             <div className="card-body">
                 {repository.description}
