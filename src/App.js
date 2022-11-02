@@ -115,11 +115,11 @@ class App extends Component {
   }
 
   doSearch(input){
-    this.setState( { filteredTerm: input.value }, () => { this.getIssues(); });
+    this.setState( { filteredTerm: input.value, currentPage: 1 }, () => { this.getIssues(); });
   }
 
   changeQuantity(input){
-    this.setState( { pageSize: input.value }, () => { this.getIssues(); });
+    this.setState( { pageSize: input.value, currentPage: 1 }, () => { this.getIssues(); });
   }
 
   render() {
