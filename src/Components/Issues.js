@@ -77,6 +77,14 @@ export const Issues = () => {
   const pagePreset = !isNaN(parseInt(urlParams.get("page"))) ? parseInt(urlParams.get("page")) : 1;
 
   const paramsPreset = { };
+
+  if(urlParams.get("labels")){
+    paramsPreset.labels = urlParams.get("labels");
+  }
+
+  if(urlParams.get("organizations")){
+    paramsPreset.organizations = urlParams.get("organizations");
+  }
     
   const entityRef = useRef("issues");
   const [items, setItems] = useState([]);
