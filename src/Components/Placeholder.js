@@ -36,7 +36,7 @@ export const Item = () => {
       <div className="card-footer">
         <div className="row">
           <span className="badge mr-2 mb-2 col-lg-1" style={{border: "2px solid rgb(180, 252, 160)", color: "#FFF"}}>
-              <span className="placeholder col-lg-1"></span>
+              <span className="placeholder col-lg-12"></span>
           </span>
           <span className="badge mr-2 mb-2 col-lg-1" style={{border: "2px solid rgb(170, 100, 100)", color: "#FFF"}}>
               <span className="placeholder col-lg-12"></span>
