@@ -39,8 +39,10 @@ export const Repositories = () => {
     });
     return (
         <div className="row mt-2 ml-1 mr-1">
-            <div className="alert alert-secondary col-lg-12 text-center">
-                Repositórios: {repositories.length}
+            <div className="col-lg-12">
+                <div className="alert alert-secondary text-center">
+                    Repositórios: {repositories.length}
+                </div>
             </div>
             {repositoriesItems}
         </div>
