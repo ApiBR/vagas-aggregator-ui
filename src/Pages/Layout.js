@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 
