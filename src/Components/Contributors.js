@@ -15,7 +15,7 @@ export const Contributors = ({ contributors }) => {
         return (<Contributor contributor={contributor} key={contributor.id} />);
     });
     return (
-        <div className="d-flex row">
+        <div className="row">
             {contributorsItems}
         </div>
     )
