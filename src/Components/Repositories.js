@@ -14,7 +14,7 @@ export const Repository = ({ repository }) => {
                     <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
                 </Link>
                 &nbsp;
-                <span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
+                <span className="badge bg-info rounded-pill">{repository.issues} vagas</span>
                 <br />
                 <Link to={url}>{repository.organization.login}/{repository.name}</Link>
             </div>
