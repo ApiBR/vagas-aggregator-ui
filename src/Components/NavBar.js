@@ -1,21 +1,24 @@
+import { Link } from "react-router-dom";
 import logo from "../ApiBRLogo.png";
 
-export const NavBar = () => {
+const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="https://apibr.com/ui/">
                 <img src={logo} alt="API BR Logo" style={{ width: "48px", marginLeft: "10px"}} />
             </a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarColor02">
+            <div>
                 <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                        <a className="nav-link active" href="/ui/vagas">Vagas</a>
+                        <Link className="nav-link active" href="/">Vagas</Link>
                     </li>        
+                    <li className="nav-item">
+                        <Link className="nav-link" href="/repositorios">Repositórios</Link>
+                    </li>
                 </ul>                
             </div>
         </nav>
     )
 }
+
+export default NavBar;

@@ -1,4 +1,4 @@
-export const Footer = () => {
+const Footer = () => {
     return (<footer className="font-small text-center mt-4 mb-3 mr-1 ml-1">
     Desenvolvido por 
     <a href="https://guibranco.github.io/?utm_campaign=project&utm_media=vagas+aggregator&utm_source=apibr.com" target="_blank" rel="noopener noreferrer">
@@ -9,3 +9,5 @@ export const Footer = () => {
     </a>
   </footer>);
 }
+
+export default Footer;

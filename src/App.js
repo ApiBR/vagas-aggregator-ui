@@ -1,17 +1,20 @@
 import React from "react";
-import { NavBar } from "./Components/NavBar";
-import { Issues } from "./Components/Issues";
-import { Repositories } from "./Components/Repositories";
-import { Footer } from "./Components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Layout from "./Pages/Layout";
+import Vagas from "./Pages/Vagas";
+import Repositorios from "./Pages/Repositorios";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <NavBar />
-      <Issues />
-      <Repositories />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Vagas />} />
+          <Route path="repositorios" element={<Repositorios />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;
