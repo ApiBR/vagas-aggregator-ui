@@ -29,15 +29,15 @@ export const Issue = ({ issue }) => {
       <div className="card-body">
         <div className="row">
           <div className="col-lg-12">{issue.title}</div>
-          <div className="col-lg-6">
-            <span className="badge badge-secondary pb-2 pt-2 mr-1">
+          <div className="col-lg-10">
+            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Publicado em: {FormatDate(createdAt)}
             </span>
-            <span className="badge badge-secondary pb-2 pt-2">
+            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Atualizado em: {FormatDate(updatedAt)}
             </span>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-2">
             <a
               className="pull-right text-center"
               href={userUrl}
@@ -52,7 +52,7 @@ export const Issue = ({ issue }) => {
                 style={{ width: "48px" }}
               />
               <br />
-              <span>{issue.user.login}</span>
+              <span className="small ellipsis">{issue.user.login}</span>
             </a>
           </div>
           <div className="col-lg-12">

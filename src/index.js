@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "toastr";
+import "./index.css";
 import "./bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import "toastr/build/toastr.css";
