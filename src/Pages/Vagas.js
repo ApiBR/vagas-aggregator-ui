@@ -1,5 +1,7 @@
+import { Issues } from "../Components/Issues";
+
 const Vagas = () => {
-    return <h1>Vagas</h1>;
+    return <Issues />;
   };
   
   export default Vagas;

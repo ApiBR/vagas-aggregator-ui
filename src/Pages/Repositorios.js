@@ -1,5 +1,8 @@
+import { Repositories } from "../Components/Repositories";
+
+
 const Repositorios = () => {
-    return <h1>Repositorios</h1>;
+    return <Repositories />;
   };
   
   export default Repositorios;

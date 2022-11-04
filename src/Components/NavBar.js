@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../ApiBRLogo.png";
-
+import classnames from "classnames";
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -10,10 +10,13 @@ const NavBar = () => {
             <div>
                 <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                        <Link className="nav-link active" href="/">Vagas</Link>
+                        <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/">Vagas</NavLink>
                     </li>        
                     <li className="nav-item">
-                        <Link className="nav-link" href="/repositorios">Repositórios</Link>
+                        <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/repositorios">Repositórios</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/nova-vaga">Publicar uma vaga</NavLink>
                     </li>
                 </ul>                
             </div>
