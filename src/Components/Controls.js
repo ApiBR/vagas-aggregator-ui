@@ -1,6 +1,7 @@
-import {LabelsSelect } from "./LabelsSelect";
 import Select from 'react-select'
 import useLoadAll from "../Hooks/useLoadAll";
+import LabelsSelect from "./LabelsSelect";
+import RepositoriesSelect from "./RepositoriesSelect";
 
 export const Controls = ({ params, updateParams }) => {
     let searchInput;
@@ -13,14 +14,18 @@ export const Controls = ({ params, updateParams }) => {
     ]
 
     const labels = useLoadAll("labels", { per_page: 100 });
+    const repositories = useLoadAll("repositories", { per_page: 100 });
 
     return (
         <div className="row mt-3 mb-3 mr-2 ml-2">
-            <div className="col-lg-6">
+            <div className="col-lg-3">
                 <form className="d-flex" onSubmit={(e) => {e.preventDefault(); updateParams({ term: searchInput.value }) }}>
                     <input className="form-control me-sm-2" type="text" placeholder="Pesquisar" ref={node => { searchInput = node }}/>
                     <button className="btn btn-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>
+            </div>
+            <div className="col-lg-3">
+                <RepositoriesSelect repositories={repositories} updateParams={updateParams} />
             </div>
             <div className="col-lg-3">
                 <LabelsSelect labels={labels} updateParams={updateParams} />
