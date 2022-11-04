@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import useFetch from "../Hooks/useFetch";
 import { FormatDate } from "../Helpers/FormatDate";
 import { Labels } from "./Labels";
@@ -15,7 +16,7 @@ export const Issue = ({ issue }) => {
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
-        <a href={url}>
+        <Link to={url}>
           <img
             src={issue.repository.organization.avatar_url}
             alt={issue.repository.organization.login}
@@ -23,7 +24,7 @@ export const Issue = ({ issue }) => {
             style={{ width: "48px" }}
           />
           &nbsp;{issue.repository.organization.login}/{issue.repository.name}
-        </a>
+        </Link>
       </div>
       <div className="card-body">
         <div className="row">

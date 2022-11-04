@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Labels } from "./Labels";
 import { Contributors } from "./Contributors";
 import useLoadAll from "../Hooks/useLoadAll";
@@ -5,17 +6,17 @@ import useLoadAll from "../Hooks/useLoadAll";
 export const Repository = ({ repository }) => {
     const githubUrl = "https://github.com/";
     const issuesUrl = githubUrl + repository.organization.login + "/" +  repository.name + "/issues";    
-    const url = "?organizations=" + repository.organization.login;
+    const url = "/?organizations=" + repository.organization.login;
     return (
         <div className="card border-default mb-3 col-lg-4">
             <div className="card-header">
-                <a href={url}>
+                <Link to={url}>
                     <img src={repository.organization.avatar_url} alt={repository.organization.login} className="rounded-circle img-responsive" style={{width: "48px"}} />
-                </a>
+                </Link>
                 &nbsp;
                 <span className="badge badge-info rounded-pill">{repository.issues} vagas</span>
                 <br />
-                <a href={url}>{repository.organization.login}/{repository.name}</a>                               
+                <Link to={url}>{repository.organization.login}/{repository.name}</Link>
             </div>
             <div className="card-body">
                 {repository.description}
