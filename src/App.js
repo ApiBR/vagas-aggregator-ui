@@ -7,7 +7,7 @@ import NovaVaga from "./Pages/NovaVaga";
 
 function App() {
   return (
-    <BrowserRouter baseName="/ui/vagas">
+    <BrowserRouter basename={'/ui/vagas'}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Vagas />} />
