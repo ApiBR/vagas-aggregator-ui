@@ -2,3 +2,6 @@ RewriteEngine on
 
 RewriteCond %{HTTP_HOST} !^apibr\.com$
 RewriteRule ^(.*)$ "https\:\/\/apibr\.com\/$1" [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
