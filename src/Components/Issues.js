@@ -99,15 +99,11 @@ export const Issues = () => {
     if (state.loading) {
       return;
     }
-    if (state.items.length > 0) {
-      setItems(state.items);
-    }
-    if (state.itemCount > 0) {
-      setTotalIssues(state.itemCount);
-    }
-    if(state.pageCount > 0) {
-        setTotalPages(state.pageCount);
-    }
+    
+    setItems(state.items);
+    setTotalIssues(state.itemCount);    
+    setTotalPages(state.pageCount);
+
     if(!loaded){
         setLoaded(true);
         loadPage();
