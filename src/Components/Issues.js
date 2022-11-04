@@ -27,36 +27,42 @@ export const Issue = ({ issue }) => {
         </a>
       </div>
       <div className="card-body">
-        <div className="media">
-          <div className="media-body ml-3">{issue.title}</div>
-          <a
-            className="pull-right text-center"
-            href={userUrl}
-            target="_blank"
-            title={issue.user.login}
-            rel="noopener noreferrer"
-          >
-            <img
-              src={issue.user.avatar_url}
-              alt={issue.user.login}
-              className="media-object rounded-circle img-responsive"
-              style={{ width: "48px" }}
-            />
-            <br />
-            <span>{issue.user.login}</span>
-          </a>
-        </div>
-        <span className="badge badge-secondary pb-2 pt-2 mr-1">
-          Publicado em: {FormatDate(createdAt)}
-        </span>
-        <span className="badge badge-secondary pb-2 pt-2">
-          Atualizado em: {FormatDate(updatedAt)}
-        </span>
-        <div className="alert alert-warning mt-3 mb-3">
-          <a href={issue.url} target="_blank" rel="noopener noreferrer">
-            Ver vaga no GitHub <i className="fa fa-github" />
-          </a>
-        </div>
+        <div className="row">
+          <div className="col-lg-12">{issue.title}</div>
+          <div className="col-lg-6">
+            <span className="badge badge-secondary pb-2 pt-2 mr-1">
+              Publicado em: {FormatDate(createdAt)}
+            </span>
+            <span className="badge badge-secondary pb-2 pt-2">
+              Atualizado em: {FormatDate(updatedAt)}
+            </span>
+          </div>
+          <div className="col-lg-6">
+            <a
+              className="pull-right text-center"
+              href={userUrl}
+              target="_blank"
+              title={issue.user.login}
+              rel="noopener noreferrer"
+            >
+              <img
+                src={issue.user.avatar_url}
+                alt={issue.user.login}
+                className="rounded-circle img-responsive"
+                style={{ width: "48px" }}
+              />
+              <br />
+              <span>{issue.user.login}</span>
+            </a>
+          </div>
+          <div className="col-lg-12">
+            <div className="alert alert-warning mt-3 mb-3">
+              <a href={issue.url} target="_blank" rel="noopener noreferrer">
+                Ver vaga no GitHub <i className="fa fa-github" />
+              </a>
+            </div> 
+          </div>
+        </div>        
       </div>
       <div className="card-footer">
         <Labels labels={issue.labels} issueId={issue.id} />
@@ -78,15 +84,16 @@ export const Issues = () => {
   const labels = useLoadAll("labels", { per_page: 100 });
 
   useEffect(() => {
-    if (state.loading) return;
+    if (state.loading) {
+      return;
+    }
     if (state.items.length > 0) {
       setItems(state.items);
     }
     if (state.itemCount > 0) {
       setTotalIssues(state.itemCount);
     }
-    if(state.pageCount > 0)
-    {
+    if(state.pageCount > 0) {
         setTotalPages(state.pageCount);
     }
     if(!loaded){
@@ -103,28 +110,28 @@ export const Issues = () => {
 
   const updateParams = (data) => {
     setParams({...params, ...data});
-    setPage(1);
-    setLoaded(false);
+    changePageNumber(1);
   }
 
-  const issuesItems = items.map((issue) => {
-    return <Issue issue={issue} key={issue.id} />;
-  });
+  const issuesItems = items.map((issue) => <Issue issue={issue} key={issue.id} />);
+
   return (
-    <div className="row mt-2 ml-1 mr-1">
-      <div className="alert alert-secondary col-lg-12 text-center">
-        Vagas: {totalIssues}
-      </div>      
+    <div className="row mt-4">
       <div className="col-lg-12">
         <Controls params={params} labels={labels} updateParams={updateParams} />
-      </div>
-      <div className="col-lg-12">
+      </div>                  
+      <div className="col-lg-6">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}
           siblingCount={3}
           currentPage={page}
         />
+      </div>
+      <div className="col-lg-6">
+        <div className="alert alert-secondary col-lg-10 text-center">
+          Vagas: {totalIssues}
+        </div>
       </div>
       {state.loading && <Placeholder quantity={params.per_page}/>}
       {!state.loading && issuesItems}      
