@@ -15,7 +15,7 @@ export const Pagination = props => {
       totalPagesCount,
       siblingCount
     });
-  
+
     if (currentPage === 0 || totalPagesCount === 0 || paginationRange.length < 2) {
       return null;
     }

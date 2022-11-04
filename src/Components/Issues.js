@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import useFetch from "../Hooks/useFetch";
-import useLoadAll from "../Hooks/useLoadAll";
 import { FormatDate } from "../Helpers/FormatDate";
 import { Labels } from "./Labels";
 import { Pagination } from "./Pagination";
@@ -72,16 +71,20 @@ export const Issue = ({ issue }) => {
 };
 
 export const Issues = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const pagePreset = !isNaN(parseInt(urlParams.get("page"))) ? parseInt(urlParams.get("page")) : 1;
+
+  const paramsPreset = { };
+    
   const entityRef = useRef("issues");
   const [items, setItems] = useState([]);
   const [totalIssues, setTotalIssues] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [params, setParams] = useState({ per_page: 100 });
-  const [page, setPage] = useState(1);
+  const [params, setParams] = useState({ per_page: 100, ...paramsPreset });
+  const [page, setPage] = useState(pagePreset > 0 ? pagePreset : 1);
   const [loaded, setLoaded] = useState(false);
   const [state, loadPage] = useFetch(entityRef.current, params, page);
-
-  const labels = useLoadAll("labels", { per_page: 100 });
 
   useEffect(() => {
     if (state.loading) {
@@ -118,9 +121,9 @@ export const Issues = () => {
   return (
     <div className="row mt-4">
       <div className="col-lg-12">
-        <Controls params={params} labels={labels} updateParams={updateParams} />
+        <Controls params={params} updateParams={updateParams} />
       </div>                  
-      <div className="col-lg-6">
+      <div className="col-lg-12">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}
@@ -128,8 +131,8 @@ export const Issues = () => {
           currentPage={page}
         />
       </div>
-      <div className="col-lg-6">
-        <div className="alert alert-secondary col-lg-10 text-center">
+      <div className="col-lg-12" style={{justifyContent : "center", display: "flex"}}>
+        <div className="alert alert-secondary text-center" style={{ width: "30%"}}>
           Vagas: {totalIssues}
         </div>
       </div>

@@ -10,3 +10,9 @@ body {
   line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

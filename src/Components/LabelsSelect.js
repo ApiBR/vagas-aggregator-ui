@@ -1,12 +1,19 @@
+import Select from "react-select";
+
 export const LabelsSelect = ({ labels, updateParams }) => {
-    const labelsItems = labels.map(label => {
-        return (<option key={label.name} value={label.name}>{label.name}</option>);
-    });
-    labelsItems.unshift(<option key="todos" value="">[TODAS AS LABELS]</option>);
-    let labelsInput;
-    return(
-        <select className="form-control" onChange={() => updateParams({labels: labelsInput.value})}  ref={node => { labelsInput = node }}>
-            {labelsItems}
-        </select>
-    )
-}
+  const labelsItems = labels.map((item) => {
+    return { value: item.name, label: item.name };
+  });
+
+  const onChange = (values) => {
+    updateParams({ labels: values.map((value) => value.value).join(",")});
+  }
+  return (
+    <Select
+      options={labelsItems}
+      isMulti={true}
+      placeholder="Filtrar por labels"
+      onChange={onChange}
+    />
+  );
+};

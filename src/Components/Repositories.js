@@ -39,8 +39,8 @@ export const Repositories = () => {
     });
     return (
         <div className="row mt-2 ml-1 mr-1">
-            <div className="col-lg-12">
-                <div className="alert alert-secondary text-center">
+            <div className="col-lg-12" style={{justifyContent : "center", display: "flex"}}>
+                <div className="alert alert-secondary text-center" style={{ width: "30%"}}>
                     Repositórios: {repositories.length}
                 </div>
             </div>
