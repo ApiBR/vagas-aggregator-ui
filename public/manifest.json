@@ -8,9 +8,9 @@
       "type": "image/x-icon"
     },
     {
-      "src": "og_photo.png",
+      "src": "ApiBRLoogo.png",
       "type": "image/png",
-      "sizes": "2550x3300"
+      "sizes": "800x800"
     },
     {
       "src": "/android-chrome-192x192.png",
