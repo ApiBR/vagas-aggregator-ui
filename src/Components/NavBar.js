@@ -16,6 +16,9 @@ const NavBar = () => {
                         <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/repositorios">Repositórios</NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/recrutadores">Recrutadores</NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink className={({isActive}) => classnames('nav-link', { active: isActive })} to="/nova-vaga">Publicar uma vaga</NavLink>
                     </li>
                 </ul>                
