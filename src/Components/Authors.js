@@ -19,7 +19,7 @@ export const Author = ({ author }) => {
         </Link>
         &nbsp;
         <span className="badge bg-info rounded-pill">
-          {author.issues} vaga{author.issues === 1 ? "" : "s"} publicada
+          {author.issues} vaga{author.issues === 1 ? "" : "s"} publicada{author.issues === 1 ? "" : "s"}
         </span>
       </div>
       <div className="card-body">
