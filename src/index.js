@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "toastr";
 import "./index.css";
 import "./bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import "toastr/build/toastr.css";
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+reportWebVitals(sendToGoogleAnalytics);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function sendToGoogleAnalytics({ name, delta, value, id, attribution }) {
+  const eventParams = {
+    value: delta,
+    metric_id: id,
+    metric_value: value,
+    metric_delta: delta,
+  };
+  window.gtag("event", name, eventParams);
+}
