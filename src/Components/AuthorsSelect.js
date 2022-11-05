@@ -1,12 +1,12 @@
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
-const RepositoriesSelect = ({ repositories, updateParams }) => {
-  const repositoriesItems = repositories.map((item) => {
+const AuthorsSelect = ({ authors, updateParams }) => {
+  const authorsItems = authors.map((item) => {
     return {
-      value: item.organization.login,
-      label: item.organization.login + "/" + item.name,
-      image: item.organization.avatar_url,
+      value: item.login,
+      label: item.login,
+      image: item.avatar_url,
     };
   });
 
@@ -14,16 +14,16 @@ const RepositoriesSelect = ({ repositories, updateParams }) => {
 
   const onChange = (values) => {
     updateParams({
-      organizations: values.map((value) => value.value).join(","),
+      authors: values.map((value) => value.value).join(","),
     });
   };
   return (
     <Select
       styles={{ menu: (provided) => ({ ...provided, zIndex: 9999 }) }}
       components={animatedComponents}
-      options={repositoriesItems}
+      options={authorsItems}
       isMulti={true}
-      placeholder="Filtrar por repositórios"
+      placeholder="Filtrar por recrutadores"
       onChange={onChange}
       getOptionLabel={(option) => (
         <div>
@@ -39,4 +39,4 @@ const RepositoriesSelect = ({ repositories, updateParams }) => {
   );
 };
 
-export default RepositoriesSelect;
+export default AuthorsSelect;

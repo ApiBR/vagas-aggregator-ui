@@ -11,11 +11,13 @@ const LabelsSelect = ({ labels, updateParams }) => {
   const onChange = (values) => {
     updateParams({ labels: values.map((value) => value.value).join(",") });
   };
+
   return (
     <Select
+      styles={{ menu: (provided) => ({ ...provided, zIndex: 9999 }) }}
       components={animatedComponents}
       options={labelsItems}
-      isMulti={true}
+      isMulti
       placeholder="Filtrar por labels"
       onChange={onChange}
     />
