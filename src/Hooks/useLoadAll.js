@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 export default function useLoadAll(entity, params) {
   const entityRef = useRef(entity);
   const paramsRef = useRef(params);
+  const [allPagesLoaded, setAllPagesLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [state, loadPage] = useFetch(
@@ -13,15 +14,45 @@ export default function useLoadAll(entity, params) {
   );
 
   useEffect(() => {
-    if (state.loading) return;
-    if (state.items.length > 0) {
-      setItems((items) => [...items, ...state.items]);
-    }
-    if (page === 1 || page <= state.pageCount) {
-      setPage(page + 1);
-      setTimeout(loadPage, 100);
-    }
-  }, [page, state, loadPage]);
+    loadPage();
+  }, [page, loadPage]);
 
-  return items;
+  useEffect(() => {
+    if (allPagesLoaded && items.length === state.itemCount) {
+      return;
+    }
+
+    if (state.items && state.items.length > 0) {
+
+      const currentItems = items;
+
+      if (!allPagesLoaded) {
+        currentItems[state.currentPage] = state.items;
+        setItems(currentItems);
+      }
+
+      const totalItems = allPagesLoaded
+        ? currentItems.length
+        : currentItems.reduce(
+            (previousValue, currentValue) =>
+              previousValue + currentValue.length,
+            0
+          );
+
+      if (totalItems >= state.itemCount && !allPagesLoaded) {
+        setAllPagesLoaded(true);
+        const final = [];
+        for (let i in items) {
+          items[i].map((ii) => final.push(ii));
+        }
+        setItems(final);
+      }
+
+      if (state.currentPage < state.pageCount && state.currentPage === page) {        
+        setPage((page) => page + 1);
+      }
+    }
+  }, [state, loadPage, items, allPagesLoaded, page]);
+
+  return [items, allPagesLoaded];
 }
