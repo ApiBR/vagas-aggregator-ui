@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import toastr from "toastr";
 import useFetch from "./useFetch";
 
 export default function useLoadAll(entity, params) {
@@ -22,12 +23,14 @@ export default function useLoadAll(entity, params) {
   }, [page, loadPage]);
 
   useEffect(() => {
+    if (state.error) {
+      toastr["error"](entity + ": " + state.error.message, { closeButton: true });
+    }
     if (allPagesLoaded && items.length === state.itemCount) {
       return;
     }
 
     if (state.items && state.items.length > 0) {
-
       const currentItems = items;
 
       if (!allPagesLoaded) {
@@ -53,11 +56,11 @@ export default function useLoadAll(entity, params) {
         setItems(final);
       }
 
-      if (state.currentPage < state.pageCount && state.currentPage === page) {        
+      if (state.currentPage < state.pageCount && state.currentPage === page) {
         setPage((page) => page + 1);
       }
     }
-  }, [state, loadPage, items, allPagesLoaded, page]);
+  }, [state, loadPage, items, allPagesLoaded, page, entity]);
 
   return [items, allPagesLoaded, lastModified];
 }
