@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import toastr from "toastr";
 import useFetch from "../Hooks/useFetch";
 import { FormatDate } from "../Helpers/FormatDate";
 import { Labels } from "./Labels";
@@ -125,6 +126,10 @@ export const Issues = () => {
   }, [searchParams]);
 
   useEffect(() => {
+    if (state.error) {
+      toastr["error"]("issues: " + state.error.message, { closeButton: true });
+    }
+
     if (state.loading) {
       return;
     }
@@ -139,6 +144,10 @@ export const Issues = () => {
     }
   }, [page, state, loadPage, loaded]);
 
+  if(typeof items !== "object"){
+    toastr["error"]("Resposta inválida da API", { closeButton: true});
+    return;
+  }
   const issuesItems = items.map((issue) => (
     <Issue issue={issue} key={issue.id} />
   ));
