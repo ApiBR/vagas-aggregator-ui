@@ -159,6 +159,12 @@ export const Issues = () => {
       <div className="justify-content-center">
         <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
           Vagas: {totalIssues}
+          <br />
+          {!state.loading && state.lastModified && (
+            <span class="badge bg-info">
+              Atualizado em: {FormatDate(new Date(state.lastModified))}
+            </span>
+          )}
         </div>
       </div>
       {state.loading && <Placeholder quantity={params.per_page} />}

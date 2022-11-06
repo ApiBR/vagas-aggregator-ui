@@ -4,9 +4,13 @@ import useFetch from "./useFetch";
 export default function useLoadAll(entity, params) {
   const entityRef = useRef(entity);
   const paramsRef = useRef(params);
+
   const [allPagesLoaded, setAllPagesLoaded] = useState(false);
+
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
+  const [lastModified, setLastModfied] = useState(null);
+
   const [state, loadPage] = useFetch(
     entityRef.current,
     paramsRef.current,
@@ -41,6 +45,7 @@ export default function useLoadAll(entity, params) {
 
       if (totalItems >= state.itemCount && !allPagesLoaded) {
         setAllPagesLoaded(true);
+        setLastModfied(state.lastModified);
         const final = [];
         for (let i in items) {
           items[i].map((ii) => final.push(ii));
@@ -54,5 +59,5 @@ export default function useLoadAll(entity, params) {
     }
   }, [state, loadPage, items, allPagesLoaded, page]);
 
-  return [items, allPagesLoaded];
+  return [items, allPagesLoaded, lastModified];
 }

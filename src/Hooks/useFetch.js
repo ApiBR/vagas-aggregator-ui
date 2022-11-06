@@ -23,6 +23,7 @@ function reducer(state, action) {
         pageCount: action.payload.pageCount,
         itemCount: action.payload.itemCount,
         currentPage: action.payload.currentPage,
+        lastModified: action.payload.lastModified
       };
     case ACTIONS.ERROR:
       return {
@@ -66,6 +67,7 @@ export default function useFetch(entity, params, page) {
             pageCount: parseInt(res.headers["x-total-pages"]),
             itemCount: parseInt(res.headers["x-total-results"]),
             currentPage: parseInt(res.headers["x-current-page"]),
+            lastModified: res.headers["last-modified"]
           },
         });
       })

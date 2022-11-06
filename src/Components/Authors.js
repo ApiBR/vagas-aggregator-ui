@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useLoadAll from "../Hooks/useLoadAll";
 import { Placeholder } from "./Placeholder";
+import { FormatDate } from "../Helpers/FormatDate";
 
 export const Author = ({ author }) => {
   const githubUrl = "https://github.com/";
@@ -19,7 +20,8 @@ export const Author = ({ author }) => {
         </Link>
         &nbsp;
         <span className="badge bg-info rounded-pill">
-          {author.issues} vaga{author.issues === 1 ? "" : "s"} publicada{author.issues === 1 ? "" : "s"}
+          {author.issues} vaga{author.issues === 1 ? "" : "s"} publicada
+          {author.issues === 1 ? "" : "s"}
         </span>
       </div>
       <div className="card-body">
@@ -36,12 +38,20 @@ export const Author = ({ author }) => {
 };
 
 export const Authors = () => {
-  const [authors, allAuthorsLoaded] = useLoadAll("authors", { per_page: 100 });
+  const [authors, allAuthorsLoaded, lastModified] = useLoadAll("authors", {
+    per_page: 100,
+  });
   return (
     <div className="row mt-2 ml-1 mr-1">
       <div className="justify-content-center">
         <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
           Recrutadores: {allAuthorsLoaded ? authors.length : 0}
+          <br />
+          {allAuthorsLoaded && (
+            <span class="badge bg-info">
+              Atualizado em: {FormatDate(new Date(lastModified))}
+            </span>
+          )}
         </div>
       </div>
       {!allAuthorsLoaded && <Placeholder quantity={100} />}

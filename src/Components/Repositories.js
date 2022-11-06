@@ -3,6 +3,7 @@ import { Labels } from "./Labels";
 import { Contributors } from "./Contributors";
 import { Placeholder } from "./Placeholder";
 import useLoadAll from "../Hooks/useLoadAll";
+import { FormatDate } from "../Helpers/FormatDate";
 
 export const Repository = ({ repository }) => {
   const githubUrl = "https://github.com/";
@@ -51,15 +52,22 @@ export const Repository = ({ repository }) => {
 };
 
 export const Repositories = () => {
-  const [repositories, allRepositoriesLoaded] = useLoadAll("repositories", {
-    per_page: 100,
-  });
+  const [repositories, allRepositoriesLoaded, lastModified] = useLoadAll(
+    "repositories",
+    { per_page: 100 }
+  );
 
   return (
     <div className="row mt-2 ml-1 mr-1">
       <div className="justify-content-center">
         <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
           Repositórios: {allRepositoriesLoaded ? repositories.length : 0}
+          <br />
+          {allRepositoriesLoaded && (
+            <span class="badge bg-info">
+              Atualizado em: {FormatDate(new Date(lastModified))}
+            </span>
+          )}
         </div>
       </div>
       {!allRepositoriesLoaded && <Placeholder quantity={100} />}
