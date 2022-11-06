@@ -7,6 +7,7 @@ import { Labels } from "./Labels";
 import { Pagination } from "./Pagination";
 import { Controls } from "./Controls";
 import { Placeholder } from "./Placeholder";
+import classNames from "classnames";
 
 export const Issue = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
@@ -144,8 +145,8 @@ export const Issues = () => {
     }
   }, [page, state, loadPage, loaded]);
 
-  if(typeof items !== "object"){
-    toastr["error"]("Resposta inválida da API", { closeButton: true});
+  if (typeof items !== "object") {
+    toastr["error"]("Resposta inválida da API", { closeButton: true });
     return;
   }
   const issuesItems = items.map((issue) => (
@@ -167,8 +168,30 @@ export const Issues = () => {
       </div>
       <div className="justify-content-center">
         <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
-          Vagas: {totalIssues}
+          Vagas:{" "}
+          <span
+            className={classNames("badge rounded-pill", {
+              "bg-danger": totalIssues === 0,
+              "bg-warning": state.loading,
+              "bg-success": !state.loading && totalIssues > 0,
+            })}
+          >
+            {state.loading ? "Carregando..." : totalIssues}
+          </span>
           <br />
+          {state.loading && (
+            <div className="progress">
+              <div
+                className="progress-bar bg-success"
+                role="progressbar"
+                aria-label="Success example"
+                style={{ width: "50%" }}
+                aria-valuenow="50"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          )}
           {!state.loading && state.lastModified && (
             <span className="badge bg-info">
               Atualizado em: {FormatDate(new Date(state.lastModified))}
