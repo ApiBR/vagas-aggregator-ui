@@ -1,25 +1,24 @@
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 
 test("renders Vagas alert", () => {
   window.history.pushState({}, '', '/ui/vagas')
   render(<App />);
-  const vagasElement = screen.getByText(/Vagas: 0/i);
+  const vagasElement = screen.getByText(/Vagas:/i);
   expect(vagasElement).toBeInTheDocument();
 });
 
 test("renders Repositórios alert", () => {
   window.history.pushState({}, '', '/ui/vagas/repositorios')
   render(<App />);
-  const vagasElement = screen.getByText(/Repositórios: 0/i);
+  const vagasElement = screen.getByText(/Repositórios:/i);
   expect(vagasElement).toBeInTheDocument();
 });
 
 test("renders Recrutadores alert", () => {
   window.history.pushState({}, '', '/ui/vagas/recrutadores')
   render(<App />);
-  const vagasElement = screen.getByText(/Recrutadores: 0/i);
+  const vagasElement = screen.getByText(/Recrutadores:/i);
   expect(vagasElement).toBeInTheDocument();
 });
 
