@@ -7,7 +7,7 @@ export const Author = ({ author }) => {
   const profileUrl = githubUrl + author.login;
   const url = "/?authors=" + author.login;
   return (
-    <div className="card border-default mb-3 col-lg-4">
+    <div className="card border-default mb-3 col-lg-2">
       <div className="card-header">
         <Link to={url}>
           <img
