@@ -161,7 +161,7 @@ export const Issues = () => {
           Vagas: {totalIssues}
           <br />
           {!state.loading && state.lastModified && (
-            <span class="badge bg-info">
+            <span className="badge bg-info">
               Atualizado em: {FormatDate(new Date(state.lastModified))}
             </span>
           )}

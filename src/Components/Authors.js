@@ -48,7 +48,7 @@ export const Authors = () => {
           Recrutadores: {allAuthorsLoaded ? authors.length : 0}
           <br />
           {allAuthorsLoaded && (
-            <span class="badge bg-info">
+            <span className="badge bg-info">
               Atualizado em: {FormatDate(new Date(lastModified))}
             </span>
           )}

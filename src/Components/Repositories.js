@@ -64,7 +64,7 @@ export const Repositories = () => {
           Repositórios: {allRepositoriesLoaded ? repositories.length : 0}
           <br />
           {allRepositoriesLoaded && (
-            <span class="badge bg-info">
+            <span className="badge bg-info">
               Atualizado em: {FormatDate(new Date(lastModified))}
             </span>
           )}
