@@ -25,7 +25,9 @@ export const Issue = ({ issue }) => {
             className="rounded-circle img-responsive"
             style={{ width: "48px" }}
           />
-          &nbsp;{issue.repository.organization.login}/{issue.repository.name}
+        </Link>{" "}
+        <Link to={organizationUrl}>
+          {issue.repository.organization.login}/{issue.repository.name}
         </Link>
       </div>
       <div className="card-body">
