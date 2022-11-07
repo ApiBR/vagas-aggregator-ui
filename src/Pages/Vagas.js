@@ -1,7 +1,7 @@
-import { Issues } from "../Components/Issues";
+import { IssuesList } from "../Components/Issues";
 
 const Vagas = () => {
-    return <Issues />;
-  };
-  
-  export default Vagas;
+  return <IssuesList />;
+};
+
+export default Vagas;

@@ -1,8 +1,7 @@
-import { Repositories } from "../Components/Repositories";
-
+import { RepositoriesList } from "../Components/Repositories";
 
 const Repositorios = () => {
-    return <Repositories />;
-  };
-  
-  export default Repositorios;
+  return <RepositoriesList />;
+};
+
+export default Repositorios;

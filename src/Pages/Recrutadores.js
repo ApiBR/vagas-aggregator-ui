@@ -1,8 +1,7 @@
-import { Authors } from "../Components/Authors";
-
+import { AuthorsList } from "../Components/Authors";
 
 const Recrutadores = () => {
-    return <Authors />;
-  };
-  
-  export default Recrutadores;
+  return <AuthorsList />;
+};
+
+export default Recrutadores;

@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import CookieConsent from "react-cookie-consent";
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
+import { NavBar, Footer} from "../Components/Layout";
 
 const Layout = () => {
   return (

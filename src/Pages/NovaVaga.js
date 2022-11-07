@@ -1,4 +1,4 @@
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NovaVaga = () => {
   return (
@@ -7,7 +7,8 @@ const NovaVaga = () => {
       <a href="https://github.com">GitHub</a> e então localize o repositório
       desejado, e siga as regras de publicação de cada repositório.
       <br />
-      Os links dos repositórios podem ser encontrados na página de <Link to="/repositorios">repositórios</Link> deste projeto.
+      Os links dos repositórios podem ser encontrados na página de{" "}
+      <Link to="/repositorios">repositórios</Link> deste projeto.
     </div>
   );
 };

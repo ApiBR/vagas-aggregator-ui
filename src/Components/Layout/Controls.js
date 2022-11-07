@@ -1,10 +1,10 @@
 import Select from "react-select";
-import useLoadAll from "../Hooks/useLoadAll";
-import LabelsSelect from "./LabelsSelect";
-import RepositoriesSelect from "./RepositoriesSelect";
-import AuthorsSelect from "./AuthorsSelect";
+import useLoadAll from "../../Hooks/useLoadAll";
+import LabelsSelect from "../Labels/LabelsSelect";
+import RepositoriesSelect from "../Repositories/RepositoriesSelect";
+import AuthorsSelect from "../Authors/AuthorsSelect";
 
-export const Controls = ({ params, updateParams }) => {
+const Controls = ({ params, updateParams }) => {
   let searchInput;
 
   const pageSizeOptions = [
@@ -69,3 +69,5 @@ export const Controls = ({ params, updateParams }) => {
     </div>
   );
 };
+
+export default Controls;

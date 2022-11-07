@@ -1,73 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import toastr from "toastr";
-import useFetch from "../Hooks/useFetch";
-import { FormatDate } from "../Helpers/FormatDate";
-import { Labels } from "./Labels";
-import { Pagination } from "./Pagination";
-import { Controls } from "./Controls";
-import { Placeholder } from "./Placeholder";
+import useFetch from "../../Hooks/useFetch";
+import { FormatDate } from "../../Helpers/FormatDate";
+import { Controls, Pagination } from "../Layout";
+import PlaceholderList from "../Placeholder/PlaceholderList";
 import classNames from "classnames";
-
-export const Issue = ({ issue }) => {
-  const authorUrl = "/?authors=" + issue.user.login;
-  const organizationUrl =
-    "/?organizations=" + issue.repository.organization.login;
-  const createdAt = new Date(issue.created_at);
-  const updatedAt = new Date(issue.updated_at);
-  return (
-    <div className="card border-default mb-3 col-lg-3">
-      <div className="card-header">
-        <Link to={organizationUrl}>
-          <img
-            src={issue.repository.organization.avatar_url}
-            alt={issue.repository.organization.login}
-            className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
-          />
-        </Link>{" "}
-        <Link to={organizationUrl}>
-          {issue.repository.organization.login}/{issue.repository.name}
-        </Link>
-      </div>
-      <div className="card-body">
-        <div className="row">
-          <div className="col-lg-12">{issue.title}</div>
-          <div className="col-lg-10">
-            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-              Publicado em: {FormatDate(createdAt)}
-            </span>
-            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-              Atualizado em: {FormatDate(updatedAt)}
-            </span>
-          </div>
-          <div className="col-lg-2">
-            <Link to={authorUrl} className="pull-right text-center">
-              <img
-                src={issue.user.avatar_url}
-                alt={issue.user.login}
-                className="rounded-circle img-responsive"
-                style={{ width: "48px" }}
-              />
-              <br />
-              <span className="small ellipsis">{issue.user.login}</span>
-            </Link>
-          </div>
-          <div className="col-lg-12">
-            <div className="alert alert-warning mt-3 mb-3">
-              <a href={issue.url} target="_blank" rel="noopener noreferrer">
-                Ver vaga no GitHub <i className="fa fa-github" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="card-footer">
-        <Labels labels={issue.labels} issueId={issue.id} />
-      </div>
-    </div>
-  );
-};
+import IssueItem from "./IssueItem";
 
 export const getParams = (searchParams) => {
   const paramsPreset = {};
@@ -90,10 +29,14 @@ export const getParams = (searchParams) => {
     paramsPreset.organizations = searchParams.get("organizations");
   }
 
+  if (searchParams.get("term")) {
+    paramsPreset.term = searchParams.get("term");
+  }
+
   return paramsPreset;
 };
 
-export const Issues = () => {
+const IssuesList = () => {
   const [searchParams] = useSearchParams();
   const pagePreset = !isNaN(parseInt(searchParams.get("page")))
     ? parseInt(searchParams.get("page"))
@@ -152,7 +95,7 @@ export const Issues = () => {
     return;
   }
   const issuesItems = items.map((issue) => (
-    <Issue issue={issue} key={issue.id} />
+    <IssueItem issue={issue} key={issue.id} />
   ));
 
   return (
@@ -201,7 +144,7 @@ export const Issues = () => {
           )}
         </div>
       </div>
-      {state.loading && <Placeholder quantity={params.per_page} />}
+      {state.loading && <PlaceholderList type="issue" quantity={params.per_page} />}
       {!state.loading && issuesItems}
       <div className="col-lg-12">
         <Pagination
@@ -214,3 +157,5 @@ export const Issues = () => {
     </div>
   );
 };
+
+export default IssuesList;

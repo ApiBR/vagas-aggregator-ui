@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import logo from "../ApiBRLogo.png";
+import logo from "../../ApiBRLogo.png";
 import classnames from "classnames";
+
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
