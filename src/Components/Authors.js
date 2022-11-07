@@ -26,7 +26,7 @@ export const Author = ({ author }) => {
         </span>
       </div>
       <div className="card-body">
-        {author.login}
+        <Link to={url}>{author.login}</Link>
         <br />
         <div className="alert alert-warning mt-3 mb-3">
           <a href={profileUrl} target="_blank" rel="noopener noreferrer">
@@ -46,7 +46,7 @@ export const Authors = () => {
     <div className="row mt-2 ml-1 mr-1">
       <div className="justify-content-center">
         <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
-          Recrutadores: {" "}
+          Recrutadores:{" "}
           <span
             className={classNames("badge roudend-pill", {
               "bg-danger": authors.length === 0,
@@ -54,7 +54,9 @@ export const Authors = () => {
               "bg-success": allAuthorsLoaded && authors.length > 0,
             })}
           >
-            {allAuthorsLoaded ? authors.length : "Carregando página " + authors.length + "..."}
+            {allAuthorsLoaded
+              ? authors.length
+              : "Carregando página " + authors.length + "..."}
           </span>
           <br />
           {!allAuthorsLoaded && (
