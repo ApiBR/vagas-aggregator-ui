@@ -27,8 +27,9 @@ export default function useLoadAll(entity, params) {
       toastr["error"](entity + ": " + state.error.message, { closeButton: true });
     }
     
-    if(state.items.substring(0,1)==="<"){
-      toastr["error"](entity + ": Error loading data", { closeButton: true }); 
+    if(state.items != null && typeof(state.items) === "string" && state.items.substring(0,1)==="<"){
+      toastr["error"](entity + ": Error loading data", { closeButton: true });
+      return;
     }
 
     if (allPagesLoaded && items.length === state.itemCount) {
