@@ -1,5 +1,4 @@
 import Select from "react-select";
-import useLoadAll from "../../Hooks/useLoadAll";
 import LabelsSelect from "../Labels/LabelsSelect";
 import RepositoriesSelect from "../Repositories/RepositoriesSelect";
 import AuthorsSelect from "../Authors/AuthorsSelect";
@@ -13,10 +12,6 @@ const Controls = ({ params, updateParams }) => {
     { value: 50, label: "50 vagas por página" },
     { value: 100, label: "100 vagas por página" },
   ];
-
-  const [labels] = useLoadAll("labels", { per_page: 100 });
-  const [repositories] = useLoadAll("repositories", { per_page: 100 });
-  const [authors] = useLoadAll("authors", { per_page: 100 });
 
   return (
     <div className="row mt-3 mb-3 mr-2 ml-2">
@@ -35,6 +30,7 @@ const Controls = ({ params, updateParams }) => {
             ref={(node) => {
               searchInput = node;
             }}
+            defaultValue={params.term}
           />
           <button
             className="btn btn-lg btn-secondary my-2 my-sm-0"
@@ -46,15 +42,15 @@ const Controls = ({ params, updateParams }) => {
       </div>
       <div className="col-lg-2 mb-2">
         <RepositoriesSelect
-          repositories={repositories}
+          filter={params.organizations}
           updateParams={updateParams}
         />
       </div>
       <div className="col-lg-2 mb-2">
-        <LabelsSelect labels={labels} updateParams={updateParams} />
+        <LabelsSelect filter={params.labels} updateParams={updateParams} />
       </div>
       <div className="col-lg-2 mb-2">
-        <AuthorsSelect authors={authors} updateParams={updateParams} />
+        <AuthorsSelect filter={params.authors} updateParams={updateParams} />
       </div>
       <div className="col-lg-2 mb-2">
         <Select
