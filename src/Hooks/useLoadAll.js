@@ -7,6 +7,7 @@ export default function useLoadAll(entity, params) {
   const paramsRef = useRef(params);
 
   const [allPagesLoaded, setAllPagesLoaded] = useState(false);
+  const [totalPages, setTotalPages] = useState(1);
 
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
@@ -37,6 +38,7 @@ export default function useLoadAll(entity, params) {
     }
 
     if (state.items && state.items.length > 0) {
+      setTotalPages(state.pageCount);
       const currentItems = items;
 
       if (!allPagesLoaded) {
@@ -68,5 +70,5 @@ export default function useLoadAll(entity, params) {
     }
   }, [state, loadPage, items, allPagesLoaded, page, entity]);
 
-  return [items, allPagesLoaded, lastModified];
+  return [items, allPagesLoaded, lastModified, totalPages];
 }
