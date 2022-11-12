@@ -24,7 +24,8 @@ const RepositoryItem = ({ repository }) => {
         </Link>
         &nbsp;
         <span className="badge bg-info rounded-pill">
-          {repository.issues} vagas
+        <i className="fa fa-briefcase"></i> {repository.issues} vaga
+          {repository.issues === 1 ? "" : "s"}
         </span>
         <br />
         <Link to={url}>
@@ -34,6 +35,12 @@ const RepositoryItem = ({ repository }) => {
       <div className="card-body">
         {repository.description}
         <br />
+        <span className="badge bg-primary">
+          <i className="fa fa-star"></i> {repository.stargazers} stargazers
+        </span>{" "}
+        <span className="badge bg-primary">
+          <i className="fa fa-eye"></i> {repository.watchers} watchers
+        </span>
         <div className="alert alert-warning mt-3 mb-3">
           <a href={issuesUrl} target="_blank" rel="noopener noreferrer">
             Ver vagas disponívels no GitHub <i className="fa fa-github" />
