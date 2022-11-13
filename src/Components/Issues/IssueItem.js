@@ -25,7 +25,7 @@ const IssueItem = ({ issue }) => {
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="col-lg-12">{issue.title}</div>
+          <div className="col-lg-12 mb-2">{issue.title}</div>
           <div className="col-lg-10">
             <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Publicado em: {FormatDate(createdAt)}
@@ -35,7 +35,7 @@ const IssueItem = ({ issue }) => {
             </span>
           </div>
           <div className="col-lg-2">
-            <Link to={authorUrl} className="pull-right text-center">
+            <Link to={authorUrl} className="pull-right text-center" title={issue.user.login}>
               <img
                 src={issue.user.avatar_url}
                 alt={issue.user.login}
@@ -43,7 +43,9 @@ const IssueItem = ({ issue }) => {
                 style={{ width: "48px" }}
               />
               <br />
-              <span className="small ellipsis">{issue.user.login}</span>
+              <span className="small ellipsis">
+                {issue.user.name !== undefined && issue.user.name !== null ? issue.user.name : issue.user.login}
+              </span>
             </Link>
           </div>
           <div className="col-lg-12">

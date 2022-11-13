@@ -23,8 +23,22 @@ const AuthorItem = ({ author }) => {
         </span>
       </div>
       <div className="card-body">
-        <Link to={url}>{author.login}</Link>
+        <Link to={url} title={author.login}>
+          {author.name !== null ? author.name : author.login}
+        </Link>
+        {author.bio && (
+          <>
+            <br />
+            {author.bio}
+          </>
+        )}
         <br />
+        <span className="badge bg-primary">
+          <i className="fa fa-eye"></i> {author.followers} seguidor
+          {author.followers == 1 ? "" : "es"}
+        </span>
+      </div>
+      <div className="card-footer">
         <div className="alert alert-warning mt-3 mb-3">
           <a href={profileUrl} target="_blank" rel="noopener noreferrer">
             Ver perfil no GitHub <i className="fa fa-github" />

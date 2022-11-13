@@ -15,7 +15,7 @@ const AuthorsSelect = ({ filter, updateParams }) => {
   const authorsItems = authors.map((item) => {
     return {
       value: item.login,
-      label: item.login,
+      label: item.name !== undefined && item.name !== null ? item.name : item.login,
       image: item.avatar_url,
     };
   });
