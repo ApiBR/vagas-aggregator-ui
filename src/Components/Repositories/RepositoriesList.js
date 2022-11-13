@@ -12,7 +12,7 @@ const Repositories = () => {
   return (
     <div className="row mt-2 ml-1 mr-1">
       <div className="justify-content-center">
-        <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
+        <div className="alert alert-secondary text-center col-xs-6 col-6 offset-3">
           Repositórios:{" "}
           <span
             className={classNames("badge roudend-pill", {

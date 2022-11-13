@@ -100,10 +100,10 @@ const IssuesList = () => {
 
   return (
     <div className="row mt-4">
-      <div className="col-lg-12">
+      <div className="col-12">
         <Controls params={params} updateParams={updateParams} />
       </div>
-      <div className="col-lg-12">
+      <div className="col-12">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}
@@ -112,7 +112,7 @@ const IssuesList = () => {
         />
       </div>
       <div className="justify-content-center">
-        <div className="alert alert-secondary text-center col-xs-6 col-lg-6 offset-lg-3">
+        <div className="alert alert-secondary text-center col-xs-6 col-6 offset-3">
           Vagas:{" "}
           <span
             className={classNames("badge rounded-pill", {
@@ -146,7 +146,7 @@ const IssuesList = () => {
       </div>
       {state.loading && <PlaceholderList type="issue" quantity={params.per_page} />}
       {!state.loading && issuesItems}
-      <div className="col-lg-12">
+      <div className="col-12">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}

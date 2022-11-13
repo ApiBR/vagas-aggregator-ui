@@ -15,7 +15,7 @@ const Controls = ({ params, updateParams }) => {
 
   return (
     <div className="row mt-3 mb-3 mr-2 ml-2">
-      <div className="col-lg-4 mb-2">
+      <div className="col-4 mb-2">
         <form
           className="d-flex"
           onSubmit={(e) => {
@@ -40,16 +40,16 @@ const Controls = ({ params, updateParams }) => {
           </button>
         </form>
       </div>
-      <div className="col-lg-2 mb-2">
+      <div className="col-2 mb-2">
         <RepositoriesSelect
           filter={params.organizations}
           updateParams={updateParams}
         />
       </div>
-      <div className="col-lg-2 mb-2">
+      <div className="col-2 mb-2">
         <LabelsSelect filter={params.labels} updateParams={updateParams} />
       </div>
-      <div className="col-lg-2 mb-2">
+      <div className="col-2 mb-2">
         <AuthorsSelect filter={params.authors} updateParams={updateParams} />
       </div>
       <div className="col-lg-2 mb-2">

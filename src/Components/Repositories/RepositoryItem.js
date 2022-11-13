@@ -15,7 +15,7 @@ const RepositoryItem = ({ repository }) => {
     "/new?assignees=&labels=&template=adicionar-nova-vaga.md&title=%5BCidade%20or%20Remoto%5D+Tecnologia+Developer+na+%5BNome+da+Empresa%5D";
   const url = "/?organizations=" + repository.organization.login;
   return (
-    <div className="card border-default mb-3 col-lg-4">
+    <div className="card border-default mb-3 col-4">
       <div className="card-header">
         <Link to={url}>
           <img
@@ -24,19 +24,18 @@ const RepositoryItem = ({ repository }) => {
             className="rounded-circle img-responsive"
             style={{ width: "48px" }}
           />
-        </Link>
-        &nbsp;
+        </Link>{" "}
         <span className="badge bg-info rounded-pill">
           <i className="fa fa-briefcase"></i> {repository.issues} vaga
           {repository.issues === 1 ? "" : "s"}
-        </span>        
+        </span>
         <br />
         <Link to={url}>
           {repository.organization.login}/{repository.name}
         </Link>
       </div>
       <div className="card-body">
-      <a
+        <a
           href={newIssueUrl}
           target="_blank"
           rel="noreferrer"
@@ -50,10 +49,12 @@ const RepositoryItem = ({ repository }) => {
         <br />
         <br />
         <span className="badge bg-primary">
-          <i className="fa fa-star"></i> {repository.stargazers} stargazers
+          <i className="fa fa-star"></i> {repository.stargazers} stargazer
+          {repository.stargazers === 1 ? "" : "s"}
         </span>{" "}
         <span className="badge bg-primary">
-          <i className="fa fa-eye"></i> {repository.watchers} watchers
+          <i className="fa fa-bell"></i> {repository.subscribers} assinante
+          {repository.subscribers === 1 ? "" : "s"}
         </span>
         <div className="alert alert-warning mt-3 mb-3">
           <a href={issuesUrl} target="_blank" rel="noopener noreferrer">

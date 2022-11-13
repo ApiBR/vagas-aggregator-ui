@@ -5,7 +5,7 @@ const AuthorItem = ({ author }) => {
   const profileUrl = githubUrl + author.login;
   const url = "/?authors=" + author.login;
   return (
-    <div className="card border-default mb-3 col-lg-2">
+    <div className="card border-default mb-3 col-2">
       <div className="card-header">
         <Link to={url}>
           <img
@@ -14,8 +14,7 @@ const AuthorItem = ({ author }) => {
             className="rounded-circle img-responsive"
             style={{ width: "48px" }}
           />
-        </Link>
-        &nbsp;
+        </Link>{" "}
         <span className="badge bg-info rounded-pill">
           <i className="fa fa-briefcase"></i> {author.issues} vaga
           {author.issues === 1 ? "" : "s"} publicada

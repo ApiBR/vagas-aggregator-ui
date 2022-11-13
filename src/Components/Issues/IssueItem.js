@@ -9,7 +9,7 @@ const IssueItem = ({ issue }) => {
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   return (
-    <div className="card border-default mb-3 col-lg-3">
+    <div className="card border-default mb-3 col-3">
       <div className="card-header">
         <Link to={organizationUrl}>
           <img
@@ -25,8 +25,8 @@ const IssueItem = ({ issue }) => {
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="col-lg-12 mb-2">{issue.title}</div>
-          <div className="col-lg-10">
+          <div className="col-12 mb-2">{issue.title}</div>
+          <div className="col-10">
             <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Publicado em: {FormatDate(createdAt)}
             </span>
@@ -34,7 +34,7 @@ const IssueItem = ({ issue }) => {
               Atualizado em: {FormatDate(updatedAt)}
             </span>
           </div>
-          <div className="col-lg-2">
+          <div className="col-2">
             <Link to={authorUrl} className="pull-right text-center" title={issue.user.login}>
               <img
                 src={issue.user.avatar_url}
@@ -48,7 +48,7 @@ const IssueItem = ({ issue }) => {
               </span>
             </Link>
           </div>
-          <div className="col-lg-12">
+          <div className="col-6 offset-3">
             <div className="alert alert-warning mt-3 mb-3">
               <a href={issue.url} target="_blank" rel="noopener noreferrer">
                 Ver vaga no GitHub <i className="fa fa-github" />
