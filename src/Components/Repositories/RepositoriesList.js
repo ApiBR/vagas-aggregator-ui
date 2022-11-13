@@ -5,9 +5,10 @@ import classNames from "classnames";
 import RepositoryItem from "./RepositoryItem";
 
 const Repositories = () => {
-  const [repositories, allRepositoriesLoaded, lastModified, totalPages] =
-    useLoadAll("repositories", { per_page: 100 });
-  const percentage = (repositories.length / totalPages) * 100;
+  const [repositories, allRepositoriesLoaded, lastModified] = useLoadAll(
+    "repositories",
+    { per_page: 100 }
+  );
 
   return (
     <div className="row mt-2 ml-1 mr-1">
@@ -31,11 +32,10 @@ const Repositories = () => {
               <br />
               <div className="progress">
                 <div
-                  className="progress-bar bg-success"
+                  className="progress-bar bg-success progress-bar-striped progress-bar-animated"
                   role="progressbar"
-                  aria-label="Success example"
-                  style={{ width: percentage + "%" }}
-                  aria-valuenow={percentage}
+                  style={{ width: "50%" }}
+                  aria-valuenow="50"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 ></div>

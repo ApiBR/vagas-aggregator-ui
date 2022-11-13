@@ -127,9 +127,8 @@ const IssuesList = () => {
           {state.loading && (
             <div className="progress">
               <div
-                className="progress-bar bg-success"
+                className="progress-bar bg-success progress-bar-striped progress-bar-animated"
                 role="progressbar"
-                aria-label="Success example"
                 style={{ width: "50%" }}
                 aria-valuenow="50"
                 aria-valuemin="0"

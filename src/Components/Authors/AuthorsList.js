@@ -32,9 +32,8 @@ const AuthorsList = () => {
               <br />
               <div className="progress">
                 <div
-                  className="progress-bar bg-success"
+                  className="progress-bar bg-success progress-bar-striped progress-bar-animated"
                   role="progressbar"
-                  aria-label="Success example"
                   style={{ width: percentage + "%" }}
                   aria-valuenow={percentage}
                   aria-valuemin="0"
