@@ -35,7 +35,7 @@ const AuthorItem = ({ author }) => {
         <br />
         <span className="badge bg-primary">
           <i className="fa fa-eye"></i> {author.followers} seguidor
-          {author.followers == 1 ? "" : "es"}
+          {author.followers === 1 ? "" : "es"}
         </span>
       </div>
       <div className="card-footer">
