@@ -10,6 +10,9 @@ const RepositoryItem = ({ repository }) => {
     "/" +
     repository.name +
     "/issues";
+  const newIssueUrl =
+    issuesUrl +
+    "/new?assignees=&labels=&template=adicionar-nova-vaga.md&title=%5BCidade%20or%20Remoto%5D+Tecnologia+Developer+na+%5BNome+da+Empresa%5D";
   const url = "/?organizations=" + repository.organization.login;
   return (
     <div className="card border-default mb-3 col-lg-4">
@@ -24,16 +27,27 @@ const RepositoryItem = ({ repository }) => {
         </Link>
         &nbsp;
         <span className="badge bg-info rounded-pill">
-        <i className="fa fa-briefcase"></i> {repository.issues} vaga
+          <i className="fa fa-briefcase"></i> {repository.issues} vaga
           {repository.issues === 1 ? "" : "s"}
-        </span>
+        </span>        
         <br />
         <Link to={url}>
           {repository.organization.login}/{repository.name}
         </Link>
       </div>
       <div className="card-body">
+      <a
+          href={newIssueUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-outline-success btn-sm"
+        >
+          <i className="fa fa-plus"></i> Cadastrar nova vaga
+        </a>
+        <br />
+        <br />
         {repository.description}
+        <br />
         <br />
         <span className="badge bg-primary">
           <i className="fa fa-star"></i> {repository.stargazers} stargazers
