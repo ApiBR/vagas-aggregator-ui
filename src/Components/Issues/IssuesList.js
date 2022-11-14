@@ -103,7 +103,7 @@ const IssuesList = () => {
       <div className="col-12">
         <Controls params={params} updateParams={updateParams} />
       </div>
-      <div className="col-12">
+      <div className="col-10 offset-1">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}
@@ -145,7 +145,7 @@ const IssuesList = () => {
       </div>
       {state.loading && <PlaceholderList type="issue" quantity={params.per_page} />}
       {!state.loading && issuesItems}
-      <div className="col-12">
+      <div className="col-10 offset-1">
         <Pagination
           onPageChange={changePageNumber}
           totalPagesCount={totalPages}
