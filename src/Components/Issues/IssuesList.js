@@ -112,7 +112,7 @@ const IssuesList = () => {
         />
       </div>
       <div className="justify-content-center">
-        <div className="alert alert-secondary text-center col-xs-12 col-6 offset-3">
+        <div className="alert alert-secondary text-center col-xs-12 col-lg-6 offset-3">
           Vagas:{" "}
           <span
             className={classNames("badge rounded-pill", {
