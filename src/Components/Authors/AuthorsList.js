@@ -13,7 +13,7 @@ const AuthorsList = () => {
   return (
     <div className="row mt-2 ml-1 mr-1">
       <div className="justify-content-center">
-        <div className="alert alert-secondary text-center col-xs-6 col-6 offset-3">
+        <div className="alert alert-secondary text-center col-xs-12 col-6 offset-3">
           Recrutadores:{" "}
           <span
             className={classNames("badge roudend-pill", {
