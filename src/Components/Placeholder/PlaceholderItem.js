@@ -1,6 +1,6 @@
 const PlaceholderItem = () => {
     return (
-      <div className="card border-default placeholder-glow mb-3 col-xs-12 col-3">
+      <div className="card border-default placeholder-glow mb-3 col-xs-12 col-lg-3">
         <div className="card-header">
           <img
             src="https://via.placeholder.com/48?text=%20"
