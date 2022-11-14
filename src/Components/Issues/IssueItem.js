@@ -9,7 +9,7 @@ const IssueItem = ({ issue }) => {
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   return (
-    <div className="card border-default mb-3 col-3">
+    <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
         <Link to={organizationUrl}>
           <img
