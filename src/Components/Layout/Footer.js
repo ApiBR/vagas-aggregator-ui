@@ -12,6 +12,7 @@ const Footer = () => {
           alt="Guilherme Branco Stracini"
           className="image-rounded image-responsive"
           style={{ width: "24px" }}
+          loading="lazy"
         />
       </a>{" "}
       <a

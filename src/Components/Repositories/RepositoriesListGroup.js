@@ -16,6 +16,7 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
             style={{ width: "36px" }}
+            loading="lazy"
           />
         </Link>{" "}
         <Link to={url} title={repository.organization.long}>

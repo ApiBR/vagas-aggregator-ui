@@ -20,6 +20,7 @@ const RepositoryItem = ({ repository }) => {
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
             style={{ width: "48px" }}
+            loading="lazy"
           />
         </Link>{" "}
         <Link to={url} title={repository.organization.login}>

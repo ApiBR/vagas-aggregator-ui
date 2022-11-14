@@ -7,6 +7,7 @@ const PlaceholderItem = () => {
             alt="placeholder"
             className="rounded-circle img-responsive"
             style={{ width: "48px", marginRight: "20px" }}
+            loading="lazy"
           />
           <span className="placeholder col-6"></span>
         </div>
@@ -23,6 +24,7 @@ const PlaceholderItem = () => {
                 alt="placeholder"
                 className="rounded-circle img-responsive"
                 style={{ width: "48px" }}
+                loading="lazy"
               />
             </div>
           </div>

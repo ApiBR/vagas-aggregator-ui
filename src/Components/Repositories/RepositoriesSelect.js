@@ -58,6 +58,7 @@ const RepositoriesSelect = ({ filter, updateParams }) => {
             src={option.image}
             alt={option.label}
             style={{ width: "24px" }}
+            loading="lazy"
           />{" "}
           {option.label}
         </div>
