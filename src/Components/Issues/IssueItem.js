@@ -48,7 +48,7 @@ const IssueItem = ({ issue }) => {
               </span>
             </Link>
           </div>
-          <div className="col-xs-12 col-6 offset-3">
+          <div className="col-xs-12 col-lg-6 offset-lg-3">
             <div className="alert alert-warning mt-3 mb-3">
               <a href={issue.url} target="_blank" rel="noopener noreferrer">
                 Ver vaga no GitHub <i className="fa fa-github" />
