@@ -12,7 +12,7 @@ const RepositoryItem = ({ repository }) => {
     "/new?assignees=&labels=&template=adicionar-nova-vaga.md&title=%5BCidade%20or%20Remoto%5D+Tecnologia+Developer+na+%5BNome+da+Empresa%5D";
   const url = "/?organizations=" + repository.organization.login;
   return (
-    <div className="card border-default mb-3 col-4">
+    <div className="card border-default mb-3 col-lg-4">
       <div className="card-header">
         <Link to={url} title={repository.organization.login}>
           <img
