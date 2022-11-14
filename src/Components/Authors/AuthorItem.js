@@ -8,7 +8,7 @@ const AuthorItem = ({ author }) => {
   const url = "/?authors=" + author.login;
   const lastIssueAt = new Date(author.lastIssue_at);
   return (
-    <div className="card border-default mb-3 col-2">
+    <div className="card border-default mb-3 col-lg-2">
       <div className="card-header">
         <Link to={url}>
           <img
