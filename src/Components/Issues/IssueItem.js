@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FormatDate } from "../../Helpers/FormatDate";
+import FormatDate from "../../Helpers/FormatDate";
 import LabelsList from "../Labels/LabelsList";
 
 const IssueItem = ({ issue }) => {
