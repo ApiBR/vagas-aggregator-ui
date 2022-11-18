@@ -4,13 +4,13 @@ import ContributorsList from "../Contributors/ContributorsList";
 
 const RepositoryItem = ({ repository }) => {
   const githubUrl = "https://github.com/";
-  const repositoryUrl =
-    githubUrl + repository.organization.login + "/" + repository.name;
+  const repositoryUrl =    githubUrl + repository.organization.login + "/" + repository.name;
   const issuesUrl = repositoryUrl + "/issues";
   const newIssueUrl =
     issuesUrl +
     "/new?assignees=&labels=&template=adicionar-nova-vaga.md&title=%5BCidade%20or%20Remoto%5D+Tecnologia+Developer+na+%5BNome+da+Empresa%5D";
   const url = "/?organizations=" + repository.organization.login;
+  const urlAuthors = "/recrutadores?organizations=" + repository.organization.login;
   return (
     <div className="card border-default mb-3 col-lg-4">
       <div className="card-header">
@@ -56,7 +56,10 @@ const RepositoryItem = ({ repository }) => {
           className="btn btn-outline-warning btn-sm"
         >
           <i className="fa fa-github"></i> Ver repositório
-        </a>
+        </a>{" "}
+        <Link to={urlAuthors} className="btn btn-outline-primary btn-sm">
+          <i className="fa fa-users"></i> Ver recrutadores
+        </Link>
         <br />
         <br />
         {repository.description}

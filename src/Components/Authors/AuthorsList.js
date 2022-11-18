@@ -1,14 +1,21 @@
+import { useSearchParams } from "react-router-dom";
+import classNames from "classnames";
 import useLoadAll from "../../Hooks/useLoadAll";
 import PlaceholderList from "../Placeholder/PlaceholderList";
-import { FormatDate } from "../../Helpers/FormatDate";
-import classNames from "classnames";
 import AuthorItem from "./AuthorItem";
+import UpdateBadge from "../Layout/UpdateBadge";
 
 const AuthorsList = () => {
+  const [searchParams] = useSearchParams();
+  const paramsPreset = { per_page: 100 };
+  if (searchParams.get("organizations")) {
+    paramsPreset.organizations = searchParams.get("organizations");
+  }
   const [authors, allAuthorsLoaded, lastModified, totalPages] = useLoadAll(
     "authors",
-    { per_page: 100 }
+    paramsPreset
   );
+
   const percentage = (authors.length / totalPages) * 100;
   return (
     <div className="row mt-2 ml-1 mr-1">
@@ -42,12 +49,15 @@ const AuthorsList = () => {
               </div>
             </>
           )}
-          {allAuthorsLoaded && (
-            <span className="badge bg-info">
-              Atualizado em: {FormatDate(new Date(lastModified))}
-            </span>
-          )}
+          {allAuthorsLoaded && <UpdateBadge date={lastModified} />}
         </div>
+        {paramsPreset.organizations && (
+          <>
+            <a href="recrutadores" className="btn btn-outline-success mb-3">
+              <i className="fa fa-users"></i> Ver todos os recrutadores
+            </a>
+          </>
+        )}
       </div>
       {!allAuthorsLoaded && <PlaceholderList type="author" quantity={100} />}
       {allAuthorsLoaded &&
