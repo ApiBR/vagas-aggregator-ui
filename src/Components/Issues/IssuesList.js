@@ -2,46 +2,19 @@ import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import toastr from "toastr";
 import useFetch from "../../Hooks/useFetch";
-import { FormatDate } from "../../Helpers/FormatDate";
+import GetParams from "../../Helpers/GetParams";
 import { Controls, Pagination } from "../Layout";
 import PlaceholderList from "../Placeholder/PlaceholderList";
 import classNames from "classnames";
 import IssueItem from "./IssueItem";
-
-export const getParams = (searchParams) => {
-  const paramsPreset = {};
-
-  if (searchParams.get("per_page")) {
-    paramsPreset.per_page = parseInt(searchParams.get("per_page"));
-  } else {
-    paramsPreset.per_page = 100;
-  }
-
-  if (searchParams.get("authors")) {
-    paramsPreset.authors = searchParams.get("authors");
-  }
-
-  if (searchParams.get("labels")) {
-    paramsPreset.labels = searchParams.get("labels");
-  }
-
-  if (searchParams.get("organizations")) {
-    paramsPreset.organizations = searchParams.get("organizations");
-  }
-
-  if (searchParams.get("term")) {
-    paramsPreset.term = searchParams.get("term");
-  }
-
-  return paramsPreset;
-};
+import UpdateBadge from "../Layout/UpdateBadge";
 
 const IssuesList = () => {
   const [searchParams] = useSearchParams();
   const pagePreset = !isNaN(parseInt(searchParams.get("page")))
     ? parseInt(searchParams.get("page"))
     : 1;
-  const paramsPreset = getParams(searchParams);
+  const paramsPreset = GetParams(searchParams);
   const entityRef = useRef("issues");
   const [items, setItems] = useState([]);
   const [totalIssues, setTotalIssues] = useState(0);
@@ -65,7 +38,7 @@ const IssuesList = () => {
   };
 
   useEffect(() => {
-    const paramsPreset = getParams(searchParams);
+    const paramsPreset = GetParams(searchParams);
     setParams(paramsPreset);
     setPage(1);
     setLoaded(false);
@@ -137,13 +110,13 @@ const IssuesList = () => {
             </div>
           )}
           {!state.loading && state.lastModified && (
-            <span className="badge bg-info">
-              Atualizado em: {FormatDate(new Date(state.lastModified))}
-            </span>
+            <UpdateBadge date={state.lastModified} />
           )}
         </div>
       </div>
-      {state.loading && <PlaceholderList type="issue" quantity={params.per_page} />}
+      {state.loading && (
+        <PlaceholderList type="issue" quantity={params.per_page} />
+      )}
       {!state.loading && issuesItems}
       <div className="col-10 offset-1">
         <Pagination

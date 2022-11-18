@@ -1,8 +1,8 @@
 import PlaceholderList from "../Placeholder/PlaceholderList";
 import useLoadAll from "../../Hooks/useLoadAll";
-import { FormatDate } from "../../Helpers/FormatDate";
 import classNames from "classnames";
 import RepositoryItem from "./RepositoryItem";
+import UpdateBadge from "../Layout/UpdateBadge";
 
 const Repositories = () => {
   const [repositories, allRepositoriesLoaded, lastModified] = useLoadAll(
@@ -42,11 +42,7 @@ const Repositories = () => {
               </div>
             </>
           )}
-          {allRepositoriesLoaded && (
-            <span className="badge bg-info">
-              Atualizado em: {FormatDate(new Date(lastModified))}
-            </span>
-          )}
+          {allRepositoriesLoaded && <UpdateBadge date={lastModified} />}
         </div>
       </div>
       {!allRepositoriesLoaded && (
