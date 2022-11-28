@@ -6,9 +6,7 @@ const RepositoryItem = ({ repository }) => {
   const githubUrl = "https://github.com/";
   const repositoryUrl =    githubUrl + repository.organization.login + "/" + repository.name;
   const issuesUrl = repositoryUrl + "/issues";
-  const newIssueUrl =
-    issuesUrl +
-    "/new?assignees=&labels=&template=adicionar-nova-vaga.md&title=%5BCidade%20or%20Remoto%5D+Tecnologia+Developer+na+%5BNome+da+Empresa%5D";
+  const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
   const urlAuthors = "/recrutadores?organizations=" + repository.organization.login;
   return (
