@@ -13,7 +13,7 @@ function reducer(state, action) {
       return {
         loading: true,
         items: null,
-        currentPage: action.payload.currentPage
+        currentPage: action.payload.currentPage,
       };
     case ACTIONS.GET_DATA:
       return {
@@ -23,7 +23,9 @@ function reducer(state, action) {
         pageCount: action.payload.pageCount,
         itemCount: action.payload.itemCount,
         currentPage: action.payload.currentPage,
-        lastModified: action.payload.lastModified
+        lastModified: action.payload.lastModified,
+        recentIssues: action.payload.recentIssues,
+        mostRecentIssue: action.payload.mostRecentIssue,
       };
     case ACTIONS.ERROR:
       return {
@@ -67,7 +69,9 @@ export default function useFetch(entity, params, page) {
             pageCount: parseInt(res.headers["x-total-pages"]),
             itemCount: parseInt(res.headers["x-total-results"]),
             currentPage: parseInt(res.headers["x-current-page"]),
-            lastModified: res.headers["last-modified"]
+            lastModified: res.headers["last-modified"],
+            recentIssues: res.headers["x-last-60-days-count"],
+            mostRecentIssue: res.headers["x-most-recent-date"],
           },
         });
       })
