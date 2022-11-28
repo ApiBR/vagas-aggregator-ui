@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import LabelsList from "../Labels/LabelsList";
 import ContributorsList from "../Contributors/ContributorsList";
+import FormatDate from "../../Helpers/FormatDate";
 
 const RepositoryItem = ({ repository }) => {
   const githubUrl = "https://github.com/";
@@ -9,6 +10,10 @@ const RepositoryItem = ({ repository }) => {
   const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
   const urlAuthors = "/recrutadores?organizations=" + repository.organization.login;
+
+  const mostRecentIssue = new Date(repository.mostRecent);
+  const leastRecentIssue = new Date(repository.leastRecent);
+
   return (
     <div className="card border-default mb-3 col-lg-4">
       <div className="card-header">
@@ -37,6 +42,10 @@ const RepositoryItem = ({ repository }) => {
           <i className="fa fa-bell"></i> {repository.subscribers} assinante
           {repository.subscribers === 1 ? "" : "s"}
         </span>
+        <span className="badge bg-primary">
+          <i className="fa fa-users"></i> {repository.authors} recrutador
+          {repository.authors === 1 ? "" : "es"}
+        </span>
       </div>
       <div className="card-body">
         <a
@@ -61,6 +70,17 @@ const RepositoryItem = ({ repository }) => {
         <br />
         <br />
         {repository.description}
+        <br />
+        <br />
+        <span className="badge bg-secondary mt-2">
+          <i className="fa fa-calendar"></i> Vaga mais recente:{" "}
+          {FormatDate(mostRecentIssue)}
+        </span>
+        <br />
+        <span className="badge bg-secondary mt-2">
+          <i className="fa fa-calendar"></i> Vaga mais antiga:{" "}
+          {FormatDate(leastRecentIssue)}
+        </span>
         <br />
         <br />
         <LabelsList labels={repository.labels} />
