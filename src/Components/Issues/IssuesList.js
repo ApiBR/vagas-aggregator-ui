@@ -110,7 +110,11 @@ const IssuesList = () => {
             </div>
           )}
           {!state.loading && state.lastModified && (
-            <UpdateBadge date={state.lastModified} />
+            <UpdateBadge
+              date={state.lastModified}
+              recentIssues={state.recentIssues}
+              mostRecentIssue={state.mostRecentIssue}
+            />
           )}
         </div>
       </div>
