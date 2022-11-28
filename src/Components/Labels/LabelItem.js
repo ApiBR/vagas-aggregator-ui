@@ -13,7 +13,7 @@ const LabelItem = ({ label }) => {
         }}
       >
         {label.name}
-      </span>
+      </span>{" "}
     </Link>
   );
 };
