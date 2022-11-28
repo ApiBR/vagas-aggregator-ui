@@ -5,11 +5,13 @@ import FormatDate from "../../Helpers/FormatDate";
 
 const RepositoryItem = ({ repository }) => {
   const githubUrl = "https://github.com/";
-  const repositoryUrl =    githubUrl + repository.organization.login + "/" + repository.name;
+  const repositoryUrl =
+    githubUrl + repository.organization.login + "/" + repository.name;
   const issuesUrl = repositoryUrl + "/issues";
   const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
-  const urlAuthors = "/recrutadores?organizations=" + repository.organization.login;
+  const urlAuthors =
+    "/recrutadores?organizations=" + repository.organization.login;
 
   const mostRecentIssue = new Date(repository.mostRecent);
   const leastRecentIssue = new Date(repository.leastRecent);
@@ -41,7 +43,7 @@ const RepositoryItem = ({ repository }) => {
         <span className="badge bg-primary">
           <i className="fa fa-bell"></i> {repository.subscribers} assinante
           {repository.subscribers === 1 ? "" : "s"}
-        </span>
+        </span>{" "}
         <span className="badge bg-primary">
           <i className="fa fa-users"></i> {repository.authors} recrutador
           {repository.authors === 1 ? "" : "es"}
@@ -67,9 +69,11 @@ const RepositoryItem = ({ repository }) => {
         <Link to={urlAuthors} className="btn btn-outline-primary btn-sm">
           <i className="fa fa-users"></i> Ver recrutadores
         </Link>
-        <br />
-        <br />
-        {repository.description}
+        {repository.description && (
+          <>
+            <br /> <br /> {repository.description}
+          </>
+        )}
         <br />
         <br />
         <span className="badge bg-secondary mt-2">
