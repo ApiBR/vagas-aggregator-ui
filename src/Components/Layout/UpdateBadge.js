@@ -24,7 +24,7 @@ const UpdateBadge = ({ date, recentIssues, mostRecentIssue }) => {
         <>
           <br />
           <span className="badge bg-warning">
-            <i className="fa fa-calendar"></i> Última vaga atualizada em:{" "}
+            <i className="fa fa-calendar"></i> Última vaga publicada em:{" "}
             {FormatDate(new Date(mostRecentIssue))}
           </span>
         </>
