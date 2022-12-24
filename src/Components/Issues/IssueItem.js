@@ -8,6 +8,7 @@ const IssueItem = ({ issue }) => {
     "/?organizations=" + issue.repository.organization.login;
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
+  const isNew = Math.round((new Date() - createdAt) / 8.64e7) <= 5;
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
@@ -21,7 +22,17 @@ const IssueItem = ({ issue }) => {
         </Link>{" "}
         <Link to={organizationUrl}>
           {issue.repository.organization.login}/{issue.repository.name}
-        </Link>
+        </Link>{" "}
+        {isNew && <span
+          className="badge mr-2 mb-2"
+          style={{
+            textTransform: "capitalize",
+            border: "2px solid #64B264",
+            color: "#FFF",
+          }}
+        >
+          NOVA
+        </span>}        
       </div>
       <div className="card-body">
         <div className="row">
@@ -35,7 +46,11 @@ const IssueItem = ({ issue }) => {
             </span>
           </div>
           <div className="col-2">
-            <Link to={authorUrl} className="pull-right text-center" title={issue.user.login}>
+            <Link
+              to={authorUrl}
+              className="pull-right text-center"
+              title={issue.user.login}
+            >
               <img
                 src={issue.user.avatar_url}
                 alt={issue.user.login}
@@ -44,7 +59,9 @@ const IssueItem = ({ issue }) => {
               />
               <br />
               <span className="small ellipsis">
-                {issue.user.name !== undefined && issue.user.name !== null ? issue.user.name : issue.user.login}
+                {issue.user.name !== undefined && issue.user.name !== null
+                  ? issue.user.name
+                  : issue.user.login}
               </span>
             </Link>
           </div>
