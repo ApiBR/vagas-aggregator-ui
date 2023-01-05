@@ -12,7 +12,7 @@ const UpdateBadge = ({ date, recentIssues, mostRecentIssue }) => {
           <br />
           <span
             className="badge bg-warning"
-            title="Vagas atualizadas nos últimos 2 meses"
+            title="Vagas publicadas nos últimos 2 meses"
           >
             <i className="fa fa-hashtag"></i> Vaga
             {recentIssues === 1 ? "" : "s"} recente
