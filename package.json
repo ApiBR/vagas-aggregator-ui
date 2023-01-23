@@ -14,7 +14,7 @@
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "react-select": "^5.6.0",
+    "react-select": "^5.7.0",
     "toastr": "^2.1.4",
     "web-vitals": "^3.1.1"
   },
