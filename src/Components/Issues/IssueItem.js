@@ -19,6 +19,8 @@ const IssueItem = ({ issue }) => {
             src={organizationsAvatar}
             alt={issue.repository.organization.login}
             className="rounded-circle img-responsive"
+            style={{ width: "48px" }}
+            loading="lazy"
           />
         </Link>{" "}
         <Link to={organizationUrl}>
@@ -56,6 +58,8 @@ const IssueItem = ({ issue }) => {
                 src={userAvatar}
                 alt={issue.user.login}
                 className="rounded-circle img-responsive"
+                style={{ width: "48px" }}
+                loading="lazy"
               />
               <br />
               <span className="small ellipsis">

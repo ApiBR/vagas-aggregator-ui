@@ -13,6 +13,7 @@ const ContributorItem = ({ contributor, showName = false }) => {
           src={contributorAvatar}
           alt={contributor.login}
           className="rounded-circle img-responsive"
+          style={{ width: "48px" }}
           loading="lazy"
         />
         {name}

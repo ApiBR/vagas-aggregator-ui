@@ -16,7 +16,7 @@ const AuthorsSelect = ({ filter, updateParams }) => {
     return {
       value: item.login,
       label: item.name !== undefined && item.name !== null ? item.name : item.login,
-      image: item.avatar_url,
+      image: item.avatar_url + "&size=24",
     };
   });
 
@@ -44,6 +44,20 @@ const AuthorsSelect = ({ filter, updateParams }) => {
     }
   }, [defaultValues, selected]);
 
+  function labelOption(option) {
+    return (
+      <div>
+        <img
+          src={option.image}
+          alt={option.label}
+          style={{ width: "24px" }}
+          loading="lazy"
+        />{" "}
+        {option.label}
+      </div>
+    );
+  }
+
   return (
     <Select
       ref={selectRef}
@@ -53,17 +67,7 @@ const AuthorsSelect = ({ filter, updateParams }) => {
       isMulti={true}
       placeholder="Filtrar por recrutadores"
       onChange={onChange}
-      getOptionLabel={(option) => (
-        <div>
-          <img
-            src={option.image}
-            alt={option.label}
-            style={{ width: "24px" }}
-            loading="lazy"
-          />{" "}
-          {option.label}
-        </div>
-      )}
+      getOptionLabel={labelOption}
     />
   );
 };
