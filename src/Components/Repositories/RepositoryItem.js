@@ -10,7 +10,7 @@ const RepositoryItem = ({ repository }) => {
   const issuesUrl = repositoryUrl + "/issues";
   const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
-  const urlAuthors =    "/recrutadores?organizations=" + repository.organization.login;
+  const urlAuthors = "/recrutadores?organizations=" + repository.organization.login;
   const mostRecentIssue = new Date(repository.mostRecent);
   const leastRecentIssue = new Date(repository.leastRecent);
   const organizationAvatar = repository.organization.avatar_url + "&size=48";
@@ -23,6 +23,7 @@ const RepositoryItem = ({ repository }) => {
             src={organizationAvatar}
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
+            style={{ width: "48px", height: "48px" }}
             loading="lazy"
           />
         </Link>{" "}

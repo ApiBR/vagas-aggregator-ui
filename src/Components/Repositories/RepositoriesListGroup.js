@@ -8,7 +8,7 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
       repository.organization.login +
       "&authors=" +
       authorLogin;
-      const organizationAvatar = repository.organization.avatar_url + "&size=36";
+    const organizationAvatar = repository.organization.avatar_url + "&size=36";
     return (
       <span className="badge badge-secondary d-flex" key={key}>
         <Link to={url} title={repository.organization.login}>
@@ -16,6 +16,7 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
             src={organizationAvatar}
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
+            style={{ width: "36px", height: "36px" }}
             loading="lazy"
           />
         </Link>{" "}

@@ -9,7 +9,7 @@ const NavBar = () => {
         <img
           src={logo}
           alt="API BR Logo"
-          style={{ width: "80px", marginLeft: "10px" }}
+          style={{ width: "80px", height: "80px", marginLeft: "10px" }}
           loading="lazy"
         />
       </a>
