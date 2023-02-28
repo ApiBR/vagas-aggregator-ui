@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import useLoadAll from "../../Hooks/useLoadAll";
+import LabelOption from "../../Helpers/LabelOption";
 
 const RepositoriesSelect = ({ filter, updateParams }) => {
   const animatedComponents = makeAnimated();
@@ -15,7 +16,7 @@ const RepositoriesSelect = ({ filter, updateParams }) => {
     return {
       value: item.organization.login,
       label: item.organization.login + "/" + item.name,
-      image: item.organization.avatar_url,
+      image: item.organization.avatar_url + "&size=24",
     };
   });
 
@@ -52,17 +53,7 @@ const RepositoriesSelect = ({ filter, updateParams }) => {
       isMulti={true}
       placeholder="Filtrar por repositórios"
       onChange={onChange}
-      getOptionLabel={(option) => (
-        <div>
-          <img
-            src={option.image}
-            alt={option.label}
-            style={{ width: "24px" }}
-            loading="lazy"
-          />{" "}
-          {option.label}
-        </div>
-      )}
+      getOptionLabel={LabelOption}
     />
   );
 };
