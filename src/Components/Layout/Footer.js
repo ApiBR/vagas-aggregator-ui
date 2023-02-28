@@ -11,7 +11,7 @@ const Footer = () => {
           src="https://guibranco.github.io/photo.png"
           alt="Guilherme Branco Stracini"
           className="image-rounded image-responsive"
-          style={{ width: "24px" }}
+          style={{ width: "24px", height: "44px" }}
           loading="lazy"
         />
       </a>{" "}

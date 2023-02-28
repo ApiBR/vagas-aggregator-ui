@@ -4,8 +4,7 @@ import LabelsList from "../Labels/LabelsList";
 
 const IssueItem = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
-  const organizationUrl =
-    "/?organizations=" + issue.repository.organization.login;
+  const organizationUrl = "/?organizations=" + issue.repository.organization.login;
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   const isNew = Math.round((new Date() - createdAt) / 8.64e7) <= 5;
@@ -19,23 +18,25 @@ const IssueItem = ({ issue }) => {
             src={organizationsAvatar}
             alt={issue.repository.organization.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
+            style={{ width: "48px", height: "48px" }}
             loading="lazy"
           />
         </Link>{" "}
         <Link to={organizationUrl}>
           {issue.repository.organization.login}/{issue.repository.name}
         </Link>{" "}
-        {isNew && <span
-          className="badge mr-2 mb-2"
-          style={{
-            textTransform: "capitalize",
-            border: "2px solid #64B264",
-            color: "#FFF",
-          }}
-        >
-          NOVA
-        </span>}        
+        {isNew && (
+          <span
+            className="badge mr-2 mb-2"
+            style={{
+              textTransform: "capitalize",
+              border: "2px solid #64B264",
+              color: "#FFF",
+            }}
+          >
+            NOVA
+          </span>
+        )}
       </div>
       <div className="card-body">
         <div className="row">
@@ -58,7 +59,7 @@ const IssueItem = ({ issue }) => {
                 src={userAvatar}
                 alt={issue.user.login}
                 className="rounded-circle img-responsive"
-                style={{ width: "48px" }}
+                style={{ width: "48px", height: "48px" }}
                 loading="lazy"
               />
               <br />
