@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import useLoadAll from "../../Hooks/useLoadAll";
+import LabelOption from "../../Helpers/LabelOption";
 
 const AuthorsSelect = ({ filter, updateParams }) => {
   const animatedComponents = makeAnimated();
@@ -44,20 +45,6 @@ const AuthorsSelect = ({ filter, updateParams }) => {
     }
   }, [defaultValues, selected]);
 
-  function labelOption(option) {
-    return (
-      <div>
-        <img
-          src={option.image}
-          alt={option.label}
-          style={{ width: "24px" }}
-          loading="lazy"
-        />{" "}
-        {option.label}
-      </div>
-    );
-  }
-
   return (
     <Select
       ref={selectRef}
@@ -67,7 +54,7 @@ const AuthorsSelect = ({ filter, updateParams }) => {
       isMulti={true}
       placeholder="Filtrar por recrutadores"
       onChange={onChange}
-      getOptionLabel={labelOption}
+      getOptionLabel={LabelOption}
     />
   );
 };
