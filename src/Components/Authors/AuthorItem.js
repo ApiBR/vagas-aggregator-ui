@@ -7,15 +7,15 @@ const AuthorItem = ({ author }) => {
   const profileUrl = githubUrl + author.login;
   const url = "/?authors=" + author.login;
   const lastIssueAt = new Date(author.lastIssue_at);
+  const authorAvatar = author.avatar_url + "&size=48";
   return (
     <div className="card border-default mb-3 col-lg-2">
       <div className="card-header">
         <Link to={url}>
           <img
-            src={author.avatar_url}
+            src={authorAvatar}
             alt={author.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
             loading="lazy"
           />
         </Link>{" "}

@@ -9,15 +9,16 @@ const IssueItem = ({ issue }) => {
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   const isNew = Math.round((new Date() - createdAt) / 8.64e7) <= 5;
+  const organizationsAvatar = issue.repository.organization.avatar_url + "&size=48";
+  const userAvatar = issue.user.avatar_url + "&size=48";
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
         <Link to={organizationUrl}>
           <img
-            src={issue.repository.organization.avatar_url}
+            src={organizationsAvatar}
             alt={issue.repository.organization.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
           />
         </Link>{" "}
         <Link to={organizationUrl}>
@@ -52,10 +53,9 @@ const IssueItem = ({ issue }) => {
               title={issue.user.login}
             >
               <img
-                src={issue.user.avatar_url}
+                src={userAvatar}
                 alt={issue.user.login}
                 className="rounded-circle img-responsive"
-                style={{ width: "48px" }}
               />
               <br />
               <span className="small ellipsis">
