@@ -10,21 +10,19 @@ const RepositoryItem = ({ repository }) => {
   const issuesUrl = repositoryUrl + "/issues";
   const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
-  const urlAuthors =
-    "/recrutadores?organizations=" + repository.organization.login;
-
+  const urlAuthors =    "/recrutadores?organizations=" + repository.organization.login;
   const mostRecentIssue = new Date(repository.mostRecent);
   const leastRecentIssue = new Date(repository.leastRecent);
+  const organizationAvatar = repository.organization.avatar_url + "&size=48";
 
   return (
     <div className="card border-default mb-3 col-lg-4">
       <div className="card-header">
         <Link to={url} title={repository.organization.login}>
           <img
-            src={repository.organization.avatar_url}
+            src={organizationAvatar}
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
             loading="lazy"
           />
         </Link>{" "}
