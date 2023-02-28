@@ -23,7 +23,6 @@ const RepositoryItem = ({ repository }) => {
             src={organizationAvatar}
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
             loading="lazy"
           />
         </Link>{" "}

@@ -16,7 +16,6 @@ const AuthorItem = ({ author }) => {
             src={authorAvatar}
             alt={author.login}
             className="rounded-circle img-responsive"
-            style={{ width: "48px" }}
             loading="lazy"
           />
         </Link>{" "}

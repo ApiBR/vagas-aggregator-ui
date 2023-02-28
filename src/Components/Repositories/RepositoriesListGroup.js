@@ -16,7 +16,6 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
             src={organizationAvatar}
             alt={repository.organization.login}
             className="rounded-circle img-responsive"
-            style={{ width: "36px" }}
             loading="lazy"
           />
         </Link>{" "}
