@@ -72,6 +72,11 @@ const RepositoryItem = ({ repository }) => {
             <br /> <br /> {repository.description}
           </>
         )}
+        {!repository.description && (
+          <>
+            <br /> <br /> 🔬 Espaço para divulgação de vagas
+          </>
+        )}
         <br />
         <br />
         {repository.issues > 0 && (
