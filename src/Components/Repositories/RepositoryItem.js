@@ -5,8 +5,7 @@ import FormatDate from "../../Helpers/FormatDate";
 
 const RepositoryItem = ({ repository }) => {
   const githubUrl = "https://github.com/";
-  const repositoryUrl =
-    githubUrl + repository.organization.login + "/" + repository.name;
+  const repositoryUrl = githubUrl + repository.organization.login + "/" + repository.name;
   const issuesUrl = repositoryUrl + "/issues";
   const newIssueUrl = issuesUrl + "/new/choose";
   const url = "/?organizations=" + repository.organization.login;
@@ -75,17 +74,21 @@ const RepositoryItem = ({ repository }) => {
         )}
         <br />
         <br />
-        <span className="badge bg-secondary mt-2">
-          <i className="fa fa-calendar"></i> Vaga mais recente:{" "}
-          {FormatDate(mostRecentIssue)}
-        </span>
-        <br />
-        <span className="badge bg-secondary mt-2">
-          <i className="fa fa-calendar"></i> Vaga mais antiga:{" "}
-          {FormatDate(leastRecentIssue)}
-        </span>
-        <br />
-        <br />
+        {repository.issues > 0 && (
+          <>
+            <span className="badge bg-secondary mt-2">
+              <i className="fa fa-calendar"></i> Vaga mais recente:{" "}
+              {FormatDate(mostRecentIssue)}
+            </span>
+            <br />
+            <span className="badge bg-secondary mt-2">
+              <i className="fa fa-calendar"></i> Vaga mais antiga:{" "}
+              {FormatDate(leastRecentIssue)}
+            </span>
+            <br />
+            <br />
+          </>
+        )}
         <LabelsList labels={repository.labels} />
       </div>
       <div className="card-footer">
