@@ -67,16 +67,11 @@ const RepositoryItem = ({ repository }) => {
         <Link to={urlAuthors} className="btn btn-outline-primary btn-sm">
           <i className="fa fa-users"></i> Ver recrutadores
         </Link>
-        {repository.description && (
-          <>
-            <br /> <br /> {repository.description}
-          </>
-        )}
-        {!repository.description && (
-          <>
-            <br /> <br /> 🔬 Espaço para divulgação de vagas
-          </>
-        )}
+        <br />
+        <br />
+        {repository.description
+          ? repository.description
+          : "🔬 Espaço para divulgação de vagas"}
         <br />
         <br />
         {repository.issues > 0 && (
