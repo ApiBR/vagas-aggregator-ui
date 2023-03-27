@@ -5,8 +5,12 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-jobs:
 
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
