@@ -1,3 +1,13 @@
+const PlaceholderSingleItem = ({ color }) => {
+  return (
+    <span
+      className="badge mr-2 mb-2 col-1"
+      style={{ border: `2px solid ${color}`, color: "#FFF" }}
+    >
+      <span className="placeholder col-12"></span>
+    </span>
+  );
+};
 const PlaceholderItem = () => {
   return (
     <div className="card border-default placeholder-glow mb-3 col-xs-12 col-lg-3">
@@ -35,60 +45,14 @@ const PlaceholderItem = () => {
       </div>
       <div className="card-footer">
         <div className="row">
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(180, 252, 160)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(170, 100, 100)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(170, 100, 100)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(100, 155, 100)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(205, 234, 220)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(8, 127, 91)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(252, 156, 4)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(173, 121, 233)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
-          <span
-            className="badge mr-2 mb-2 col-1"
-            style={{ border: "2px solid rgb(15, 144, 220)", color: "#FFF" }}
-          >
-            <span className="placeholder col-12"></span>
-          </span>
+          <PlaceholderSingleItem color="rgb(180, 252, 160)" />
+          <PlaceholderSingleItem color="rgb(170, 100, 100)" />
+          <PlaceholderSingleItem color="rgb(100, 155, 100)" />
+          <PlaceholderSingleItem color="rgb(205, 234, 220)" />
+          <PlaceholderSingleItem color="rgb(8, 127, 91)" />
+          <PlaceholderSingleItem color="rgb(252, 156, 4)" />
+          <PlaceholderSingleItem color="rgb(173, 121, 233)" />
+          <PlaceholderSingleItem color="rgb(15, 144, 220)" />
         </div>
       </div>
     </div>
