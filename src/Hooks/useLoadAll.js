@@ -19,16 +19,53 @@ export default function useLoadAll(entity, params) {
     page
   );
 
+  function handleItems(state, items, allPagesLoaded, page) {
+    setTotalPages(state.pageCount);
+    const currentItems = items;
+
+    if (!allPagesLoaded) {
+      currentItems[state.currentPage] = state.items;
+      setItems(currentItems);
+    }
+
+    const totalItems = allPagesLoaded
+      ? currentItems.length
+      : currentItems.reduce(
+          (previousValue, currentValue) => previousValue + currentValue.length,
+          0
+        );
+
+    if (totalItems >= state.itemCount && !allPagesLoaded) {
+      setAllPagesLoaded(true);
+      setLastModfied(state.lastModified);
+      const final = [];
+      for (let i in items) {
+        items[i].map((ii) => final.push(ii));
+      }
+      setItems(final);
+    }
+
+    if (state.currentPage < state.pageCount && state.currentPage === page) {
+      setPage((page) => page + 1);
+    }
+  }
+
   useEffect(() => {
     loadPage();
   }, [page, loadPage]);
 
   useEffect(() => {
     if (state.error) {
-      toastr["error"](entity + ": " + state.error.message, { closeButton: true });
+      toastr["error"](entity + ": " + state.error.message, {
+        closeButton: true,
+      });
     }
-    
-    if(state.items != null && typeof(state.items) === "string" && state.items.substring(0,1)==="<"){
+
+    if (
+      state.items != null &&
+      typeof state.items === "string" &&
+      state.items.substring(0, 1) === "<"
+    ) {
       toastr["error"](entity + ": Error loading data", { closeButton: true });
       return;
     }
@@ -38,35 +75,7 @@ export default function useLoadAll(entity, params) {
     }
 
     if (state.items && state.items.length > 0) {
-      setTotalPages(state.pageCount);
-      const currentItems = items;
-
-      if (!allPagesLoaded) {
-        currentItems[state.currentPage] = state.items;
-        setItems(currentItems);
-      }
-
-      const totalItems = allPagesLoaded
-        ? currentItems.length
-        : currentItems.reduce(
-            (previousValue, currentValue) =>
-              previousValue + currentValue.length,
-            0
-          );
-
-      if (totalItems >= state.itemCount && !allPagesLoaded) {
-        setAllPagesLoaded(true);
-        setLastModfied(state.lastModified);
-        const final = [];
-        for (let i in items) {
-          items[i].map((ii) => final.push(ii));
-        }
-        setItems(final);
-      }
-
-      if (state.currentPage < state.pageCount && state.currentPage === page) {
-        setPage((page) => page + 1);
-      }
+      handleItems(state, items, allPagesLoaded, page);
     }
   }, [state, loadPage, items, allPagesLoaded, page, entity]);
 
