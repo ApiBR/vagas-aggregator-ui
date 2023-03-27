@@ -23,6 +23,8 @@ const Pagination = props => {
     const onNext = () => { onPageChange(currentPage + 1);  };
     const onPrevious = () => { onPageChange(currentPage - 1); };
     let lastPage = paginationRange[paginationRange.length - 1];
+
+    let dotsCounter = 0;
     
     return (
       <ul className={classnames('pagination', { [className]: className })}>
@@ -31,7 +33,7 @@ const Pagination = props => {
         </li>        
         {paginationRange.map(pageNumber => {
           if (pageNumber === DOTS) {
-            return <li key={Math.random()} className="page-item dots disabled">
+            return <li key={`dots-${dotsCounter++}`} className="page-item dots disabled">
               <button className="page-link">&#8230;</button>
               </li>;
           }  
