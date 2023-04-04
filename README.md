@@ -18,7 +18,9 @@
 ## Code Quality
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=code_smells)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) 
+
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ApiBR_vagas-aggregator-ui)
+[![CodeFactor](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui/badge)](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui)
 
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=ncloc)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui)
