@@ -1,9 +1,9 @@
 # Vagas Aggregator UI
 
-[![GitHub license](https://img.shields.io/github/license/ApiBR/vagas-aggregator-ui)](https://github.com/ApiBR/vagas-aggregator-ui)
 [![wakatime](https://wakatime.com/badge/github/ApiBR/vagas-aggregator-ui.svg)](https://wakatime.com/badge/github/ApiBR/vagas-aggregator-ui)
 [![Build & Deploy via ftp](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml)
 [![Build & Deploy via ftp](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/deploy.yml/badge.svg)](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/deploy.yml)
+[![GitHub license](https://img.shields.io/github/license/ApiBR/vagas-aggregator-ui)](https://github.com/ApiBR/vagas-aggregator-ui)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ApiBR/vagas-aggregator-ui/main)](https://github.com/ApiBR/vagas-aggregator-ui)
 
 
