@@ -11,7 +11,7 @@
 [![UptimeRobot Status](https://badgen.net/uptime-robot/month/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/response/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 
-📝🏢 Display open opportunities for developers, based on more than 40 github accounts. The opportunities are published trought issues on each repository and this tool aggregate it and make easy to search and display
+📝🏢 Display open opportunities for developers, based on more than 40 GitHub accounts. The opportunities are published through issues on each repository and this tool aggregate it and make easy to search and display
 
 [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
 
