@@ -15,6 +15,8 @@
 
 [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
 
+![API BR - Vagas UI](ApiBrVagasUi.png)
+
 ## Code Quality
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=code_smells)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) 
