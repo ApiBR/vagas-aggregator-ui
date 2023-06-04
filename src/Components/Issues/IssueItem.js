@@ -14,12 +14,11 @@ const IssueItem = ({ issue }) => {
     issue.labels.filter((l) => l.name.toLowerCase() === "stale").length === 1;
   const organizationsAvatar =
     issue.repository.organization.avatar_url + "&size=48";
-  const isStale = issue.labels.filter(l => l.name.toLowerCase() === "stale").length === 1;
-  const organizationsAvatar = issue.repository.organization.avatar_url + "&size=48";
   const userAvatar = issue.user.avatar_url + "&size=48";
 
   const labelNew = { name: "NOVA", color: "#64B264" };
   const labelStale = { name: "SEM ATIVIDADE", color: "#FF3300" };
+  
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
