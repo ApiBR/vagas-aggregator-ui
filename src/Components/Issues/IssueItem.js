@@ -8,6 +8,7 @@ const IssueItem = ({ issue }) => {
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   const isNew = Math.round((new Date() - createdAt) / 8.64e7) <= 5;
+  const isStale = issue.labels.filter(l => l.name.toLowerCase() === "stale").length === 1;
   const organizationsAvatar = issue.repository.organization.avatar_url + "&size=48";
   const userAvatar = issue.user.avatar_url + "&size=48";
   return (
@@ -35,6 +36,18 @@ const IssueItem = ({ issue }) => {
             }}
           >
             NOVA
+          </span>
+        )}
+        {isStale && (
+          <span
+            className="badge mr-2 mb-2"
+            style={{
+              textTransform: "capitalize",
+              border: "2px solid #FF3300",
+              color: "#FFF",
+            }}
+          >
+            SEM ATIVIDADE
           </span>
         )}
       </div>
