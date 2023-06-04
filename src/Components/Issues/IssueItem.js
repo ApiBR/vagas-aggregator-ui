@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
 import FormatDate from "../../Helpers/FormatDate";
 import LabelsList from "../Labels/LabelsList";
+import LabelNoLinkItem from "../Labels/LabelNoLinkItem";
 
 const IssueItem = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
-  const organizationUrl = "/?organizations=" + issue.repository.organization.login;
+  const organizationUrl =
+    "/?organizations=" + issue.repository.organization.login;
   const createdAt = new Date(issue.created_at);
   const updatedAt = new Date(issue.updated_at);
   const isNew = Math.round((new Date() - createdAt) / 8.64e7) <= 5;
-  const isStale = issue.labels.filter(l => l.name.toLowerCase() === "stale").length === 1;
-  const organizationsAvatar = issue.repository.organization.avatar_url + "&size=48";
+  const isStale =
+    issue.labels.filter((l) => l.name.toLowerCase() === "stale").length === 1;
+  const organizationsAvatar =
+    issue.repository.organization.avatar_url + "&size=48";
   const userAvatar = issue.user.avatar_url + "&size=48";
+
+  const labelNew = { name: "NOVA", color: "#64B264" };
+  const labelStale = { name: "SEM ATIVIDADE", color: "#FF3300" };
+  
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
@@ -26,30 +34,8 @@ const IssueItem = ({ issue }) => {
         <Link to={organizationUrl}>
           {issue.repository.organization.login}/{issue.repository.name}
         </Link>{" "}
-        {isNew && (
-          <span
-            className="badge mr-2 mb-2"
-            style={{
-              textTransform: "capitalize",
-              border: "2px solid #64B264",
-              color: "#FFF",
-            }}
-          >
-            NOVA
-          </span>
-        )}
-        {isStale && (
-          <span
-            className="badge mr-2 mb-2"
-            style={{
-              textTransform: "capitalize",
-              border: "2px solid #FF3300",
-              color: "#FFF",
-            }}
-          >
-            SEM ATIVIDADE
-          </span>
-        )}
+        {isNew && <LabelNoLinkItem label={labelNew} />}
+        {isStale && <LabelNoLinkItem label={labelStale} />}
       </div>
       <div className="card-body">
         <div className="row">
