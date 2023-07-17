@@ -13,8 +13,10 @@
 
 📝🏢 Display open opportunities for developers, based on more than 50 GitHub accounts. The opportunities are published through issues on each repository and this tool aggregate it and make easy to search and display
 
-[https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
-
+- UI: [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
+- API (V1): [https://apibr.com/vagas/api/v1](https://apibr.com/vagas/api/v1)
+- Swagger: [https://apibr.com/vagas/swagger](https://apibr.com/vagas/swagger)
+ 
 ![API BR - Vagas UI](ApiBrVagasUi.png)
 
 ## Code Quality
