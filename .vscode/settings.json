@@ -34,5 +34,9 @@
         "Stracini",
         "vaga",
         "vagas"
-    ]
+    ],
+    "sonarlint.connectedMode.project": {
+        "connectionId": "apibr",
+        "projectKey": "ApiBR_vagas-aggregator-ui"
+    }
 }

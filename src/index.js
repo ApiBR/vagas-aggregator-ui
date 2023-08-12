@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 reportWebVitals(sendToGoogleAnalytics);
 
-function sendToGoogleAnalytics({ name, delta, value, id, attribution }) {
+function sendToGoogleAnalytics({ name, delta, value, id, _ }) {
   const eventParams = {
     value: delta,
     metric_id: id,
