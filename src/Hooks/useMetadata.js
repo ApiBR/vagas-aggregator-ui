@@ -1,6 +1,7 @@
 import axios from "axios";
 import toastr from "toastr";
 import { useEffect, useState } from "react";
+import FormatDate from "../Helpers/FormatDate";
 
 const BASE_URL = "https://apibr.com/vagas/api/v1/";
 
@@ -17,12 +18,9 @@ export default function useMetadata() {
         axios.head(BASE_URL, {
             cancelToken: cancelToken.token
         }).then((res) => {
-            const date = new Date(res.headers["x-api-date"]);
-            const mm = date.getMonth() + 1;
-            const d = date.getDate();
             const data = {
                 version: res.headers["x-api-version"],
-                date: [(d > 9 ? "" : "0") + d, (mm > 9 ? "" : "0") + mm, date.getFullYear()].join("/")
+                date: FormatDate(new Date(res.headers["x-api-date"]), true)
             };
 
             setMetadata(data);

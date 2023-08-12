@@ -63,9 +63,9 @@ const NavBar = () => {
       </div>
       <div>
         <a href="https://apibr.com/vagas/swagger/" title="Swagger da API v1">
-        <span className="badge bg-info">Versão da API: {ApiMetadata.version}</span>
+        <span className="badge bg-info"><i className="fa fa-code-fork"></i> Versão da API: {ApiMetadata.version}</span>
         <br />
-        <span className="badge bg-info">Data da API: {ApiMetadata.date}</span>
+        <span className="badge bg-info"><i className="fa fa-clock-o"></i> Data da API: {ApiMetadata.date}</span>
         </a>
       </div>
     </nav>
