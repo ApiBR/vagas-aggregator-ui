@@ -3,6 +3,7 @@ import FormatDate from "../../Helpers/FormatDate";
 import LabelsList from "../Labels/LabelsList";
 import LabelNoLinkItem from "../Labels/LabelNoLinkItem";
 import classNames from "classnames";
+import reactStringReplace from "react-string-replace";
 
 const IssueItem = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
@@ -22,6 +23,8 @@ const IssueItem = ({ issue }) => {
 
   const bgColorHighActivity = issue.comments > 5 ? "bg-success" : "bg-warning";
   const bgColorComments = issue.comments === 0 ? "bg-danger" : bgColorHighActivity;
+
+  const title = reactStringReplace(issue.title, /\[(.*?)\]/g, (match, _) => <span className="badge bg-info">{match}</span>);
 
   return (
     <div className="card border-default mb-3 col-lg-3">
@@ -43,7 +46,7 @@ const IssueItem = ({ issue }) => {
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="col-12 mb-2">{issue.title}</div>
+          <div className="col-12 mb-2">{title}</div>
           <div className="col-10">
             <span className={classNames("badge mt-2 mb-2 pb-2 pt-2", bgColorComments)}>
               Comentários: {issue.comments}
