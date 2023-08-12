@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - name: Checkout repository
       uses: actions/checkout@v3
 
@@ -40,3 +41,20 @@ jobs:
         localDir: "build/"
         remoteDir: "/public_html/ui/vagas/"
         options: "--delete"
+
+  create_release:
+    name: Create release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Create Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: false
+          draft: false
+          makeLatest: true
+          tag: v1.1.${{ github.run_number }}
+          name: Release v1.1.${{ github.run_number }}
+          generateReleaseNotes: true
+          body: Release 1.1.${{ github.run_number }} of Vagas Aggregator UI
