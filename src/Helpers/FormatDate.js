@@ -1,7 +1,7 @@
 
 const FormatDate = (date, onlyDate = false) => {
     if (typeof date === "undefined" || date === null)
-        return onlyDate ? "--/--/---" : "--:--:-- --/--/----";
+        return onlyDate ? "--/--/---" : "--/--/---- --:--:--";
     const mm = date.getMonth() + 1;
     const d = date.getDate();
     const h = date.getHours();
@@ -15,7 +15,7 @@ const FormatDate = (date, onlyDate = false) => {
         return datePart;
     }
 
-    return [timePart, datePart].join(" ");
+    return [datePart, timePart].join(" ");
 }
 
 export default FormatDate;
