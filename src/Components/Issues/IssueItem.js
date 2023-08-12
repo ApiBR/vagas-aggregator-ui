@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import FormatDate from "../../Helpers/FormatDate";
 import LabelsList from "../Labels/LabelsList";
 import LabelNoLinkItem from "../Labels/LabelNoLinkItem";
+import classNames from "classnames";
 
 const IssueItem = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
@@ -18,7 +19,10 @@ const IssueItem = ({ issue }) => {
 
   const labelNew = { name: "NOVA", color: "#64B264" };
   const labelStale = { name: "SEM ATIVIDADE", color: "#FF3300" };
-  
+
+  const bgColorHighActivity = issue.comments > 5 ? "bg-success" : "bg-warning";
+  const bgColorComments = issue.comments === 0 ? "bg-danger" : bgColorHighActivity;
+
   return (
     <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
@@ -41,6 +45,10 @@ const IssueItem = ({ issue }) => {
         <div className="row">
           <div className="col-12 mb-2">{issue.title}</div>
           <div className="col-10">
+            <span className={classNames("badge mt-2 mb-2 pb-2 pt-2", bgColorComments)}>
+              Comentários: {issue.comments}
+            </span>
+            <br />
             <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Publicado em: {FormatDate(createdAt)}
             </span>
