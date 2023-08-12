@@ -6,7 +6,6 @@
 [![GitHub license](https://img.shields.io/github/license/ApiBR/vagas-aggregator-ui)](https://github.com/ApiBR/vagas-aggregator-ui)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ApiBR/vagas-aggregator-ui/main)](https://github.com/ApiBR/vagas-aggregator-ui)
 
-
 [![UptimeRobot Status](https://badgen.net/uptime-robot/status/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/month/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/response/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
@@ -16,12 +15,12 @@
 - UI: [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
 - API (V1): [https://apibr.com/vagas/api/v1](https://apibr.com/vagas/api/v1)
 - Swagger: [https://apibr.com/vagas/swagger](https://apibr.com/vagas/swagger)
- 
+
 ![API BR - Vagas UI](ApiBrVagasUi.png)
 
 ## Code Quality
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=code_smells)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=code_smells)](https://sonarcloud.io/dashboard?id=ApiBR_vagas-aggregator-ui)
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ApiBR_vagas-aggregator-ui&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ApiBR_vagas-aggregator-ui)
 [![CodeFactor](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui/badge)](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui)
