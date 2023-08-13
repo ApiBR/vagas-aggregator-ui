@@ -59,6 +59,9 @@ const NavBar = () => {
               Publicar uma vaga
             </NavLink>
           </li>
+          <li>
+            <a href="https://github.com/ApiBR/vagas-aggregator-ui/issues/new/choose" rel="noreferrer">Reportar um problema/sugestão</a>
+          </li>
         </ul>
       </div>
       <div>
