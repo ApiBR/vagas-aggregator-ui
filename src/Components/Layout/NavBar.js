@@ -60,7 +60,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <a href="https://github.com/ApiBR/vagas-aggregator-ui/issues/new/choose" target="_blank">Reportar um problema/sugestão</a>
+            <a href="https://github.com/ApiBR/vagas-aggregator-ui/issues/new/choose" target="_blank" rel="noreferrer">Reportar um problema/sugestão</a>
           </li>
         </ul>
       </div>
