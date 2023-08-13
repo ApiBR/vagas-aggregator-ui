@@ -24,7 +24,7 @@ const IssueItem = ({ issue }) => {
   const bgColorHighActivity = issue.comments > 5 ? "bg-success" : "bg-warning";
   const bgColorComments = issue.comments === 0 ? "bg-danger" : bgColorHighActivity;
 
-  const title = reactStringReplace(issue.title, /\[(.+)\]/g, (match, _) => <span className="badge bg-info">{match}</span>);
+  const title = reactStringReplace(issue.title, /\[(.+?)\]/g, (match, _) => <span className="badge bg-info">{match}</span>);
 
   return (
     <div className="card border-default mb-3 col-lg-3">
