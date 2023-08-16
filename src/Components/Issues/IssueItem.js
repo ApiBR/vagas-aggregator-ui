@@ -55,6 +55,7 @@ const IssueItem = ({ issue }) => {
             <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Publicado em: {FormatDate(createdAt)}
             </span>
+            <br />
             <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
               Atualizado em: {FormatDate(updatedAt)}
             </span>
