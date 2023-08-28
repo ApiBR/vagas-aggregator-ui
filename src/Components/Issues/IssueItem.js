@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import FormatDate from "../../Helpers/FormatDate";
 import LabelsList from "../Labels/LabelsList";
@@ -48,45 +49,55 @@ const IssueItem = ({ issue }) => {
         <div className="row">
           <div className="col-12 mb-2">{title}</div>
           <div className="col-10">
-            <span className={classNames("badge mt-2 mb-2 pb-2 pt-2", bgColorComments)}>
-              Comentários: {issue.comments}
-            </span>
-            <br />
-            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-              Publicado em: {FormatDate(createdAt)}
-            </span>
-            <br />
-            <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-              Atualizado em: {FormatDate(updatedAt)}
-            </span>
-          </div>
-          <div className="col-2">
-            <Link
-              to={authorUrl}
-              className="pull-right text-center"
-              title={issue.user.login}
-            >
-              <img
-                src={userAvatar}
-                alt={issue.user.login}
-                className="rounded-circle img-responsive"
-                style={{ width: "48px", height: "48px" }}
-                loading="lazy"
-              />
-              <br />
-              <span className="small ellipsis">
-                {issue.user.name !== undefined && issue.user.name !== null
-                  ? issue.user.name
-                  : issue.user.login}
+            <div className="mr-3">
+              <span className={classNames("badge mt-2 mb-2 pb-2 pt-2", bgColorComments)}>
+                Comentários: {issue.comments}
               </span>
-            </Link>
-          </div>
-          <div className="col-xs-12 col-lg-6 offset-lg-3">
-            <div className="alert alert-warning mt-3 mb-3 text-center">
-              <a href={issue.url} target="_blank" rel="noopener noreferrer">
-                Ver vaga no GitHub <i className="fa fa-github" />
-              </a>
             </div>
+        
+            <div>
+              <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
+                Publicado em: {FormatDate(createdAt)}
+              </span>
+              <br />
+              <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
+                Atualizado em: {FormatDate(updatedAt)}
+              </span>
+            </div>
+          </div>
+          
+          <div className="col-xs-12 col-sm-10 col-lg-12">
+            <hr className="border-top mt-3 mb-3" />
+            <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+              <div className="mb-sm-3 mb-lg-0 text-center">
+                <a className="btn btn-warning" href={issue.url} target="_blank" rel="noopener noreferrer">
+                  Ver vaga no GitHub <i className="fa fa-github" />
+                </a>
+              </div>
+
+              <div className="mt-3 text-sm-center text-lg-right">
+                <Link
+                  to={authorUrl}
+                  className="pull-right text-center"
+                  title={issue.user.login}
+                >
+                  <img
+                    src={userAvatar}
+                    alt={issue.user.login}
+                    className="rounded-circle img-responsive"
+                    style={{ width: "48px", height: "48px" }}
+                    loading="lazy"
+                  />
+                  <br />
+                  <span className="small ellipsis">
+                    {issue.user.name !== undefined && issue.user.name !== null
+                      ? issue.user.name
+                      : issue.user.login}
+                  </span>
+                </Link>
+              </div>
+            </div>
+            <hr className="border-top mt-3" />
           </div>
         </div>
       </div>
