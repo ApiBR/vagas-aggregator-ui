@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import React from "react";
 const RepositoriesListGroup = ({ repositories, authorLogin }) => {
   const repositoriesItems = repositories.map((repository) => {
     const key = authorLogin + "-" + repository.id;
@@ -10,7 +10,7 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
       authorLogin;
     const organizationAvatar = repository.organization.avatar_url + "&size=36";
     return (
-      <span className="badge badge-secondary d-flex" key={key}>
+      <span className="badge badge-secondary d-flex align-items-center" key={key}>
         <Link to={url} title={repository.organization.login}>
           <img
             src={organizationAvatar}
@@ -19,7 +19,7 @@ const RepositoriesListGroup = ({ repositories, authorLogin }) => {
             style={{ width: "36px", height: "36px" }}
             loading="lazy"
           />
-        </Link>{" "}
+        </Link>{"\u00A0"}
         <Link to={url} title={repository.organization.long}>
           {repository.organization.login}/{repository.name}
         </Link>

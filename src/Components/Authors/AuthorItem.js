@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import FormatDate from "../../Helpers/FormatDate";
 import RepositoriesListGroup from "../Repositories/RepositoriesListGroup";
@@ -9,7 +10,7 @@ const AuthorItem = ({ author }) => {
   const lastIssueAt = new Date(author.lastIssue_at);
   const authorAvatar = author.avatar_url + "&size=48";
   return (
-    <div className="card border-default mb-3 col-lg-2">
+    <div className="card border-default mb-3 col-lg-3">
       <div className="card-header">
         <Link to={url}>
           <img
@@ -35,7 +36,7 @@ const AuthorItem = ({ author }) => {
           {author.followers === 1 ? "" : "es"}
         </span>
         <br />
-        <span className="badge bg-secondary mt-2">
+        <span className="badge bg-secondary mt-2" style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
           <i className="fa fa-calendar"></i> Última vaga em:{" "}
           {FormatDate(lastIssueAt)}
         </span>
@@ -54,7 +55,7 @@ const AuthorItem = ({ author }) => {
           />
         )}
       </div>
-      <div className="card-footer">
+      <div className="card-footer d-flex justify-content-center">
         <a
           href={profileUrl}
           target="_blank"
