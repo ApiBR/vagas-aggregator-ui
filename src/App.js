@@ -5,9 +5,11 @@ import Vagas from "./Pages/Vagas";
 import Repositorios from "./Pages/Repositorios";
 import Recrutadores from "./Pages/Recrutadores";
 import NovaVaga from "./Pages/NovaVaga";
+import ErrorBoundary from "./Helpers/ErrorBoundary";
 
 function App() {
   return (
+    <ErrorBoundary>
     <BrowserRouter basename={'/ui/vagas'}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -18,6 +20,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 export default App;
