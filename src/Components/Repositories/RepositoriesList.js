@@ -1,3 +1,6 @@
+import { useState, useRef, useEffect } from "react";
+import Switch from "react-switch";
+import { useSearchParams } from "react-router-dom";
 import PlaceholderList from "../Placeholder/PlaceholderList";
 import useLoadAll from "../../Hooks/useLoadAll";
 import classNames from "classnames";
@@ -5,10 +8,21 @@ import RepositoryItem from "./RepositoryItem";
 import UpdateBadge from "../Layout/UpdateBadge";
 
 const Repositories = () => {
+  const [searchParams] = useSearchParams();
+  const paramsPreset = { per_page: 100 };
+  if (searchParams.get("hide_empty")) {
+    paramsPreset.hide_empty = searchParams.get("hide_empty") === "true";
+  }
+  const entityRef = useRef("repositories");
+  const [hideEmpty, setHideEmpty] = useState(paramsPreset.hide_empty === true);
   const [repositories, allRepositoriesLoaded, lastModified] = useLoadAll(
-    "repositories",
-    { per_page: 100 }
+    entityRef.current,
+    paramsPreset
   );
+
+  useEffect(() => {
+
+  }, [hideEmpty]);
 
   return (
     <div className="row mt-2 ml-1 mr-1">
@@ -42,7 +56,13 @@ const Repositories = () => {
               </div>
             </>
           )}
-          {allRepositoriesLoaded && <UpdateBadge date={lastModified} />}
+          {allRepositoriesLoaded && (
+            <>
+              <UpdateBadge date={lastModified} />
+              <br /><br />
+              <label><Switch onChange={setHideEmpty} checked={hideEmpty} /> Ocultar repositórios sem vagas</label>
+            </>
+          )}
         </div>
       </div>
       {!allRepositoriesLoaded && (

@@ -11,7 +11,7 @@ export default function useLoadAll(entity, params) {
 
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
-  const [lastModified, setLastModfied] = useState(null);
+  const [lastModified, setLastModified] = useState(null);
 
   const [state, loadPage] = useFetch(
     entityRef.current,
@@ -37,7 +37,7 @@ export default function useLoadAll(entity, params) {
 
     if (totalItems >= state.itemCount && !allPagesLoaded) {
       setAllPagesLoaded(true);
-      setLastModfied(state.lastModified);
+      setLastModified(state.lastModified);
       const final = [];
       for (let i in items) {
         items[i].map((ii) => final.push(ii));
