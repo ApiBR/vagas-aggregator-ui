@@ -1,7 +1,7 @@
 # Vagas Aggregator UI
 
 [![wakatime](https://wakatime.com/badge/github/ApiBR/vagas-aggregator-ui.svg)](https://wakatime.com/badge/github/ApiBR/vagas-aggregator-ui)
-[![Build & Deploy via ftp](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml)
+[![Sonar Cloud](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/sonarcloud.yml)
 [![Build & Deploy via ftp](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/deploy.yml/badge.svg)](https://github.com/ApiBR/vagas-aggregator-ui/actions/workflows/deploy.yml)
 [![GitHub license](https://img.shields.io/github/license/ApiBR/vagas-aggregator-ui)](https://github.com/ApiBR/vagas-aggregator-ui)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ApiBR/vagas-aggregator-ui/main)](https://github.com/ApiBR/vagas-aggregator-ui)
@@ -10,7 +10,7 @@
 [![UptimeRobot Status](https://badgen.net/uptime-robot/month/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/response/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 
-📝🏢 Display open opportunities for developers, based on more than 50 GitHub accounts. The opportunities are published through issues on each repository and this tool aggregate it and make easy to search and display
+📝🏢 Display open opportunities for developers, based on more than 50 GitHub accounts. The opportunities are published through issues on each repository and this tool aggregates it and makes easy to search and display
 
 - UI: [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
 - API (V1): [https://apibr.com/vagas/api/v1](https://apibr.com/vagas/api/v1)
