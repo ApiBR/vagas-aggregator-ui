@@ -141,14 +141,14 @@ Full tech stack [here](/techstack.md)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.1.4|11/09/23|depfu[bot] |MIT|N/A|
-|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v14.1.0|11/09/23|depfu[bot] |MIT|N/A|
+|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.1.4|11/09/23|depfu\[bot] |MIT|N/A|
+|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v14.1.0|11/09/23|depfu\[bot] |MIT|N/A|
 |[classnames](https://www.npmjs.com/classnames)|v2.3.2|11/02/22|Guilherme Branco Stracini |MIT|N/A|
 |[font-awesome](https://www.npmjs.com/font-awesome)|v4.7.0|10/31/22|Guilherme Branco Stracini |OFL-1.1,MIT|N/A|
-|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|11/09/23|depfu[bot] |MIT|N/A|
-|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.18.0|11/09/23|depfu[bot] |MIT|N/A|
-|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|11/09/23|depfu[bot] |MIT|N/A|
-|[react-select](https://www.npmjs.com/react-select)|v5.8.0|11/09/23|depfu[bot] |MIT|N/A|
+|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|11/09/23|depfu\[bot] |MIT|N/A|
+|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.18.0|11/09/23|depfu\[bot] |MIT|N/A|
+|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|11/09/23|depfu\[bot] |MIT|N/A|
+|[react-select](https://www.npmjs.com/react-select)|v5.8.0|11/09/23|depfu\[bot] |MIT|N/A|
 
 <br/>
 <div align='center'>
