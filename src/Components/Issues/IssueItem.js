@@ -51,17 +51,17 @@ const IssueItem = ({ issue }) => {
           <div className="col-10">
             <div className="mr-3">
               <span className={classNames("badge mt-2 mb-2 pb-2 pt-2", bgColorComments)}>
-                Comentários: {issue.comments}
+                <i className="fa fa-comments" /> Comentários: {issue.comments}
               </span>
             </div>
         
             <div>
               <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-                Publicado em: {FormatDate(createdAt)}
+                <i className="fa fa-clock-o" /> Publicado em: {FormatDate(createdAt)}
               </span>
               <br />
               <span className="badge bg-secondary mt-2 mb-2 pb-2 pt-2">
-                Atualizado em: {FormatDate(updatedAt)}
+                <i className="fa fa-clock-o" /> Atualizado em: {FormatDate(updatedAt)}
               </span>
             </div>
           </div>
