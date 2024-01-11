@@ -9,8 +9,6 @@ ApiBR/vagas-aggregator-ui is built on the following main stack:
 - [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
-- [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
 
@@ -26,8 +24,6 @@ ApiBR/vagas-aggregator-ui is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/3350/8261421.png' alt='React Router'/> [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- <img width='25' height='25' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'/> [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
-- <img width='25' height='25' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'/> [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
 
@@ -38,7 +34,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [ApiBR/vagas-aggregator-ui](https://github.com/ApiBR/vagas-aggregator-ui)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|21<br/>Tools used|01/05/24 <br/>Report generated|
+|18<br/>Tools used|01/11/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -86,20 +82,7 @@ Full tech stack [here](/techstack.md)
   <br>
   <sub><a href="https://github.com/rackt/react-router">React Router</a></sub>
   <br>
-  <sub>v6.20.1</sub>
-</td>
-
-</tr>
-</table>
-
-## <img src='https://img.stackshare.io/databases.svg'/> Data (1)
-<table><tr>
-  <td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'>
-  <br>
-  <sub><a href="https://github.com/pgvector/pgvector/">pgvector</a></sub>
-  <br>
-  <sub></sub>
+  <sub>v6.21.1</sub>
 </td>
 
 </tr>
@@ -142,30 +125,14 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (3)
+## Other (1)
 <table><tr>
   <td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/2270/no-img-open-source.png' alt='HTML'>
-  <br>
-  <sub><a href="http://">HTML</a></sub>
-  <br>
-  <sub></sub>
-</td>
-
-<td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'>
-  <br>
-  <sub><a href="https://github.com/hwchase17/langchain">LangChain</a></sub>
-  <br>
-  <sub></sub>
-</td>
-
-<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'>
   <br>
   <sub><a href="https://github.com/mzabriskie/axios">axios</a></sub>
   <br>
-  <sub>v1.6.2</sub>
+  <sub>v1.6.5</sub>
 </td>
 
 </tr>
@@ -178,14 +145,14 @@ Full tech stack [here](/techstack.md)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.1.5|12/04/23|dependabot[bot] |MIT|N/A|
-|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v14.1.2|12/04/23|dependabot[bot] |MIT|N/A|
-|[classnames](https://www.npmjs.com/classnames)|v2.3.2|11/02/22|Guilherme Branco Stracini |MIT|N/A|
+|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.2.0|01/05/24|depfu[bot] |MIT|N/A|
+|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v14.1.2|01/05/24|depfu[bot] |MIT|N/A|
+|[classnames](https://www.npmjs.com/classnames)|v2.5.1|12/30/23|depfu[bot] |MIT|N/A|
 |[font-awesome](https://www.npmjs.com/font-awesome)|v4.7.0|10/31/22|Guilherme Branco Stracini |OFL-1.1,MIT|N/A|
-|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|12/04/23|dependabot[bot] |MIT|N/A|
-|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.20.1|12/04/23|dependabot[bot] |MIT|N/A|
-|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|12/04/23|dependabot[bot] |MIT|N/A|
-|[react-select](https://www.npmjs.com/react-select)|v5.8.0|12/04/23|dependabot[bot] |MIT|N/A|
+|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|01/05/24|depfu[bot] |MIT|N/A|
+|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.21.1|01/05/24|depfu[bot] |MIT|N/A|
+|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|12/22/23|depfu[bot] |MIT|N/A|
+|[react-select](https://www.npmjs.com/react-select)|v5.8.0|12/22/23|depfu[bot] |MIT|N/A|
 
 <br/>
 <div align='center'>
