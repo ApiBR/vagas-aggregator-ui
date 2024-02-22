@@ -25,6 +25,7 @@
         "Branco",
         "Desenvolvido",
         "Guilherme",
+        "Listagem",
         "noopener",
         "noreferrer",
         "octicon",
@@ -33,7 +34,8 @@
         "Repositórios",
         "Stracini",
         "vaga",
-        "vagas"
+        "vagas",
+        "VCMC"
     ],
     "sonarlint.connectedMode.project": {
         "connectionId": "apibr",
