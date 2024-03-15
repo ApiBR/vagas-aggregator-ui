@@ -9,6 +9,7 @@
 [![UptimeRobot Status](https://badgen.net/uptime-robot/status/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/month/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
 [![UptimeRobot Status](https://badgen.net/uptime-robot/response/m794010887-30ce08819368a342a367a412)](https://stats.uptimerobot.com/O7lYOCOP)
+![HealthChecks.io](https://healthchecks.io/badge/db17c512-7ebf-4372-a1d0-0519035e65f7/r2_xb9Dv-2/vagas-aggregator-service.svg)
 
 📝🏢 Display open opportunities for developers based on more than 50 GitHub accounts.
 The opportunities are published through issues on each repository; this tool aggregates them and makes it easy to search and display.
