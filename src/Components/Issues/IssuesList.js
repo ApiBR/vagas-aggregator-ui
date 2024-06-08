@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import toastr from "toastr";
 import useFetch from "../../Hooks/useFetch";
 import GetParams from "../../Helpers/GetParams";
-import { Controls, Pagination } from "../Layout";
+import { Controls, Pagination, ProgressBar} from "../Layout";
 import PlaceholderList from "../Placeholder/PlaceholderList";
 import classNames from "classnames";
 import IssueItem from "./IssueItem";
@@ -97,18 +97,7 @@ const IssuesList = () => {
             {state.loading ? "Carregando..." : totalIssues}
           </span>
           <br />
-          {state.loading && (
-            <div className="progress">
-              <div
-                className="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                style={{ width: "50%" }}
-                aria-valuenow="50"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
-            </div>
-          )}
+          {state.loading && (<ProgressBar />)}
           {!state.loading && state.lastModified && (
             <UpdateBadge
               date={state.lastModified}
