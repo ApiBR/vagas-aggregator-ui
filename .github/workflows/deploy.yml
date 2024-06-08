@@ -1,4 +1,5 @@
 name: Build & Deploy via ftp
+
 on:
   push:
     branches: [ main ]
@@ -21,7 +22,7 @@ jobs:
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: 16.x
+        node-version: 20.x
 
     - name: Install dependencies
       run: npm install
