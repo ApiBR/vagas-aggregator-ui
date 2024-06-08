@@ -97,7 +97,7 @@ const IssuesList = () => {
             {state.loading ? "Carregando..." : totalIssues}
           </span>
           <br />
-          {state.loading && (<ProgressBar />)}
+          {state.loading && <ProgressBar />}
           {!state.loading && state.lastModified && (
             <UpdateBadge
               date={state.lastModified}
