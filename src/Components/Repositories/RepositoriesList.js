@@ -2,7 +2,7 @@ import PlaceholderList from "../Placeholder/PlaceholderList";
 import useLoadAll from "../../Hooks/useLoadAll";
 import classNames from "classnames";
 import RepositoryItem from "./RepositoryItem";
-import UpdateBadge from "../Layout/UpdateBadge";
+import { ProgressBar, UpdateBadge } from "../Layout";
 
 const Repositories = () => {
   const [repositories, allRepositoriesLoaded, lastModified] = useLoadAll(
@@ -30,16 +30,7 @@ const Repositories = () => {
           {!allRepositoriesLoaded && (
             <>
               <br />
-              <div className="progress">
-                <div
-                  className="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                  role="progressbar"
-                  style={{ width: "50%" }}
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+              <ProgressBar />
             </>
           )}
           {allRepositoriesLoaded && <UpdateBadge date={lastModified} />}
