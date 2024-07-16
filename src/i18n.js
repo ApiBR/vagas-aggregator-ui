@@ -6,14 +6,14 @@ import esTranslation from "./locales/es/translation.json";
 
 const resources = {
   pt: {
-    translation: ptTranslation
+    translation: ptTranslation,
   },
   en: {
-    translation: enTranslation
+    translation: enTranslation,
   },
   es: {
-    translation: esTranslation
-  }
+    translation: esTranslation,
+  },
 };
 
 i18n.use(initReactI18next).init({ resources, lng: "pt", fallbackLng: "en", interpolation: { escapeValue: false } });
