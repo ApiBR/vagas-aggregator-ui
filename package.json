@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "https://apibr.com/ui/vagas",
   "dependencies": {
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "classnames": "^2.5.1",
     "font-awesome": "^4.7.0",
     "react": "^18.3.1",
@@ -17,7 +17,7 @@
     "react-select": "^5.8.0",
     "react-string-replace": "^1.1.1",
     "toastr": "^2.1.4",
-    "web-vitals": "^4.2.1"
+    "web-vitals": "^4.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +44,6 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.24.1"
+    "react-router-dom": "^6.26.1"
   }
 }
