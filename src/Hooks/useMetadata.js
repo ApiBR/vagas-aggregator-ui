@@ -3,7 +3,7 @@ import toastr from "toastr";
 import { useEffect, useState } from "react";
 import FormatDate from "../Helpers/FormatDate";
 
-const BASE_URL = "https://apibr.com/vagas/api/v1/";
+const BASE_URL = "https://apibr.com/vagas/api/v2/";
 
 export default function useMetadata() {
     const [metadata, setMetadata] = useState({
