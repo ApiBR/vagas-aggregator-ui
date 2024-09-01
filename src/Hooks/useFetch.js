@@ -42,7 +42,7 @@ function reducer(state, action) {
   }
 }
 
-const BASE_URL = "https://apibr.com/vagas/api/v1/";
+const BASE_URL = "https://apibr.com/vagas/api/v2/";
 
 export default function useFetch(entity, params, page) {
   const [state, dispatch] = useReducer(reducer, {

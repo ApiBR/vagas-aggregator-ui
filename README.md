@@ -14,7 +14,7 @@
 📝🏢 Aggregates open vacancies for developers based on more than 50 GitHub accounts for opportunities and some other sites.
 
 - UI: [https://apibr.com/ui/vagas/](https://apibr.com/ui/vagas/)
-- API (V1): [https://apibr.com/vagas/api/v1](https://apibr.com/vagas/api/v1)
+- API (V2): [https://apibr.com/vagas/api/v1](https://apibr.com/vagas/api/v2)
 - Swagger: [https://apibr.com/vagas/swagger](https://apibr.com/vagas/swagger)
 
 ![API BR - Vagas UI](ApiBrVagasUi.png)
