@@ -5,6 +5,24 @@ import FormatDate from "../Helpers/FormatDate";
 
 const BASE_URL = "https://apibr.com/vagas/api/v2/";
 
+/**
+ * A custom React hook that retrieves and manages metadata from an API.
+ *
+ * This hook uses the `useState` and `useEffect` hooks to fetch API metadata,
+ * including the version and date, when the component mounts. It handles the
+ * API request using Axios and provides error handling through toastr notifications.
+ *
+ * @returns {Object} An object containing the API metadata:
+ *   - {string} version - The version of the API.
+ *   - {string} date - The date associated with the API version.
+ *
+ * @example
+ * const { version, date } = useMetadata();
+ * console.log(`API Version: ${version}, Date: ${date}`);
+ *
+ * @throws {Error} Throws an error if the API request fails, which is handled
+ *                 by displaying a toastr error notification.
+ */
 export default function useMetadata() {
     const [metadata, setMetadata] = useState({
         version: "0.0.0",
