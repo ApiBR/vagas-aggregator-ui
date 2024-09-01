@@ -44,6 +44,23 @@ function reducer(state, action) {
 
 const BASE_URL = "https://apibr.com/vagas/api/v2/";
 
+/**
+ * Custom hook that fetches data from a specified API endpoint using the provided entity and parameters.
+ * It manages the loading state and the fetched items, along with pagination information.
+ *
+ * @param {string} entity - The API endpoint to fetch data from.
+ * @param {Object} params - Additional parameters to be sent with the request.
+ * @param {number} page - The current page number for pagination.
+ * @returns {[Object, function]} An array containing the current state and a function to load the page.
+ * 
+ * @example
+ * const [state, loadPage] = useFetch('users', { active: true }, 1);
+ * 
+ * // To load the data
+ * loadPage();
+ *
+ * @throws {Error} Throws an error if the request fails, which can be handled in the calling component.
+ */
 export default function useFetch(entity, params, page) {
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
