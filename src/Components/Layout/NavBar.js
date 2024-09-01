@@ -3,6 +3,23 @@ import logo from "../../ApiBRLogo.png";
 import classnames from "classnames";
 import useMetadata from "../../Hooks/useMetadata";
 
+/**
+ * A functional component that renders a navigation bar for the application.
+ * The navigation bar includes links to various sections of the application 
+ * and displays API metadata such as version and date.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered navigation bar component.
+ *
+ * @example
+ * // Usage in a React application
+ * import NavBar from './NavBar';
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <NavBar />
+ *       {/* Other components */
 const NavBar = () => {
 
   let ApiMetadata = useMetadata();
