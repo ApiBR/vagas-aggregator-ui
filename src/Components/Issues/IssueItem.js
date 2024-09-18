@@ -6,6 +6,36 @@ import LabelNoLinkItem from "../Labels/LabelNoLinkItem";
 import classNames from "classnames";
 import reactStringReplace from "react-string-replace";
 
+/**
+     * Represents a component that displays information about a specific issue.
+     *
+     * @component
+     * @param {Object} props - The properties for the component.
+     * @param {Object} props.issue - The issue object containing details about the issue.
+     * @param {string} props.issue.user.login - The login name of the user who created the issue.
+     * @param {string} props.issue.repository.organization.login - The organization login associated with the issue's repository.
+     * @param {Date} props.issue.created_at - The date when the issue was created.
+     * @param {Date} props.issue.updated_at - The date when the issue was last updated.
+     * @param {number} props.issue.comments - The number of comments on the issue.
+     * @param {Array} props.issue.labels - An array of labels associated with the issue.
+     * @param {string} props.issue.url - The URL to view the issue on GitHub.
+     * @returns {JSX.Element} A rendered card component displaying issue details.
+     *
+     * @example
+     * const exampleIssue = {
+     *   user: { login: 'johnDoe' },
+     *   repository: { organization: { login: 'orgName', avatar_url: 'url' }, name: 'repoName' },
+     *   created_at: '2023-01-01T00:00:00Z',
+     *   updated_at: '2023-01-02T00:00:00Z',
+     *   comments: 10,
+     *   labels: [{ name: 'bug' }],
+     *   url: 'https://github.com/orgName/repoName/issues/1'
+     * };
+     *
+     * <IssueItem issue={exampleIssue} />
+     *
+     * @throws {Error} Throws an error if the issue object is not provided or is malformed.
+     */
 const IssueItem = ({ issue }) => {
   const authorUrl = "/?authors=" + issue.user.login;
   const organizationUrl =
