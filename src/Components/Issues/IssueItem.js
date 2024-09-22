@@ -30,9 +30,9 @@ import reactStringReplace from "react-string-replace";
      *
      * @example
      * const issue = {
-     *   user: { login: 'johnDoe', name: 'John Doe', avatar_url: 'http://example.com/avatar.jpg' },
+     *   user: { login: 'johnDoe', name: 'John Doe', avatar_url: 'https://example.com/avatar.jpg' },
      *   repository: {
-     *     organization: { login: 'exampleOrg', avatar_url: 'http://example.com/org-avatar.jpg' },
+     *     organization: { login: 'exampleOrg', avatar_url: 'https://example.com/org-avatar.jpg' },
      *     name: 'exampleRepo'
      *   },
      *   title: 'Issue Title',
@@ -40,7 +40,7 @@ import reactStringReplace from "react-string-replace";
      *   updated_at: '2023-01-02T00:00:00Z',
      *   comments: 10,
      *   labels: [{ name: 'bug' }],
-     *   url: 'http://github.com/exampleOrg/exampleRepo/issues/1'
+     *   url: 'https://github.com/exampleOrg/exampleRepo/issues/1'
      * };
      *
      * <IssueItem issue={issue} />
