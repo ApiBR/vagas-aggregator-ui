@@ -55,12 +55,12 @@ const IssueItem = ({ issue }) => {
   const bgColorHighActivity = issue.comments > 5 ? "bg-success" : "bg-warning";
   const bgColorComments = issue.comments === 0 ? "bg-danger" : bgColorHighActivity;
 
-  const opacity = isStale ? "0.4" : "1.0";
-  
+  const staleClass = isStale ? "stale" : "";
+ 
   const title = reactStringReplace(issue.title, /[[(](.+?)[\])]/g, (match, _) => <span className="badge bg-info">{match}</span>);
 
   return (
-    <div className="card border-default mb-3 col-lg-3" style={{ opacity: opacity }}>
+    <div className={classNames("card border-default mb-3 col-lg-3", staleClass)}>
       <div className="card-header">
         <Link to={organizationUrl}>
           <img
