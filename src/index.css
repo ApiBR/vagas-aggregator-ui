@@ -16,3 +16,11 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.stale {
+  opacity: 0.5;
+}
+
+.stale:hover {
+  opacity: 1;
+}
