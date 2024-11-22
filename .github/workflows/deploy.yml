@@ -63,7 +63,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     env:
-      fullSemVer: ${{ needs.deploy_service.outputs.fullSemVer }}
+      fullSemVer: ${{ needs.build.outputs.fullSemVer }}
       
     steps:
       - name: Create Release
