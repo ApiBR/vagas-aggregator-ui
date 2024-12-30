@@ -13,6 +13,7 @@
     "react": "^19.0.0",
     "react-cookie-consent": "^9.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^6.28.1",
     "react-scripts": "^5.0.1",
     "react-select": "^5.9.0",
     "react-string-replace": "^1.1.1",
@@ -44,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^7.1.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
