@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./Pages/Layout";
 import Vagas from "./Pages/Vagas";
 import Repositorios from "./Pages/Repositorios";
@@ -10,7 +10,7 @@ import ErrorBoundary from "./Helpers/ErrorBoundary";
 function App() {
   return (
     <ErrorBoundary>
-      <BrowserRouter
+      <Router
         basename={"/ui/vagas"}
         future={{
           v7_startTransition: true,
@@ -25,7 +25,7 @@ function App() {
             <Route path="nova-vaga" element={<NovaVaga />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </ErrorBoundary>
   );
 }
