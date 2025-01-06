@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "font-awesome": "^4.7.0",
