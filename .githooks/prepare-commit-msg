@@ -1,39 +1,60 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-# This script generates an AI-powered commit message using dotnet-aicommitmessage.  
-# It can be bypassed by setting the GIT_AICOMMIT_SKIP environment variable.  
+# This script generates an AI-powered commit message using dotnet-aicommitmessage.
+# It can be bypassed by setting the GIT_AICOMMIT_SKIP environment variable.
 
-# Exit immediately if GIT_AICOMMIT_SKIP is set  
-if [ -n "$GIT_AICOMMIT_SKIP" ]; then  
-    exit 0  
-fi  
+# Exit immediately if GIT_AICOMMIT_SKIP is set
+if [ -n "$GIT_AICOMMIT_SKIP" ]; then
+    exit 0
+fi
 
-if ! command -v dotnet-aicommitmessage &> /dev/null; then
+# Check if dotnet-aicommitmessage is installed and in PATH
+if ! command -v dotnet-aicommitmessage >/dev/null 2>&1; then
     echo "Error: dotnet-aicommitmessage is not installed or not in PATH" >&2
     echo "Please install it by running 'dotnet tool install -g aicommitmessage'" >&2
-    exit 1 
+    exit 1
 fi
 
-COMMIT_MSG_FILE=$1
+# Ensure the commit message file is provided
+if [ -z "$1" ]; then
+    echo "Error: Commit message file not provided" >&2
+    exit 1
+fi
+
+COMMIT_MSG_FILE="$1"
+
+# Check if the commit message file exists
+if [ ! -f "$COMMIT_MSG_FILE" ]; then
+    echo "Error: Commit message file '$COMMIT_MSG_FILE' not found" >&2
+    exit 1
+fi
+
+# Read the current commit message
 CURRENT_MESSAGE=$(cat "$COMMIT_MSG_FILE")
 
-# From version 0.6.1, this is not needed anymore.
-# GIT_DIFF=$(git diff --staged)
-# GIT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+# Backup the commit message file
+cp "$COMMIT_MSG_FILE" "${COMMIT_MSG_FILE}.bak"
 
-# Run dotnet-aicommitmessage with error handling  
-# From version 0.6.1 branch and diff are now retrieved by the tool and don't need to be passed manually.
-# Version 0.6.1 and higher: dotnet-aicommitmessage generate-message -m "$CURRENT_MESSAGE"
-# Version 0.6.0 and lower: dotnet-aicommitmessage generate-message -m "$CURRENT_MESSAGE" -b "$GIT_BRANCH_NAME" -d "$GIT_DIFF"
-
-if ! AI_MESSAGE=$(dotnet-aicommitmessage generate-message -m "$CURRENT_MESSAGE"); then  
-    echo "Error: Failed to generate AI commit message. Using original message." >&2  
-    exit 0  
+# Generate the AI commit message
+if ! AI_MESSAGE=$(dotnet-aicommitmessage generate-message -m "$CURRENT_MESSAGE" 2>/dev/null); then
+    echo "Error: Failed to generate AI commit message. Using original message." >&2
+    exit 0
 fi
 
-if [[ -z "$AI_MESSAGE" || "$AI_MESSAGE" =~ ^[[:space:]]*$ ]]; then  
-    echo "Error: Generated commit message is empty." >&2  
-    exit 1  
-fi  
-echo "$AI_MESSAGE" > "$COMMIT_MSG_FILE" 
+# Check if the generated message is empty
+if [ -z "$AI_MESSAGE" ] || echo "$AI_MESSAGE" | grep -q '^[[:space:]]*$'; then
+    echo "Error: Generated commit message is empty." >&2
+    exit 1
+fi
+
+# Write the new commit message back to the file
+if ! echo "$AI_MESSAGE" > "$COMMIT_MSG_FILE" 2>/dev/null; then
+    echo "Error: Failed to write new commit message" >&2
+    cp "${COMMIT_MSG_FILE}.bak" "$COMMIT_MSG_FILE"
+    rm "${COMMIT_MSG_FILE}.bak"
+    exit 1
+fi
+
+# Remove the backup file
+rm "${COMMIT_MSG_FILE}.bak"
 exit 0
