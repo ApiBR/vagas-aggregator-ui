@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "axios": "^1.8.1",
+    "axios": "^1.8.2",
     "classnames": "^2.5.1",
     "font-awesome": "^4.7.0",
     "react": "^19.0.0",
@@ -15,7 +15,7 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
     "react-scripts": "^5.0.1",
-    "react-select": "^5.10.0",
+    "react-select": "^5.10.1",
     "react-string-replace": "^1.1.1",
     "toastr": "^2.1.4",
     "web-vitals": "^4.2.4"
