@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "issues": "Issues",
+    "repositories": "Repositories",
+    "authors": "Authors"
+  },
+  "common": {
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "viewOnGitHub": "View on GitHub",
+    "viewIssues": "View Issues",
+    "viewProfile": "View GitHub Profile",
+    "issues": "issues",
+    "repositories": "repositories",
+    "authors": "authors",
+    "share": "Share",
+    "shareFilters": "Share filtered results",
+    "copied": "Copied!",
+    "close": "Close",
+    "dates": {
+      "created": "Created",
+      "updated": "Updated",
+      "timeAgo": "{{time}} ago"
+    }
+  },
+  "authors": {
+    "title": "All Authors",
+    "noAuthors": "No authors found",
+    "noAuthorsRepo": "No authors found for this repository",
+    "authorsFor": "Authors for {{repo}}",
+    "stats": {
+      "issues": "Issues",
+      "followers": "Followers",
+      "repos": "Repos"
+    },
+    "lastIssue": "Last issue: {{time}}",
+    "activeRepos": "Active Repositories"
+  },
+  "issues": {
+    "title": "Issues",
+    "noIssues": "No issues found. Try adjusting your filters.",
+    "badges": {
+      "new": "New",
+      "stale": "Stale"
+    },
+    "filters": {
+      "search": "Search",
+      "searchPlaceholder": "Search by title or description...",
+      "repository": "Repository",
+      "allRepositories": "All Repositories",
+      "label": "Label",
+      "allLabels": "All Labels",
+      "author": "Author",
+      "allAuthors": "All Authors",
+      "itemsPerPage": "Items per page",
+      "perPage": "{{count}} per page"
+    },
+    "updateInfo": {
+      "lastUpdate": "Last updated",
+      "total": "Total {{count}} {{type}}",
+      "recentIssues": "{{count}} recent issue",
+      "recentIssues_plural": "{{count}} recent issues",
+      "recentIssuesTitle": "Issues published in the last 2 months",
+      "lastIssue": "Last issue published"
+    }
+  },
+  "repositories": {
+    "noRepositories": "No repositories found matching your filters.",
+    "noDescription": "No description available",
+    "filters": {
+      "filterRepos": "Filter Repositories",
+      "showOnlyWithVacancies": "Show only repositories with issues",
+      "filterByLabels": "Filter by Labels",
+      "filterByType": "Filter by Type"
+    },
+    "stats": {
+      "watchers": "Watchers",
+      "stars": "Stars",
+      "authors": "Authors",
+      "openIssues": "Open Issues"
+    },
+    "actions": {
+      "newIssue": "New Issue",
+      "viewIssues": "View Issues",
+      "viewAuthors": "View Authors"
+    },
+    "contributors": "Contributors"
+  },
+  "footer": {
+    "developedBy": "Developed by",
+    "repository": "Repository",
+    "apiInfo": "API Information",
+    "createIssue": {
+      "button": "Create New Issue",
+      "title": "How to Create a New Issue",
+      "description": "To post a new job, create a GitHub account, then locate the desired repository and follow the publishing guidelines for each repository. Repository links can be found on the repository page for this project."
+    },
+    "reportIssue": "Report Problem",
+    "status": "Status"
+  },
+  "cookies": {
+    "message": "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
+    "accept": "Accept"
+  }
+}
