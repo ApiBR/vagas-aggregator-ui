@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import AuthorItem from "./AuthorItem";
 import FormatDate from "../../Helpers/FormatDate";
 
