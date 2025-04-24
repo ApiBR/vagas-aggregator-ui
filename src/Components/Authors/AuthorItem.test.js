@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import AuthorItem from "./AuthorItem";
 import FormatDate from "../../Helpers/FormatDate";
 
@@ -26,42 +26,28 @@ describe("AuthorItem Component", () => {
   });
 
   it("renders without crashing", () => {
-    render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+    const router = createMemoryRouter(
+      [{ path: "/", element: <AuthorItem author={mockAuthor} /> }],
+      { initialEntries: ["/"] }
     );
+
+    render(<RouterProvider router={router} />);
   });
 
   it("displays the author's name", () => {
     const { getByText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     expect(getByText("Test User")).toBeInTheDocument();
   });
 
   it("displays the author's avatar", () => {
     const { getByAltText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     const avatar = getByAltText("testuser");
     expect(avatar).toHaveAttribute(
@@ -72,14 +58,9 @@ describe("AuthorItem Component", () => {
 
   it("displays the correct number of issues and followers", () => {
     const { getByText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     expect(getByText("5 vagas publicadas")).toBeInTheDocument();
     expect(getByText("10 seguidores")).toBeInTheDocument();
@@ -87,42 +68,27 @@ describe("AuthorItem Component", () => {
 
   it("displays the formatted last issue date", () => {
     const { getByText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     expect(getByText("Última vaga em: October 1, 2023")).toBeInTheDocument();
   });
 
   it("displays the author's bio", () => {
     const { getByText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     expect(getByText("This is a test bio")).toBeInTheDocument();
   });
 
   it("displays the GitHub profile link", () => {
     const { getByText } = render(
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <AuthorItem author={mockAuthor} />
-      </Router>
+      <RouterProvider
+        router={createMemoryRouter([{ path: "/", element: <AuthorItem author={mockAuthor} /> }])}
+      />
     );
     const profileLink = getByText("Ver perfil no GitHub");
     expect(profileLink).toHaveAttribute("href", "https://github.com/testuser");
