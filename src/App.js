@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Pages/Layout";
 import Vagas from "./Pages/Vagas";
 import Repositorios from "./Pages/Repositorios";
@@ -7,26 +7,26 @@ import Recrutadores from "./Pages/Recrutadores";
 import NovaVaga from "./Pages/NovaVaga";
 import ErrorBoundary from "./Helpers/ErrorBoundary";
 
+const router = createBrowserRouter([
+  {
+    path: "/ui/vagas",
+    element: <Layout />,
+    errorElement: <div>Error loading page</div>, // Optional error boundary (if needed)
+    children: [
+      { index: true, element: <Vagas /> },
+      { path: "repositorios", element: <Repositorios /> },
+      { path: "recrutadores", element: <Recrutadores /> },
+      { path: "nova-vaga", element: <NovaVaga /> },
+    ],
+  },
+]);
+
 function App() {
   return (
     <ErrorBoundary>
-      <BrowserRouter
-        basename={"/ui/vagas"}
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Vagas />} />
-            <Route path="repositorios" element={<Repositorios />} />
-            <Route path="recrutadores" element={<Recrutadores />} />
-            <Route path="nova-vaga" element={<NovaVaga />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </ErrorBoundary>
   );
 }
+
 export default App;
