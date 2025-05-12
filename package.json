@@ -18,7 +18,7 @@
     "react-select": "^5.10.1",
     "react-string-replace": "^1.1.1",
     "toastr": "^2.1.4",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
