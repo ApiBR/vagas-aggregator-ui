@@ -13,7 +13,7 @@
     "react": "^19.1.1",
     "react-cookie-consent": "^9.0.0",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^6.30.0",
+    "react-router-dom": "^7.9.1",
     "react-scripts": "^5.0.1",
     "react-select": "^5.10.2",
     "react-string-replace": "^1.1.1",
