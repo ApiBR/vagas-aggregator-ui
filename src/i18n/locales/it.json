@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "issues": "Issues",
+    "repositories": "Repository",
+    "authors": "Autori"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "noResults": "Nessun risultato trovato",
+    "viewOnGitHub": "Vedi su GitHub",
+    "viewIssues": "Vedi Issues",
+    "viewProfile": "Vedi Profilo GitHub",
+    "issues": "issues",
+    "repositories": "repository",
+    "authors": "autori",
+    "share": "Condividi",
+    "shareFilters": "Condividi risultati filtrati",
+    "copied": "Copiato!",
+    "dates": {
+      "created": "Creato",
+      "updated": "Aggiornato",
+      "timeAgo": "{{time}} fa"
+    }
+  },
+  "authors": {
+    "title": "Tutti gli Autori",
+    "noAuthors": "Nessun autore trovato",
+    "noAuthorsRepo": "Nessun autore trovato per questo repository",
+    "authorsFor": "Autori di {{repo}}",
+    "stats": {
+      "issues": "Issues",
+      "followers": "Follower",
+      "repos": "Repos"
+    },
+    "lastIssue": "Ultimo issue: {{time}}",
+    "activeRepos": "Repository Attivi"
+  },
+  "issues": {
+    "title": "Issues",
+    "noIssues": "Nessun issue trovato. Prova a modificare i filtri.",
+    "badges": {
+      "new": "Nuovo",
+      "stale": "Inattivo"
+    },
+    "filters": {
+      "search": "Cerca",
+      "searchPlaceholder": "Cerca per titolo o descrizione...",
+      "repository": "Repository",
+      "allRepositories": "Tutti i Repository",
+      "label": "Etichetta",
+      "allLabels": "Tutte le Etichette",
+      "author": "Autore",
+      "allAuthors": "Tutti gli Autori",
+      "itemsPerPage": "Elementi per pagina",
+      "perPage": "{{count}} per pagina"
+    },
+    "updateInfo": {
+      "lastUpdate": "Ultimo aggiornamento",
+      "total": "Totale {{count}} {{type}}",
+      "recentIssues": "{{count}} issue recente",
+      "recentIssues_plural": "{{count}} issues recenti",
+      "recentIssuesTitle": "Issues pubblicati negli ultimi 2 mesi",
+      "lastIssue": "Ultimo issue pubblicato"
+    }
+  },
+  "repositories": {
+    "noRepositories": "Nessun repository trovato con i filtri selezionati.",
+    "noDescription": "Nessuna descrizione disponibile",
+    "filters": {
+      "filterRepos": "Filtra Repository",
+      "showOnlyWithVacancies": "Mostra solo repository con issues",
+      "filterByLabels": "Filtra per Etichette",
+      "filterByType": "Filtra per Tipo"
+    },
+    "stats": {
+      "watchers": "Osservatori",
+      "stars": "Stelle",
+      "authors": "Autori",
+      "openIssues": "Issues Aperti"
+    },
+    "actions": {
+      "newIssue": "Nuovo Issue",
+      "viewIssues": "Vedi Issues",
+      "viewAuthors": "Vedi Autori"
+    },
+    "contributors": "Contributori"
+  },
+  "footer": {
+    "developedBy": "Sviluppato da",
+    "repository": "Repository",
+    "apiInfo": "Informazioni API"
+  },
+  "cookies": {
+    "message": "Utilizziamo i cookie per migliorare la tua esperienza. Continuando a visitare questo sito, accetti il nostro utilizzo dei cookie.",
+    "accept": "Accetta"
+  }
+}
