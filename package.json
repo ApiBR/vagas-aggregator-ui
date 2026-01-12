@@ -16,7 +16,7 @@
     "react-router-dom": "^7.12.0",
     "react-scripts": "^5.0.1",
     "react-select": "^5.10.2",
-    "react-string-replace": "^1.1.1",
+    "react-string-replace": "^2.0.1",
     "toastr": "^2.1.4",
     "web-vitals": "^5.1.0"
   },
