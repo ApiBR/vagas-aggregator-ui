@@ -52,6 +52,8 @@ A clean UI frontend that displays developer job opportunities aggregated from ov
 ### 🧮 Other code analysis
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui/badge)](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui)
+[![Maintainability](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui/maintainability.svg)](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui)
+[![Code Coverage](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui/coverage.svg)](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui)
 
 ---
 
