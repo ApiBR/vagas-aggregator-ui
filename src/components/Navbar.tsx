@@ -68,7 +68,7 @@ export function Navbar() {
               aria-label="Home"
             >
               <img 
-                src="https://apibr.com/ui/vagas/static/media/ApiBRLogo.27df95a5fe4328221157.png"
+                src="https://apibr.com/ApiBRLogo.png"
                 alt="ApiBR Logo"
                 className="w-8 h-8 mr-3"
               />
