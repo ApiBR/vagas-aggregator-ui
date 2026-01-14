@@ -1,7 +1,7 @@
 {
   "name": "vagas-aggregator-ui",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "https://apibr.com/ui/vagas",
   "type": "module",
   "scripts": {
@@ -11,17 +11,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.9",
+    "@tanstack/react-query": "^5.24.1",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
+    "i18next": "^23.10.0",
+    "i18next-browser-languagedetector": "^7.2.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "date-fns": "^3.3.1",
-    "@tanstack/react-query": "^5.24.1",
-    "clsx": "^2.1.0",
-    "react-router-dom": "^6.30.3",
-    "i18next": "^23.10.0",
     "react-i18next": "^14.0.5",
-    "i18next-browser-languagedetector": "^7.2.0",
-    "@floating-ui/react": "^0.26.9"
+    "react-router-dom": "^6.30.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

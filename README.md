@@ -52,8 +52,8 @@ A clean UI frontend that displays developer job opportunities aggregated from ov
 ### 🧮 Other code analysis
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui/badge)](https://www.codefactor.io/repository/github/ApiBR/vagas-aggregator-ui)
-[![Maintainability - CodeClimate](https://api.codeclimate.com/v1/badges/7dbcce93cdf27d48a100/maintainability)](https://codeclimate.com/github/ApiBR/vagas-aggregator-ui/maintainability)
-[![Test coverage - CodeClimate](https://api.codeclimate.com/v1/badges/7dbcce93cdf27d48a100/test_coverage)](https://codeclimate.com/github/ApiBR/vagas-aggregator-ui/test_coverage)
+[![Maintainability](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui/maintainability.svg)](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui)
+[![Code Coverage](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui/coverage.svg)](https://qlty.sh/gh/ApiBR/projects/vagas-aggregator-ui)
 
 ---
 
@@ -62,7 +62,7 @@ A clean UI frontend that displays developer job opportunities aggregated from ov
 - UI: HTML, CSS, JavaScript
 - Backend: REST API (PHP, MySQL, Pancake)
 - Monitoring: UptimeRobot, HealthChecks.io
-- Code analysis: SonarCloud, CodeClimate, CodeFactor
+- Code analysis: SonarCloud, QLTY, CodeFactor
 
 ---
 
