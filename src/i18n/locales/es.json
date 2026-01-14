@@ -16,6 +16,7 @@
     "share": "Compartir",
     "shareFilters": "Compartir resultados filtrados",
     "copied": "¡Copiado!",
+    "close": "Cerrar",
     "dates": {
       "created": "Creado",
       "updated": "Actualizado",
@@ -37,10 +38,10 @@
   },
   "issues": {
     "title": "Issues",
-    "noIssues": "No se encontraron issues. Intenta ajustar los filtros.",
+    "noIssues": "No se encontraron issues. Intenta ajustar tus filtros.",
     "badges": {
       "new": "Nuevo",
-      "stale": "Inactivo"
+      "stale": "Antiguo"
     },
     "filters": {
       "search": "Buscar",
@@ -51,7 +52,7 @@
       "allLabels": "Todas las Etiquetas",
       "author": "Autor",
       "allAuthors": "Todos los Autores",
-      "itemsPerPage": "Items por página",
+      "itemsPerPage": "Elementos por página",
       "perPage": "{{count}} por página"
     },
     "updateInfo": {
@@ -64,8 +65,8 @@
     }
   },
   "repositories": {
-    "noRepositories": "No se encontraron repositorios que coincidan con los filtros.",
-    "noDescription": "Sin descripción disponible",
+    "noRepositories": "No se encontraron repositorios que coincidan con tus filtros.",
+    "noDescription": "No hay descripción disponible",
     "filters": {
       "filterRepos": "Filtrar Repositorios",
       "showOnlyWithVacancies": "Mostrar solo repositorios con issues",
@@ -83,12 +84,19 @@
       "viewIssues": "Ver Issues",
       "viewAuthors": "Ver Autores"
     },
-    "contributors": "Contribuidores"
+    "contributors": "Colaboradores"
   },
   "footer": {
     "developedBy": "Desarrollado por",
     "repository": "Repositorio",
-    "apiInfo": "Información de la API"
+    "apiInfo": "Información de la API",
+    "createIssue": {
+      "button": "Crear Nuevo Issue",
+      "title": "Cómo Crear un Nuevo Issue",
+      "description": "Para publicar un nuevo trabajo, crea una cuenta de GitHub, luego localiza el repositorio deseado y sigue las pautas de publicación de cada repositorio. Los enlaces a los repositorios se pueden encontrar en la página de repositorios de este proyecto."
+    },
+    "reportIssue": "Reportar Issue",
+    "status": "Estado"
   },
   "cookies": {
     "message": "Utilizamos cookies para mejorar tu experiencia. Al continuar visitando este sitio, aceptas nuestro uso de cookies.",
