@@ -2,6 +2,7 @@
   "name": "vagas-aggregator-ui",
   "private": true,
   "version": "1.0.0",
+  "homepage": "https://apibr.com/ui/vagas",
   "type": "module",
   "scripts": {
     "dev": "vite",
