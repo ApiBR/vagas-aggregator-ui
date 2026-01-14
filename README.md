@@ -62,7 +62,7 @@ A clean UI frontend that displays developer job opportunities aggregated from ov
 - UI: HTML, CSS, JavaScript
 - Backend: REST API (PHP, MySQL, Pancake)
 - Monitoring: UptimeRobot, HealthChecks.io
-- Code analysis: SonarCloud, CodeFactor
+- Code analysis: SonarCloud, QLTY, CodeFactor
 
 ---
 
