@@ -16,10 +16,11 @@
     "share": "Compartilhar",
     "shareFilters": "Compartilhar resultados filtrados",
     "copied": "Copiado!",
+    "close": "Fechar",
     "dates": {
       "created": "Criado",
       "updated": "Atualizado",
-      "timeAgo": "há {{time}}"
+      "timeAgo": "{{time}} atrás"
     }
   },
   "authors": {
@@ -37,10 +38,10 @@
   },
   "issues": {
     "title": "Issues",
-    "noIssues": "Nenhum issue encontrado. Tente ajustar os filtros.",
+    "noIssues": "Nenhum issue encontrado. Tente ajustar seus filtros.",
     "badges": {
       "new": "Novo",
-      "stale": "Inativo"
+      "stale": "Antigo"
     },
     "filters": {
       "search": "Buscar",
@@ -56,7 +57,7 @@
     },
     "updateInfo": {
       "lastUpdate": "Última atualização",
-      "total": "Total {{count}} {{type}}",
+      "total": "Total de {{count}} {{type}}",
       "recentIssues": "{{count}} issue recente",
       "recentIssues_plural": "{{count}} issues recentes",
       "recentIssuesTitle": "Issues publicados nos últimos 2 meses",
@@ -64,8 +65,8 @@
     }
   },
   "repositories": {
-    "noRepositories": "Nenhum repositório encontrado com os filtros selecionados.",
-    "noDescription": "Sem descrição disponível",
+    "noRepositories": "Nenhum repositório encontrado com seus filtros.",
+    "noDescription": "Nenhuma descrição disponível",
     "filters": {
       "filterRepos": "Filtrar Repositórios",
       "showOnlyWithVacancies": "Mostrar apenas repositórios com issues",
@@ -83,15 +84,22 @@
       "viewIssues": "Ver Issues",
       "viewAuthors": "Ver Autores"
     },
-    "contributors": "Contribuidores"
+    "contributors": "Colaboradores"
   },
   "footer": {
     "developedBy": "Desenvolvido por",
     "repository": "Repositório",
-    "apiInfo": "Informações da API"
+    "apiInfo": "Informações da API",
+    "createIssue": {
+      "button": "Criar Novo Issue",
+      "title": "Como Criar um Novo Issue",
+      "description": "Para publicar um novo trabalho, crie uma conta no GitHub, localize o repositório desejado e siga as diretrizes de publicação de cada repositório. Os links dos repositórios podem ser encontrados na página de repositórios deste projeto."
+    },
+    "reportIssue": "Reportar Issue",
+    "status": "Status"
   },
   "cookies": {
-    "message": "Utilizamos cookies para melhorar sua experiência. Ao continuar navegando neste site, você concorda com o uso de cookies.",
+    "message": "Utilizamos cookies para melhorar sua experiência. Ao continuar visitando este site, você concorda com o uso de cookies.",
     "accept": "Aceitar"
   }
 }

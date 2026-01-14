@@ -7,15 +7,16 @@
   "common": {
     "loading": "Caricamento...",
     "noResults": "Nessun risultato trovato",
-    "viewOnGitHub": "Vedi su GitHub",
-    "viewIssues": "Vedi Issues",
-    "viewProfile": "Vedi Profilo GitHub",
+    "viewOnGitHub": "Visualizza su GitHub",
+    "viewIssues": "Visualizza Issues",
+    "viewProfile": "Visualizza Profilo GitHub",
     "issues": "issues",
     "repositories": "repository",
     "authors": "autori",
     "share": "Condividi",
     "shareFilters": "Condividi risultati filtrati",
     "copied": "Copiato!",
+    "close": "Chiudi",
     "dates": {
       "created": "Creato",
       "updated": "Aggiornato",
@@ -40,7 +41,7 @@
     "noIssues": "Nessun issue trovato. Prova a modificare i filtri.",
     "badges": {
       "new": "Nuovo",
-      "stale": "Inattivo"
+      "stale": "Vecchio"
     },
     "filters": {
       "search": "Cerca",
@@ -64,7 +65,7 @@
     }
   },
   "repositories": {
-    "noRepositories": "Nessun repository trovato con i filtri selezionati.",
+    "noRepositories": "Nessun repository trovato con i tuoi filtri.",
     "noDescription": "Nessuna descrizione disponibile",
     "filters": {
       "filterRepos": "Filtra Repository",
@@ -80,18 +81,25 @@
     },
     "actions": {
       "newIssue": "Nuovo Issue",
-      "viewIssues": "Vedi Issues",
-      "viewAuthors": "Vedi Autori"
+      "viewIssues": "Visualizza Issues",
+      "viewAuthors": "Visualizza Autori"
     },
-    "contributors": "Contributori"
+    "contributors": "Collaboratori"
   },
   "footer": {
     "developedBy": "Sviluppato da",
     "repository": "Repository",
-    "apiInfo": "Informazioni API"
+    "apiInfo": "Informazioni API",
+    "createIssue": {
+      "button": "Crea Nuovo Problema",
+      "title": "Come Creare un Nuovo Problema",
+      "description": "Per pubblicare un nuovo lavoro, crea un account GitHub, individua il repository desiderato e segui le linee guida di pubblicazione di ciascun repository. I link ai repository possono essere trovati nella pagina dei repository di questo progetto."
+    },
+    "reportIssue": "Segnala Problema",
+    "status": "Stato"
   },
   "cookies": {
-    "message": "Utilizziamo i cookie per migliorare la tua esperienza. Continuando a visitare questo sito, accetti il nostro utilizzo dei cookie.",
+    "message": "Utilizziamo i cookie per migliorare la tua esperienza. Continuando a visitare questo sito accetti il nostro utilizzo dei cookie.",
     "accept": "Accetta"
   }
 }
