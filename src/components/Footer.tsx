@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Info, Plus, AlertCircle, Activity } from 'lucide-react';
+import { GitHub, Info, Plus, AlertCircle, Activity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useApiInfo } from '../hooks/useApiInfo';
 import { NewIssueModal } from './NewIssueModal';
@@ -75,7 +75,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors group"
               >
-                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <GitHub className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">{t('footer.repository')}</span>
               </a>
             </div>
