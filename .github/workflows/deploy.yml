@@ -19,21 +19,21 @@ jobs:
     steps:
     
     - name: Checkout repository
-      uses: actions/checkout@v7
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       with:
           fetch-depth: 0 
 
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v4.7.0
+      uses: gittools/actions/gitversion/setup@7417b1089e2c7de93510f1901d656ddf60bb024f # v4.7.0
       with:
         versionSpec: '6.x'
 
     - name: Determine Version
       id: gitversion
-      uses: gittools/actions/gitversion/execute@v4.7.0
+      uses: gittools/actions/gitversion/execute@7417b1089e2c7de93510f1901d656ddf60bb024f # v4.7.0
 
     - name: Set up Node.js 22
-      uses: actions/setup-node@v7
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
       with:
         node-version: 22.x
 
@@ -47,7 +47,7 @@ jobs:
     #   run: npm test
 
     - name: Upload build
-      uses: sebastianpopp/ftp-action@releases/v2
+      uses: sebastianpopp/ftp-action@ca3f8d253d20ddd6aa658f8cb27fc847fd610882 # releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
@@ -65,7 +65,7 @@ jobs:
       
     steps:
       - name: Create Release
-        uses: ncipollo/release-action@v1.21.0
+        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd # v1.21.0
         with:
           skipIfReleaseExists: true
           allowUpdates: false
