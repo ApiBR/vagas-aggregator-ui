@@ -6,7 +6,6 @@ import { formatDistanceToNow } from 'date-fns';
 import { ExternalLink, Calendar, List } from 'lucide-react';
 import { fetchAuthorsByRepo } from '../utils';
 import { SkeletonCard } from '../components/SkeletonCard';
-import type { Author } from '../types';
 
 export function AuthorDetailsPage() {
   const { t } = useTranslation();
@@ -25,7 +24,7 @@ export function AuthorDetailsPage() {
       // Check if date is valid
       if (isNaN(date.getTime())) return '';
       return formatDistanceToNow(date, { addSuffix: true });
-    } catch (error) {
+    } catch {
       return '';
     }
   };

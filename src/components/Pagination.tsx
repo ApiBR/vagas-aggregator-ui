@@ -58,7 +58,7 @@ export function Pagination({
       </button>
 
       <div className="flex space-x-1">
-        {paginationRange.map((pageNumber, index) => {
+        {paginationRange.map((pageNumber) => {
           if (pageNumber === DOTS) {
             return (
               <span

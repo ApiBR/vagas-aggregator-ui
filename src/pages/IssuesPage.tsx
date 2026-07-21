@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { IssueCard } from '../components/IssueCard';
@@ -8,7 +7,7 @@ import { Pagination } from '../components/Pagination';
 import { SkeletonCard } from '../components/SkeletonCard';
 import { ShareButton } from '../components/ShareButton';
 import { useFilterParams } from '../hooks/useFilterParams';
-import { useGridColumns } from '../hooks/useGridColumns';
+import { useGridColumns, GRID_COLS_CLASSES } from '../hooks/useGridColumns';
 import { fetchIssues, fetchRepositories, fetchLabels, fetchAuthors } from '../utils';
 
 export function IssuesPage() {
@@ -43,15 +42,14 @@ export function IssuesPage() {
     queryFn: () => fetchAuthors(1, 100),
   });
 
-  const mostRecentIssue = React.useMemo(() => {
-    if (!issuesData?.data?.length) return null;
-    return issuesData.data.reduce((latest, issue) => {
-      const issueDate = new Date(issue.created_at);
-      return !latest || issueDate > new Date(latest) ? issue.created_at : latest;
-    }, null as string | null);
-  }, [issuesData?.data]);
+  const mostRecentIssue = !issuesData?.data?.length
+    ? null
+    : issuesData.data.reduce((latest, issue) => {
+        const issueDate = new Date(issue.created_at);
+        return !latest || issueDate > new Date(latest) ? issue.created_at : latest;
+      }, null as string | null);
 
-  const gridClasses = `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${columns} gap-4`;
+  const gridClasses = GRID_COLS_CLASSES[columns] || GRID_COLS_CLASSES[3];
 
   return (
     <main className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-8">

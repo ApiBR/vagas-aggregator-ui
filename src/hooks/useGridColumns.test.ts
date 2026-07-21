@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
-import { useGridColumns } from './useGridColumns';
+import { useGridColumns, GRID_COLS_CLASSES } from './useGridColumns';
 
 function setViewportWidth(width: number) {
   Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: width });
@@ -40,5 +40,19 @@ describe('useGridColumns', () => {
     });
 
     expect(result.current).toBe(1);
+  });
+});
+
+describe('GRID_COLS_CLASSES', () => {
+  it('spells out every lg:grid-cols-N class literally, for every possible column count', () => {
+    // Tailwind's scanner only compiles class names that appear literally in
+    // source; a template string like `lg:grid-cols-${columns}` is invisible
+    // to it and silently produces no CSS. This locks in that every value
+    // useGridColumns() can return has a matching literal class string.
+    expect(GRID_COLS_CLASSES[1]).toContain('grid-cols-1');
+    expect(GRID_COLS_CLASSES[2]).toContain('sm:grid-cols-2');
+    for (let columns = 3; columns <= 6; columns++) {
+      expect(GRID_COLS_CLASSES[columns]).toContain(`lg:grid-cols-${columns}`);
+    }
   });
 });

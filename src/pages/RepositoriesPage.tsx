@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { SkeletonCard } from '../components/SkeletonCard';
 import { UpdateInfo } from '../components/UpdateInfo';
 import { MultiSelect } from '../components/MultiSelect';
 import { ShareButton } from '../components/ShareButton';
-import { useGridColumns } from '../hooks/useGridColumns';
+import { useGridColumns, GRID_COLS_CLASSES } from '../hooks/useGridColumns';
 
 interface Filters {
   hasIssues: boolean;
@@ -28,40 +28,39 @@ export function RepositoriesPage() {
     queryFn: () => fetchRepositories(1, 100),
   });
 
-  const { data: labelsData } = useQuery({
+  // Kept for its side effect of warming the labels cache; the label options
+  // shown below are derived from `repositories` itself, not from this query.
+  useQuery({
     queryKey: ['labels', 1, 100],
     queryFn: () => fetchLabels(1, 100),
   });
 
-  const filteredRepositories = React.useMemo(() => {
-    if (!repositories?.data) return [];
-    
-    return repositories.data.filter((repo) => {
-      if (filters.hasIssues && repo.issues_count === 0) {
-        return false;
-      }
+  const filteredRepositories = !repositories?.data
+    ? []
+    : repositories.data.filter((repo) => {
+        if (filters.hasIssues && repo.issues_count === 0) {
+          return false;
+        }
 
-      if (filters.selectedLabels.length > 0) {
-        const repoLabels = repo.labels?.map(label => label.name) || [];
-        const hasMatchingLabel = filters.selectedLabels.some(selectedLabel => 
-          repoLabels.includes(selectedLabel)
-        );
-        if (!hasMatchingLabel) return false;
-      }
+        if (filters.selectedLabels.length > 0) {
+          const repoLabels = repo.labels?.map(label => label.name) || [];
+          const hasMatchingLabel = filters.selectedLabels.some(selectedLabel =>
+            repoLabels.includes(selectedLabel)
+          );
+          if (!hasMatchingLabel) return false;
+        }
 
-      return true;
-    });
-  }, [repositories?.data, filters]);
+        return true;
+      });
 
-  const mostRecentUpdate = React.useMemo(() => {
-    if (!repositories?.data?.length) return null;
-    return repositories.data.reduce((latest, repo) => {
-      const repoDate = new Date(repo.mostRecent || 0);
-      return !latest || repoDate > new Date(latest) ? repo.mostRecent : latest;
-    }, null as string | null);
-  }, [repositories?.data]);
+  const mostRecentUpdate = !repositories?.data?.length
+    ? null
+    : repositories.data.reduce((latest, repo) => {
+        const repoDate = new Date(repo.mostRecent || 0);
+        return !latest || repoDate > new Date(latest) ? repo.mostRecent : latest;
+      }, null as string | null);
 
-  const gridClasses = `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${columns} gap-4`;
+  const gridClasses = GRID_COLS_CLASSES[columns] || GRID_COLS_CLASSES[3];
 
   return (
     <main className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
