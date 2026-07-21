@@ -15,14 +15,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           fetch-depth: 0 
 
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v7
+      - name: Set up Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 22.x
+          node-version: 24.x
 
       - name: Install dependencies
         run: npm ci
@@ -30,5 +30,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      # - name: Test
-      #   run: npm test
+      - name: Test
+        run: npm test
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@22918119ff8e1ca75a623e15c8296b6ea4fbe28f # v8.2.1
+        if: >-
+          github.event.pull_request.head.repo.full_name == github.repository ||
+          github.event_name == 'workflow_dispatch'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
