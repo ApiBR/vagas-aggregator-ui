@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -11,8 +10,7 @@ import { ShareButton } from '../components/ShareButton';
 import { Filters } from '../components/Filters';
 import { Pagination } from '../components/Pagination';
 import { useFilterParams } from '../hooks/useFilterParams';
-import { useGridColumns } from '../hooks/useGridColumns';
-import type { Author } from '../types';
+import { useGridColumns, GRID_COLS_CLASSES } from '../hooks/useGridColumns';
 
 export function AuthorsPage() {
   const { t } = useTranslation();
@@ -29,24 +27,22 @@ export function AuthorsPage() {
     queryFn: () => fetchRepositories(1, 100),
   });
 
-  const filteredAuthors = React.useMemo(() => {
-    if (!authorsData?.data) return [];
-    if (!filters.selectedRepos?.length) return authorsData.data;
+  const filteredAuthors = !authorsData?.data
+    ? []
+    : !filters.selectedRepos?.length
+    ? authorsData.data
+    : authorsData.data.filter(author =>
+        author.repositories.some(repo => filters.selectedRepos?.includes(repo.full_name))
+      );
 
-    return authorsData.data.filter(author => 
-      author.repositories.some(repo => filters.selectedRepos?.includes(repo.full_name))
-    );
-  }, [authorsData?.data, filters.selectedRepos]);
+  const mostRecentActivity = !filteredAuthors.length
+    ? null
+    : filteredAuthors.reduce((latest, author) => {
+        const activityDate = new Date(author.lastIssue_at);
+        return !latest || activityDate > new Date(latest) ? author.lastIssue_at : latest;
+      }, null as string | null);
 
-  const mostRecentActivity = React.useMemo(() => {
-    if (!filteredAuthors?.length) return null;
-    return filteredAuthors.reduce((latest, author) => {
-      const activityDate = new Date(author.lastIssue_at);
-      return !latest || activityDate > new Date(latest) ? author.lastIssue_at : latest;
-    }, null as string | null);
-  }, [filteredAuthors]);
-
-  const gridClasses = `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${columns} gap-4`;
+  const gridClasses = GRID_COLS_CLASSES[columns] || GRID_COLS_CLASSES[3];
 
   if (isLoading) {
     return (

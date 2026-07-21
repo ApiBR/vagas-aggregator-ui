@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Languages, Check } from 'lucide-react';
 import { useFloating, useInteractions, useClick, useDismiss, FloatingFocusManager, offset, flip, shift } from '@floating-ui/react';
@@ -38,7 +38,6 @@ const languages = [
 export function LanguageSelector() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const { refs, floatingStyles, context } = useFloating({
     placement: 'bottom-end',
@@ -55,18 +54,18 @@ export function LanguageSelector() {
   const dismiss = useDismiss(context);
   const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss]);
 
-  const handleLanguageChange = (lang: string) => {
+  const handleLanguageChange = useCallback((lang: string) => {
     i18n.changeLanguage(lang);
     localStorage.setItem('language', lang);
     setIsOpen(false);
-  };
+  }, [i18n]);
 
   const handleKeyPress = useCallback((e: React.KeyboardEvent, lang: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       handleLanguageChange(lang);
     }
-  }, []);
+  }, [handleLanguageChange]);
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
@@ -99,8 +98,10 @@ export function LanguageSelector() {
 
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
-          <div
-            ref={refs.setFloating}
+          {/* refs.setFloating is a floating-ui callback-ref setter, not a
+              `.current` read; the rule's naming heuristic (refs.*) false-positives on it. */}
+          {/* eslint-disable-next-line react-hooks/refs */}
+          <div ref={refs.setFloating}
             style={floatingStyles}
             {...getFloatingProps()}
             className={clsx(

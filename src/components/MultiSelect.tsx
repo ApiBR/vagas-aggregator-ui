@@ -31,10 +31,8 @@ export function MultiSelect({
 }: MultiSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [inputValue, setInputValue] = useState('');
 
   const listRef = useRef<Array<HTMLElement | null>>([]);
-  const allowSelectRef = useRef(false);
   const selectedValues = new Set(value);
 
   const { refs, floatingStyles, context } = useFloating({
@@ -150,8 +148,10 @@ export function MultiSelect({
 
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
-          <div
-            ref={refs.setFloating}
+          {/* refs.setFloating is a floating-ui callback-ref setter, not a
+              `.current` read; the rule's naming heuristic (refs.*) false-positives on it. */}
+          {/* eslint-disable-next-line react-hooks/refs */}
+          <div ref={refs.setFloating}
             style={floatingStyles}
             {...getFloatingProps()}
             className="z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-md shadow-lg overflow-hidden overflow-y-auto"
