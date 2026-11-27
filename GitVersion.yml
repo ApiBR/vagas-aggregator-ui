@@ -1,6 +1,8 @@
+calculation:
+  mode: ContinuousDeployment
+  tag-prefix: "[vV]"
+output:
+  assembly-file-versioning-scheme: MajorMinorPatch
+  assembly-informational-format: "{MajorMinorPatch}{PreReleaseLabelWithDash}+{ShortSha}"
+  assembly-versioning-scheme: MajorMinorPatch
 workflow: GitHubFlow/v1
-mode: ContinuousDeployment
-assembly-versioning-scheme: MajorMinorPatch
-assembly-file-versioning-scheme: MajorMinorPatch
-assembly-informational-format: '{MajorMinorPatch}{PreReleaseTagWithDash}+{ShortSha}'
-tag-prefix: '[vV]'
